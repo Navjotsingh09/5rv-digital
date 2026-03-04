@@ -10716,3 +10716,225 @@ img {
   }
 }
 
+/* ----- GAP 4: Typography scaling at MISSING breakpoints -----
+   Webflow jumps from desktop (66px) straight to 479px (48px).
+   Nothing exists at 991px or 767px for most headings.
+   Internet standards: H1 36-48px tablet, 28-36px mobile.
+   H2 28-36px tablet, 24-30px mobile.
+   Only adding where NO Webflow rule exists at that breakpoint. */
+
+/* --- 991px TABLET: near-empty breakpoint for typography --- */
+@media screen and (max-width: 991px) {
+
+  /* H1-level headings: 66px → 50px (Webflow has NO rule here) */
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions,
+  .bt-sports-product-launch-consultation,
+  .social-media-marketing-agency-with-ads-and-management,
+  .nhs-local-vaccination-campaign,
+  .hilston-park-discover-adventure-in-wales,
+  .university-of-birmingham-student-engagement-outreach,
+  .contello-home-automation-solutions,
+  .halle-properties-driving-growth-digital-advertising,
+  .halesowen-dental-strengthening-local-visibility,
+  .pass-11-empowering-academic-excellence,
+  .lightologist-illuminating-digital-success,
+  .qcom-ltd-digital-growth-through-innovation,
+  .iv-land-unlocking-land-potential,
+  .klassic-trade-frames-website-design-seo-strategy,
+  .w13-digital-strategy-content,
+  .voip-experts-empowering-business-communication,
+  .leading-digital-marketing-consultancy-in-birmingham,
+  .leading-seo-agency-in-birmingham,
+  .creative-web-development-agency-in-birmingham,
+  .leading-branding-creative-consultancy-in-birmingham,
+  .text-h1-desktop,
+  .text-h1-original-design,
+  .our-work-real-results-3 {
+    font-size: 50px;
+  }
+
+  /* H1-alt headings: 63px → 48px */
+  .headingclint,
+  .our-work-real-results-2 {
+    font-size: 48px;
+  }
+
+  /* H2-level headings: 62px → 42px (Webflow has NO rule here) */
+  .our-work-real-results,
+  .overview,
+  .deliverables,
+  .results,
+  .our-approach,
+  .our-approach-2,
+  .why-choose-us,
+  .our-services,
+  .your-growth-starts-with-a-conversation,
+  .text,
+  .text-h2-desktop,
+  .text-h2-original-design,
+  .find-more-here {
+    font-size: 42px;
+  }
+
+  /* H2-alt: 56px → 42px */
+  .h2-heading,
+  .h2-heading-2 {
+    font-size: 42px;
+  }
+
+  /* H3-level headings: 40px → 32px */
+  .heading-2,
+  .heading-3 {
+    font-size: 32px;
+  }
+
+  /* Counter numbers: 128px → 96px */
+  .counter-number,
+  .counter-number-2 {
+    font-size: 96px;
+  }
+}
+
+/* --- 767px MOBILE LANDSCAPE: sparse breakpoint for typography --- */
+@media screen and (max-width: 767px) {
+
+  /* H1-level: 50px → 40px (only .h1-heading has a 767px rule already) */
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions,
+  .bt-sports-product-launch-consultation,
+  .social-media-marketing-agency-with-ads-and-management,
+  .nhs-local-vaccination-campaign,
+  .hilston-park-discover-adventure-in-wales,
+  .university-of-birmingham-student-engagement-outreach,
+  .contello-home-automation-solutions,
+  .halle-properties-driving-growth-digital-advertising,
+  .halesowen-dental-strengthening-local-visibility,
+  .pass-11-empowering-academic-excellence,
+  .lightologist-illuminating-digital-success,
+  .qcom-ltd-digital-growth-through-innovation,
+  .iv-land-unlocking-land-potential,
+  .klassic-trade-frames-website-design-seo-strategy,
+  .w13-digital-strategy-content,
+  .voip-experts-empowering-business-communication,
+  .leading-digital-marketing-consultancy-in-birmingham,
+  .leading-seo-agency-in-birmingham,
+  .creative-web-development-agency-in-birmingham,
+  .leading-branding-creative-consultancy-in-birmingham,
+  .text-h1-desktop,
+  .text-h1-original-design,
+  .our-work-real-results-3 {
+    font-size: 40px;
+  }
+
+  /* H1-alt: 48px → 38px */
+  .headingclint,
+  .our-work-real-results-2 {
+    font-size: 38px;
+  }
+
+  /* H2-level: 42px → 34px */
+  .our-work-real-results,
+  .overview,
+  .deliverables,
+  .results,
+  .our-approach,
+  .our-approach-2,
+  .why-choose-us,
+  .our-services,
+  .your-growth-starts-with-a-conversation,
+  .text,
+  .text-h2-desktop,
+  .text-h2-original-design,
+  .find-more-here {
+    font-size: 34px;
+  }
+
+  /* H2-alt: 42px → 34px */
+  .h2-heading,
+  .h2-heading-2 {
+    font-size: 34px;
+  }
+
+  /* H3-level: 32px → 26px */
+  .heading-2,
+  .heading-3 {
+    font-size: 26px;
+  }
+
+  /* Counter numbers: 96px → 72px */
+  .counter-number,
+  .counter-number-2 {
+    font-size: 72px;
+  }
+}
+
+/* --- 479px MOBILE PORTRAIT: only fill selectors with NO existing rule --- */
+@media screen and (max-width: 479px) {
+
+  /* These have ZERO mobile rules in Webflow — need 479px override */
+  .heading-2,
+  .heading-3 {
+    font-size: 24px;
+  }
+
+  .h2-heading,
+  .h2-heading-2 {
+    font-size: 32px;
+  }
+
+  .our-work-real-results,
+  .overview,
+  .deliverables,
+  .our-approach-2,
+  .our-services,
+  .your-growth-starts-with-a-conversation,
+  .text,
+  .find-more-here {
+    font-size: 30px;
+  }
+
+  .text-h1-desktop,
+  .text-h1-original-design {
+    font-size: 36px;
+  }
+
+  .text-h2-desktop,
+  .text-h2-original-design {
+    font-size: 30px;
+  }
+
+  .counter-number-2 {
+    font-size: 64px;
+  }
+
+  .voip-experts-empowering-business-communication {
+    font-size: 36px;
+  }
+
+  /* Text-block-7: 36px desktop, no mobile rule */
+  .text-block-7 {
+    font-size: 24px;
+  }
+}
+
+/* ----- GAP 5: Section spacing standardisation -----
+   Webflow sections have inconsistent margins: some 100px, some 80px, some 40px.
+   Standardize to proportional spacing that shrinks on mobile.
+   Only touching sections with NO existing spacing rule at that breakpoint. */
+
+@media screen and (max-width: 991px) {
+  /* Sections that jump from 100px padding to nothing until 479px */
+  .section-6,
+  .section-7 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section-6,
+  .section-7 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
