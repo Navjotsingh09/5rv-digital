@@ -132,7 +132,7 @@ body {
   color: #333;
   background-color: #fff;
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: clamp(14px, 1.8vw, 22px);
   line-height: 20px;
 }
 
@@ -2950,7 +2950,7 @@ body {
   letter-spacing: -.03em;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 64px;
+  font-size: clamp(28px, 6vw, 72px);
   font-weight: 500;
   line-height: 1.2;
 }
