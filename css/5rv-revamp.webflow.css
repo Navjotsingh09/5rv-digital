@@ -11918,3 +11918,188 @@ img {
     z-index: 10 !important;
   }
 }
+/* ========================================
+   TABLET CURSOR POSITIONING FIX - Phase 5E
+   Fix overlapping cursors on tablets (768-1024px)
+   Move cursors to edges, away from text
+   ======================================== */
+
+/* === TABLET BREAKPOINT (768-1024px) === */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  
+  /* Reposition cursors to edges - AWAY from text */
+  .branding-cursor {
+    top: 5% !important;
+    left: auto !important;
+    right: 5% !important;
+    transform: translate(0, 0) !important;
+  }
+
+  .design-cursor {
+    top: auto !important;
+    bottom: 15% !important;
+    left: 5% !important;
+    transform: translate(0, 0) !important;
+  }
+
+  .social-media-cursor {
+    top: 15% !important;
+    left: auto !important;
+    right: 10% !important;
+    transform: translate(0, 0) !important;
+  }
+
+  /* Make cursor badges smaller on tablets */
+  .design-cursor,
+  .branding-cursor,
+  .social-media-cursor {
+    opacity: 0.9 !important;
+    transform-origin: center !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+  }
+
+  /* Reduce animation intensity on tablets */
+  .design-cursor {
+    animation: designTabletFixed 20s ease-in-out infinite !important;
+  }
+
+  .branding-cursor {
+    animation: brandingTabletFixed 24s ease-in-out infinite !important;
+  }
+
+  .social-media-cursor {
+    animation: socialTabletFixed 22s ease-in-out infinite !important;
+  }
+
+  /* Subtle edge-area animations - stay in corners */
+  @keyframes designTabletFixed {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(20px, 10px); }
+    50%  { transform: translate(10px, 25px); }
+    75%  { transform: translate(25px, 5px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  @keyframes brandingTabletFixed {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(-15px, 15px); }
+    50%  { transform: translate(-25px, 5px); }
+    75%  { transform: translate(-10px, 20px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  @keyframes socialTabletFixed {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(-20px, 15px); }
+    50%  { transform: translate(-10px, 30px); }
+    75%  { transform: translate(-25px, 10px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  /* Make name tags smaller */
+  .name-tag {
+    transform: scale(0.85) !important;
+  }
+
+  .name-tag h2, 
+  .name-tag .design,
+  .name-tag .branding {
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+  }
+
+  /* Ensure heading text is ALWAYS above cursors */
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    position: relative !important;
+    z-index: 20 !important;
+  }
+
+  ._5rv-digital-is-a-digital-marketing-company-blending-creativity-and-technology-to-craft-campaigns-to {
+    position: relative !important;
+    z-index: 20 !important;
+  }
+
+  .div-block-125 {
+    position: relative !important;
+    z-index: 20 !important;
+  }
+
+  .hero-button, .hero-button-2 {
+    position: relative !important;
+    z-index: 21 !important;
+  }
+
+  /* Make cursor container NOT obscure text */
+  .div-block-134 {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+  }
+
+  /* Hero content should be above cursor layer */
+  .hero-content {
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  .frame-6 {
+    position: relative !important;
+    z-index: 15 !important;
+  }
+
+  .frame-1321315016 {
+    position: relative !important;
+    z-index: 15 !important;
+  }
+}
+
+/* === SMALLER TABLET (768-860px) - Even more adjustment === */
+@media screen and (min-width: 768px) and (max-width: 860px) {
+  .branding-cursor {
+    top: 3% !important;
+    right: 3% !important;
+  }
+
+  .design-cursor {
+    bottom: 12% !important;
+    left: 3% !important;
+  }
+
+  .social-media-cursor {
+    top: 12% !important;
+    right: 8% !important;
+  }
+
+  /* Scale down even more on smaller tablets */
+  .name-tag {
+    transform: scale(0.8) !important;
+  }
+
+  .name-tag h2,
+  .name-tag .design,
+  .name-tag .branding {
+    font-size: 11px !important;
+    padding: 3px 8px !important;
+  }
+}
+
+/* === LARGER TABLET (860-1024px) === */
+@media screen and (min-width: 860px) and (max-width: 1024px) {
+  .branding-cursor {
+    top: 8% !important;
+    right: 8% !important;
+  }
+
+  .design-cursor {
+    bottom: 18% !important;
+    left: 6% !important;
+  }
+
+  .social-media-cursor {
+    top: 18% !important;
+    right: 12% !important;
+  }
+}
