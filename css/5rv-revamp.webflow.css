@@ -10214,12 +10214,34 @@ body {
   .team-wrap-3 {
     grid-column-gap: 20px;
     grid-row-gap: 20px;
-    grid-template-columns: 1fr 1fr;
   }
 
   .team_member-wrap-2 {
     width: 100%;
-    max-width: 320px;
+    max-width: 500px;
+  }
+
+  /* Prevent desktop fixed-width overflow (safety net — Webflow 991px also constrains) */
+  .hero-content {
+    width: 100%;
+  }
+
+  .container-2 {
+    width: 100%;
+  }
+
+  .footer-4 {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .container-4 {
+    max-width: 100%;
+  }
+
+  .faq-border {
+    width: 100%;
+    max-width: 691px;
   }
 
   .f-grid-four-column {
@@ -10387,12 +10409,60 @@ body {
   .team-wrap-3 {
     grid-column-gap: 30px;
     grid-row-gap: 30px;
-    grid-template-columns: 1fr 1fr;
   }
 
   .team_member-wrap-2 {
     width: 100%;
-    max-width: 340px;
+    max-width: 420px;
+  }
+
+  /* CRITICAL: Prevent desktop fixed-width elements overflowing at 992-1024px
+     Desktop sets .hero-content: 1400px, .container-2: 1280px, .footer-4: 1080px
+     Below 991px Webflow constrains these, but 992-1024px has ZERO constraints */
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .container-2 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-4 {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .section-counter {
+    max-width: 100%;
+  }
+
+  .container-4 {
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .faq-border {
+    width: 100%;
+    max-width: 824px;
+  }
+
+  .div-block-91 {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .div-block-92 {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .div-block-98 {
+    width: 100%;
+    max-width: 700px;
   }
 
   .f-grid-four-column {
@@ -10418,11 +10488,6 @@ body {
   .container-regular {
     width: 100%;
     max-width: 824px;
-  }
-
-  .container-4 {
-    grid-column-gap: 40px;
-    grid-row-gap: 40px;
   }
 }
 
