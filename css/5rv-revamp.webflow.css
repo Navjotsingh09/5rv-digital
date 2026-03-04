@@ -10648,3 +10648,533 @@ img {
 }
 
 /* End Phase 3+4 */
+/* ========================================
+   SUPER RESPONSIVE IMPROVEMENTS - Phase 5
+   Making every section fluid and adaptive
+   ======================================== */
+
+/* === MOBILE LANDSCAPE (480-767px) === */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .hero-section {
+    width: 95% !important;
+    max-width: 100% !important;
+    padding: 40px 20px !important;
+    height: auto !important;
+    min-height: 500px !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    font-size: clamp(32px, 6vw, 48px) !important;
+    padding: 0 15px !important;
+  }
+
+  .frame-1321315015 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    max-width: 100% !important;
+  }
+
+  ._5rv-digital-is-a-digital-marketing-company-blending-creativity-and-technology-to-craft-campaigns-to {
+    font-size: clamp(16px, 3vw, 18px) !important;
+  }
+
+  .section-counter {
+    width: 95% !important;
+    max-width: 100% !important;
+    padding: 30px 15px !important;
+  }
+
+  .counter-item, .counter-item-2, .counter-item-3 {
+    max-width: 100% !important;
+    padding: 15px 10px !important;
+  }
+
+  .counter-number, .counter-number-2 {
+    font-size: clamp(64px, 12vw, 96px) !important;
+  }
+
+  .footer_main {
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    align-items: flex-start !important;
+  }
+
+  .footer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* === STRICT MOBILE (320-479px) === */
+@media screen and (max-width: 479px) {
+  body {
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+  }
+
+  .hero-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 30px 15px !important;
+    height: auto !important;
+    min-height: 450px !important;
+    border-radius: 12px !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    font-size: clamp(24px, 7vw, 36px) !important;
+    padding: 0 10px !important;
+    line-height: 1.2 !important;
+  }
+
+  .frame-1321315015 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    max-width: 100% !important;
+  }
+
+  ._5rv-digital-is-a-digital-marketing-company-blending-creativity-and-technology-to-craft-campaigns-to {
+    font-size: clamp(14px, 4vw, 16px) !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero-button, .hero-button-2 {
+    width: 100% !important;
+    padding: 14px 20px !important;
+    margin: 5px 0 !important;
+  }
+
+  .div-block-125 {
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  .section-counter {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px 15px !important;
+    flex-direction: column !important;
+  }
+
+  .counter-item, .counter-item-2, .counter-item-3 {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 15px !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .counter-number, .counter-number-2 {
+    font-size: clamp(48px, 15vw, 72px) !important;
+    text-align: center !important;
+  }
+
+  .projects-delivered, .delighted-customers {
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+    text-align: center !important;
+  }
+
+  .footer {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    flex-direction: column !important;
+  }
+
+  .footer_main {
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    gap: 25px !important;
+  }
+
+  .footer_links-groups {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+  }
+
+  .footer_left {
+    width: 100% !important;
+  }
+
+  .footer_wrap {
+    grid-column-gap: 2rem !important;
+    grid-row-gap: 2rem !important;
+  }
+}
+
+/* === TABLET (768-991px) Improvements === */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .hero-section {
+    width: 95% !important;
+    max-width: 100% !important;
+    padding: 60px 30px !important;
+    height: auto !important;
+    min-height: 600px !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    font-size: clamp(42px, 5.5vw, 56px) !important;
+    padding: 0 20px !important;
+  }
+
+  .frame-1321315015 {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  ._5rv-digital-is-a-digital-marketing-company-blending-creativity-and-technology-to-craft-campaigns-to {
+    font-size: clamp(18px, 2.5vw, 20px) !important;
+  }
+
+  .section-counter {
+    width: 95% !important;
+    max-width: 100% !important;
+    padding: 40px 30px !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important;
+  }
+
+  .counter-item, .counter-item-2, .counter-item-3 {
+    max-width: 45% !important;
+    margin-bottom: 30px !important;
+  }
+
+  .counter-number, .counter-number-2 {
+    font-size: clamp(80px, 10vw, 110px) !important;
+  }
+
+  .footer {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  .footer_main {
+    grid-template-columns: 1.5fr 1fr !important;
+    gap: 35px !important;
+  }
+
+  .div-block-125 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+/* === SMALL DESKTOP (992-1279px) Improvements === */
+@media screen and (min-width: 992px) and (max-width: 1279px) {
+  .hero-section {
+    width: 95% !important;
+    max-width: 1100px !important;
+    padding: 80px 50px !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    max-width: 950px !important;
+    font-size: clamp(50px, 5vw, 62px) !important;
+  }
+
+  .frame-1321315015 {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+
+  .section-counter {
+    width: 95% !important;
+    max-width: 1100px !important;
+    padding: 50px 40px !important;
+  }
+
+  .footer {
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+  }
+
+  .container-medium, .container-regular {
+    max-width: 95% !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+}
+
+/* === LARGE DESKTOP (1280px+) Fluid Max-Widths === */
+@media screen and (min-width: 1280px) {
+  .hero-section {
+    max-width: 1180px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    max-width: 1017px !important;
+  }
+
+  .section-counter {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .footer {
+    padding-left: clamp(40px, 8vw, 237px) !important;
+    padding-right: clamp(40px, 8vw, 237px) !important;
+  }
+}
+
+/* === CONTAINER & GRID UNIVERSAL IMPROVEMENTS === */
+@media screen and (max-width: 991px) {
+  .container-medium,
+  .container-regular,
+  .container-small,
+  .container-2,
+  .container-3,
+  .container-4,
+  .container-5,
+  .container-6,
+  .container-8,
+  .container-9 {
+    width: 95% !important;
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .grid-two-column {
+    grid-template-columns: 1fr !important;
+    gap: 25px !important;
+  }
+
+  .w-container {
+    max-width: 95% !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .container-medium,
+  .container-regular,
+  .container-small,
+  .container-2,
+  .container-3,
+  .container-4,
+  .container-5,
+  .container-6,
+  .container-8,
+  .container-9 {
+    width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .w-container {
+    max-width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+/* === RESPONSIVE IMAGES === */
+@media screen and (max-width: 767px) {
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .background-video,
+  .background-video-2 {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* === NAVIGATION MOBILE IMPROVEMENTS === */
+@media screen and (max-width: 991px) {
+  .agridex-nav {
+    width: 95vw !important;
+    padding: 8px 20px !important;
+    margin: 10px auto !important;
+  }
+
+  .agridex-menu {
+    display: none !important;
+  }
+
+  .agridex-logo img {
+    height: clamp(50px, 10vw, 70px) !important;
+  }
+
+  .agridex-btn {
+    padding: 0 14px !important;
+    font-size: 14px !important;
+    height: 38px !important;
+  }
+
+  .agridex-socials a {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .agridex-nav {
+    width: 100% !important;
+    padding: 6px 15px !important;
+    margin: 5px auto !important;
+    border-radius: 12px !important;
+  }
+
+  .agridex-logo img {
+    height: clamp(45px, 12vw, 60px) !important;
+  }
+
+  .agridex-btn {
+    padding: 0 12px !important;
+    font-size: 13px !important;
+    min-width: auto !important;
+  }
+
+  .agridex-socials {
+    gap: 8px !important;
+  }
+
+  .agridex-socials a {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
+
+/* === TEXT & HEADING RESPONSIVE SCALING === */
+@media screen and (max-width: 767px) {
+  .heading, .heading-2, .heading-3 {
+    font-size: clamp(24px, 6vw, 36px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .h1-heading {
+    font-size: clamp(28px, 7vw, 48px) !important;
+  }
+
+  .h2-heading {
+    font-size: clamp(24px, 6vw, 38px) !important;
+  }
+
+  p, .paragraph {
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* === BUTTON RESPONSIVE IMPROVEMENTS === */
+@media screen and (max-width: 767px) {
+  .button, .button-1, .hero-button, .hero-button-2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px 20px !important;
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+  }
+}
+
+/* === CARD/WORK GRID IMPROVEMENTS === */
+@media screen and (max-width: 767px) {
+  .work_item, .work-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+
+  .work_grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .work_grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 25px !important;
+  }
+}
+
+/* === SECTION SPACING IMPROVEMENTS === */
+@media screen and (max-width: 767px) {
+  .section, .section-3, .section-4, .section-11 {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .section, .section-3, .section-4, .section-11 {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+}
+
+/* === FORM RESPONSIVE IMPROVEMENTS === */
+@media screen and (max-width: 767px) {
+  .form-field, .text-field, input[type="text"], input[type="email"], textarea {
+    width: 100% !important;
+    padding: 12px 15px !important;
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+  }
+
+  .w-form {
+    width: 100% !important;
+  }
+}
+
+/* === FLEXBOX MOBILE STACKING === */
+@media screen and (max-width: 767px) {
+  .div-block, .div-block-2, .div-block-4, .div-block-6, .div-block-125 {
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .frame-6, .frame-6-2, .frame-6-3 {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px !important;
+    height: auto !important;
+  }
+}
+
+/* === GALLERY/PORTFOLIO RESPONSIVE === */
+@media screen and (max-width: 767px) {
+  .section-gallery-2, .gallery-item-sticky {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 350px !important;
+  }
+
+  .gallery-item-content-wrapper {
+    padding: 20px !important;
+    min-height: auto !important;
+  }
+
+  .gutter-outside-2 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+/* === ORB/DECORATIVE ELEMENTS === */
+@media screen and (max-width: 767px) {
+  .hero-orb-left, .hero-orb-right {
+    width: 150px !important;
+    height: 150px !important;
+    opacity: 0.5 !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero-orb-left, .hero-orb-right {
+    width: 100px !important;
+    height: 100px !important;
+    opacity: 0.3 !important;
+  }
+}
