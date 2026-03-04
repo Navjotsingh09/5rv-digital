@@ -12103,3 +12103,451 @@ img {
     right: 12% !important;
   }
 }
+
+/* ========================================
+   CRITICAL MOBILE & TABLET FIX - Phase 5F
+   Fix: Mobile layout, burger menu, tablet issues
+   ======================================== */
+
+/* ======================================
+   1. FIX BURGER MENU - Remove !important that blocks JS
+   ====================================== */
+
+/* Reset the menu display rules - let JS control it */
+@media screen and (max-width: 1024px) {
+  .agridex-menu {
+    display: none; /* No !important - JS can override */
+  }
+
+  /* When menu is open (JS adds inline style), show it properly */
+  .agridex-menu[style*="flex"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    position: absolute !important;
+    top: 70px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    padding: 24px !important;
+    border-radius: 0 0 16px 16px !important;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.15) !important;
+    z-index: 9999 !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(20px) !important;
+  }
+
+  .agridex-menu a {
+    font-size: 17px !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+  }
+
+  .agridex-menu a:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Hamburger visible */
+  .hamburger {
+    display: flex !important;
+    z-index: 10001 !important;
+  }
+  
+  /* Nav needs position relative for menu positioning */
+  .agridex-nav {
+    position: relative !important;
+  }
+}
+
+/* ======================================
+   2. FIX MOBILE HERO LAYOUT (320-479px)
+   ====================================== */
+
+@media screen and (max-width: 479px) {
+  /* Hero section - proper sizing */
+  .hero-section {
+    width: 94% !important;
+    max-width: 100% !important;
+    padding: 30px 20px 40px !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  /* CRITICAL: Fix heading - allow natural wrapping */
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(26px, 7vw, 34px) !important;
+    line-height: 1.3 !important;
+    padding: 0 10px !important;
+    word-wrap: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  /* Description text - proper width */
+  .frame-1321315015 {
+    padding: 0 15px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  ._5rv-digital-is-a-digital-marketing-company-blending-creativity-and-technology-to-craft-campaigns-to {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    padding: 0 5px !important;
+  }
+
+  /* Buttons - side by side */
+  .div-block-125 {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    padding: 0 10px !important;
+  }
+
+  .hero-button, .hero-button-2 {
+    width: auto !important;
+    min-width: 130px !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+  }
+
+  /* Remove problematic cursor container constraints */
+  .div-block-134 {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  .frame-6 {
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .frame-1321315016 {
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  /* HIDE cursor badges on small mobile - they don't fit well */
+  .design-cursor,
+  .branding-cursor,
+  .social-media-cursor {
+    display: none !important;
+  }
+}
+
+/* ======================================
+   3. FIX MOBILE LANDSCAPE (480-767px)
+   ====================================== */
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .hero-section {
+    width: 92% !important;
+    max-width: 100% !important;
+    padding: 40px 25px !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    font-size: clamp(30px, 6vw, 40px) !important;
+    line-height: 1.25 !important;
+    padding: 0 15px !important;
+    text-align: center !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+  .frame-1321315015 {
+    padding: 0 20px !important;
+    width: 100% !important;
+  }
+
+  ._5rv-digital-is-a-digital-marketing-company-blending-creativity-and-technology-to-craft-campaigns-to {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .div-block-125 {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 15px !important;
+  }
+
+  .hero-button, .hero-button-2 {
+    width: auto !important;
+    min-width: 140px !important;
+    padding: 14px 24px !important;
+  }
+
+  /* Show cursor badges but smaller */
+  .design-cursor,
+  .branding-cursor,
+  .social-media-cursor {
+    display: block !important;
+    opacity: 0.7 !important;
+    transform: scale(0.8) !important;
+  }
+
+  /* Position cursors to edges */
+  .branding-cursor {
+    top: 5% !important;
+    right: 5% !important;
+    left: auto !important;
+  }
+
+  .design-cursor {
+    bottom: 20% !important;
+    left: 5% !important;
+    top: auto !important;
+  }
+
+  .social-media-cursor {
+    top: 20% !important;
+    right: 8% !important;
+    left: auto !important;
+  }
+}
+
+/* ======================================
+   4. FIX TABLET (768-1024px)
+   ====================================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .hero-section {
+    width: 90% !important;
+    max-width: 900px !important;
+    padding: 50px 35px !important;
+    height: auto !important;
+    min-height: 500px !important;
+    overflow: visible !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    font-size: clamp(38px, 5vw, 50px) !important;
+    line-height: 1.25 !important;
+    padding: 0 20px !important;
+    text-align: center !important;
+    word-wrap: normal !important;
+    hyphens: none !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  .frame-1321315015 {
+    padding: 0 30px !important;
+    width: 100% !important;
+  }
+
+  ._5rv-digital-is-a-digital-marketing-company-blending-creativity-and-technology-to-craft-campaigns-to {
+    font-size: 17px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  .div-block-125 {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  .hero-button, .hero-button-2 {
+    width: auto !important;
+    min-width: 150px !important;
+    padding: 14px 28px !important;
+    position: relative !important;
+    z-index: 11 !important;
+  }
+
+  /* Cursor badges at edges, not overlapping text */
+  .design-cursor,
+  .branding-cursor,
+  .social-media-cursor {
+    display: block !important;
+    opacity: 0.85 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+  }
+
+  .branding-cursor {
+    position: absolute !important;
+    top: 10% !important;
+    right: 8% !important;
+    left: auto !important;
+    transform: none !important;
+  }
+
+  .design-cursor {
+    position: absolute !important;
+    bottom: 15% !important;
+    left: 8% !important;
+    top: auto !important;
+    transform: none !important;
+  }
+
+  .social-media-cursor {
+    position: absolute !important;
+    top: 50% !important;
+    right: 5% !important;
+    left: auto !important;
+    transform: none !important;
+  }
+
+  /* Cursor container - no height restrictions */
+  .div-block-134 {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: auto !important;
+    max-height: none !important;
+    max-width: none !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+  }
+
+  .frame-1321315016 {
+    position: relative !important;
+  }
+
+  .hero-content {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  .frame-6 {
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  /* Name tags smaller */
+  .name-tag {
+    transform: scale(0.9) !important;
+  }
+}
+
+/* ======================================
+   5. NAVIGATION FIXES FOR ALL MOBILE
+   ====================================== */
+
+@media screen and (max-width: 767px) {
+  .agridex-nav {
+    width: 95% !important;
+    max-width: 100% !important;
+    padding: 8px 15px !important;
+    margin: 8px auto !important;
+    position: relative !important;
+  }
+
+  .agridex-logo img {
+    height: 50px !important;
+  }
+
+  .agridex-btn {
+    padding: 0 14px !important;
+    height: 36px !important;
+    font-size: 13px !important;
+  }
+
+  .agridex-right {
+    gap: 10px !important;
+  }
+
+  .agridex-socials {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .agridex-nav {
+    padding: 6px 12px !important;
+  }
+
+  .agridex-logo img {
+    height: 45px !important;
+  }
+
+  .agridex-btn {
+    padding: 0 12px !important;
+    height: 34px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ======================================
+   6. COUNTER SECTION MOBILE FIX
+   ====================================== */
+
+@media screen and (max-width: 767px) {
+  .section-counter {
+    flex-direction: column !important;
+    width: 94% !important;
+    padding: 30px 20px !important;
+    gap: 30px !important;
+  }
+
+  .counter-item, .counter-item-2, .counter-item-3 {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .counter-number, .counter-number-2 {
+    font-size: clamp(56px, 15vw, 80px) !important;
+    text-align: center !important;
+  }
+
+  .counter-description {
+    text-align: center !important;
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .section-counter {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    width: 90% !important;
+    padding: 40px 30px !important;
+    gap: 30px !important;
+  }
+
+  .counter-item, .counter-item-2, .counter-item-3 {
+    width: 45% !important;
+    max-width: 280px !important;
+  }
+
+  .counter-number, .counter-number-2 {
+    font-size: clamp(72px, 10vw, 96px) !important;
+  }
+}
