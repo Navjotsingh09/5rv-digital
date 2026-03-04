@@ -11178,3 +11178,421 @@ img {
     opacity: 0.3 !important;
   }
 }
+/* ========================================
+   REFINED RESPONSIVE - Phase 5B
+   Consistent design across all breakpoints
+   Removes aggressive !important overrides
+   ======================================== */
+
+/* === REMOVE OLD AGGRESSIVE OVERRIDES === */
+
+/* Reset hero section to more natural responsive behavior */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .hero-section {
+    width: 90% !important;
+    max-width: 720px !important;
+    padding: 50px 30px !important;
+    height: auto !important;
+    min-height: 550px !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    font-size: clamp(38px, 5.5vw, 52px) !important;
+    padding: 0 20px !important;
+    line-height: 1.25 !important;
+  }
+
+  .frame-1321315015 {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+
+  ._5rv-digital-is-a-digital-marketing-company-blending-creativity-and-technology-to-craft-campaigns-to {
+    font-size: 17px !important;
+  }
+
+  .section-counter {
+    width: 90% !important;
+    max-width: 720px !important;
+    padding: 35px 25px !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .counter-item, .counter-item-2, .counter-item-3 {
+    max-width: 45% !important;
+    padding: 20px 15px !important;
+  }
+
+  .counter-number, .counter-number-2 {
+    font-size: clamp(72px, 11vw, 88px) !important;
+  }
+}
+
+/* Mobile refinement - less aggressive */
+@media screen and (max-width: 479px) {
+  .hero-section {
+    width: 95% !important;
+    max-width: 100% !important;
+    padding: 40px 20px !important;
+    height: auto !important;
+    min-height: 500px !important;
+    border-radius: 16px !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    font-size: clamp(28px, 8vw, 38px) !important;
+    padding: 0 15px !important;
+    line-height: 1.25 !important;
+  }
+
+  .frame-1321315015 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  ._5rv-digital-is-a-digital-marketing-company-blending-creativity-and-technology-to-craft-campaigns-to {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+
+  .hero-button, .hero-button-2 {
+    width: auto !important;
+    min-width: 160px !important;
+    padding: 14px 24px !important;
+    margin: 8px !important;
+  }
+
+  .div-block-125 {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+
+  .section-counter {
+    width: 95% !important;
+    max-width: 100% !important;
+    padding: 30px 20px !important;
+    flex-direction: column !important;
+  }
+
+  .counter-item, .counter-item-2, .counter-item-3 {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 20px 15px !important;
+  }
+
+  .counter-number, .counter-number-2 {
+    font-size: clamp(56px, 14vw, 72px) !important;
+  }
+}
+
+/* Tablet - more consistent sizing */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .hero-section {
+    width: 92% !important;
+    max-width: 900px !important;
+    padding: 70px 40px !important;
+    height: auto !important;
+    min-height: 620px !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    font-size: clamp(46px, 5.8vw, 58px) !important;
+    padding: 0 25px !important;
+    line-height: 1.22 !important;
+  }
+
+  .frame-1321315015 {
+    padding-left: 45px !important;
+    padding-right: 45px !important;
+  }
+
+  ._5rv-digital-is-a-digital-marketing-company-blending-creativity-and-technology-to-craft-campaigns-to {
+    font-size: 18px !important;
+  }
+
+  .section-counter {
+    width: 92% !important;
+    max-width: 900px !important;
+    padding: 45px 35px !important;
+    flex-wrap: wrap !important;
+    justify-content: space-around !important;
+  }
+
+  .counter-item, .counter-item-2, .counter-item-3 {
+    max-width: 48% !important;
+    margin-bottom: 25px !important;
+  }
+
+  .counter-number, .counter-number-2 {
+    font-size: clamp(88px, 10vw, 104px) !important;
+  }
+
+  .div-block-125 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 18px !important;
+  }
+}
+
+/* Small desktop - maintain consistency */
+@media screen and (min-width: 992px) and (max-width: 1279px) {
+  .hero-section {
+    width: 94% !important;
+    max-width: 1080px !important;
+    padding: 80px 50px !important;
+    min-height: 640px !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    width: 100% !important;
+    max-width: 960px !important;
+    font-size: clamp(54px, 5.2vw, 64px) !important;
+    line-height: 1.2 !important;
+  }
+
+  .frame-1321315015 {
+    padding-left: 55px !important;
+    padding-right: 55px !important;
+  }
+
+  .section-counter {
+    width: 94% !important;
+    max-width: 1080px !important;
+    padding: 50px 45px !important;
+  }
+}
+
+/* Remove overly aggressive container overrides */
+@media screen and (max-width: 991px) {
+  .container-medium,
+  .container-regular,
+  .container-small {
+    width: 92% !important;
+    max-width: 900px !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+  .container-2,
+  .container-3,
+  .container-4,
+  .container-5,
+  .container-6,
+  .container-8,
+  .container-9 {
+    width: 92% !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+  .w-container {
+    max-width: 92% !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .container-medium,
+  .container-regular,
+  .container-small,
+  .container-2,
+  .container-3,
+  .container-4,
+  .container-5,
+  .container-6,
+  .container-8,
+  .container-9 {
+    width: 95% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .w-container {
+    max-width: 95% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* Consistent heading behavior across breakpoints */
+@media screen and (max-width: 767px) {
+  .heading, .heading-2, .heading-3 {
+    font-size: clamp(26px, 6.5vw, 38px) !important;
+    line-height: 1.25 !important;
+  }
+
+  .h1-heading {
+    font-size: clamp(32px, 7.5vw, 52px) !important;
+    line-height: 1.22 !important;
+  }
+
+  .h2-heading {
+    font-size: clamp(26px, 6.2vw, 40px) !important;
+    line-height: 1.25 !important;
+  }
+
+  p, .paragraph {
+    font-size: clamp(15px, 3.8vw, 17px) !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* Button consistency */
+@media screen and (max-width: 767px) {
+  .button, .button-1 {
+    padding: 13px 22px !important;
+    font-size: 15px !important;
+    min-width: 140px !important;
+  }
+  
+  .hero-button, .hero-button-2 {
+    padding: 14px 24px !important;
+    font-size: 16px !important;
+  }
+}
+
+/* Navigation - less aggressive on mobile */
+@media screen and (max-width: 991px) {
+  .agridex-nav {
+    width: 92vw !important;
+    padding: 10px 22px !important;
+    margin: 12px auto !important;
+  }
+
+  .agridex-logo img {
+    height: clamp(55px, 9vw, 72px) !important;
+  }
+
+  .agridex-btn {
+    padding: 0 16px !important;
+    font-size: 15px !important;
+    height: 40px !important;
+  }
+
+  .agridex-socials a {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .agridex-nav {
+    width: 95vw !important;
+    padding: 8px 18px !important;
+    margin: 8px auto !important;
+  }
+
+  .agridex-logo img {
+    height: clamp(50px, 11vw, 64px) !important;
+  }
+
+  .agridex-btn {
+    padding: 0 14px !important;
+    font-size: 14px !important;
+  }
+
+  .agridex-socials {
+    gap: 6px !important;
+  }
+
+  .agridex-socials a {
+    width: 34px !important;
+    height: 34px !important;
+  }
+}
+
+/* Maintain cursor animations visibility */
+@media screen and (max-width: 767px) {
+  .design-cursor, .branding-cursor, .social-media-cursor {
+    opacity: 0.85 !important;
+  }
+  
+  .design-cursor img.navigation-navigation,
+  .social-media-cursor img.navigation-navigation,
+  .branding-cursor img.navigation-navigation {
+    width: 16px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .design-cursor, .branding-cursor, .social-media-cursor {
+    opacity: 0.75 !important;
+  }
+  
+  .design-cursor img.navigation-navigation,
+  .social-media-cursor img.navigation-navigation,
+  .branding-cursor img.navigation-navigation {
+    width: 14px !important;
+  }
+}
+
+/* Footer - consistent responsive behavior */
+@media screen and (max-width: 767px) {
+  .footer {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+  .footer_main {
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+
+  .footer_links-groups {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 22px !important;
+  }
+}
+
+/* Section spacing - gradual, not abrupt */
+@media screen and (max-width: 767px) {
+  .section, .section-3, .section-4, .section-11 {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .section, .section-3, .section-4, .section-11 {
+    padding-top: 65px !important;
+    padding-bottom: 65px !important;
+    padding-left: 35px !important;
+    padding-right: 35px !important;
+  }
+}
+
+/* Gallery/Portfolio - consistent scaling */
+@media screen and (max-width: 767px) {
+  .gallery-item-content-wrapper {
+    padding: 25px !important;
+  }
+
+  .gutter-outside-2 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* Decorative elements - subtler changes */
+@media screen and (max-width: 767px) {
+  .hero-orb-left, .hero-orb-right {
+    width: 160px !important;
+    height: 160px !important;
+    opacity: 0.6 !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero-orb-left, .hero-orb-right {
+    width: 120px !important;
+    height: 120px !important;
+    opacity: 0.45 !important;
+  }
+}
