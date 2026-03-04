@@ -11804,3 +11804,117 @@ img {
     margin: 40px auto !important;
   }
 }
+/* ========================================
+   CURSOR POSITIONING FIX - Phase 5D
+   Fix: Cursors should overlay the heading, not float above it
+   ======================================== */
+
+/* === TABLET: Remove problematic height constraints === */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  
+  /* Remove the height constraints that created the gap */
+  .div-block-134 {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    position: absolute !important;
+    inset: 0 !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+  }
+
+  /* Make the parent container for cursors position relative */
+  .frame-1321315016 {
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  /* Ensure heading is above cursors visually */
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  /* Ensure cursors stay within hero section bounds */
+  .hero-content {
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  .frame-6 {
+    position: relative !important;
+    overflow: visible !important;
+  }
+}
+
+/* === SMALL TABLET (768-860px): Same fix === */
+@media screen and (min-width: 768px) and (max-width: 860px) {
+  .div-block-134 {
+    max-width: none !important;
+    max-height: none !important;
+    min-height: auto !important;
+  }
+}
+
+/* === LARGE TABLET (860-991px): Same fix === */
+@media screen and (min-width: 860px) and (max-width: 991px) {
+  .div-block-134 {
+    max-width: none !important;
+    max-height: none !important;
+    min-height: auto !important;
+  }
+}
+
+/* === Mobile fixes too (480-767px) === */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .div-block-134 {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    position: absolute !important;
+    inset: 0 !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+  }
+
+  .frame-1321315016 {
+    position: relative !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    position: relative !important;
+    z-index: 10 !important;
+  }
+}
+
+/* === Strict mobile (320-479px) === */
+@media screen and (max-width: 479px) {
+  .div-block-134 {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    position: absolute !important;
+    inset: 0 !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+    z-index: 5 !important;
+  }
+
+  .frame-1321315016 {
+    position: relative !important;
+  }
+
+  .powerful-digital-marketing-agency-turning-clicks-into-conversions {
+    position: relative !important;
+    z-index: 10 !important;
+  }
+}
