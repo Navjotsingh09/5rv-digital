@@ -10131,12 +10131,6 @@ body {
     padding: 100px 60px;
   }
 
-  .hero-section {
-    width: 100%;
-    max-width: 100%;
-    height: 500px;
-  }
-
   .div-block-95,
   .div-block-2 {
     grid-template-columns: 1fr;
@@ -10221,29 +10215,6 @@ body {
     max-width: 500px;
   }
 
-  /* Prevent desktop fixed-width overflow (safety net — Webflow 991px also constrains) */
-  .hero-content {
-    width: 100%;
-  }
-
-  .container-2 {
-    width: 100%;
-  }
-
-  .footer-4 {
-    width: auto;
-    max-width: 100%;
-  }
-
-  .container-4 {
-    max-width: 100%;
-  }
-
-  .faq-border {
-    width: 100%;
-    max-width: 691px;
-  }
-
   .f-grid-four-column {
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 12px;
@@ -10323,12 +10294,6 @@ body {
   .section {
     height: 650px;
     padding: 120px 80px;
-  }
-
-  .hero-section {
-    width: 100%;
-    max-width: 100%;
-    height: 550px;
   }
 
   .div-block-95 {
@@ -10416,53 +10381,9 @@ body {
     max-width: 420px;
   }
 
-  /* CRITICAL: Prevent desktop fixed-width elements overflowing at 992-1024px
-     Desktop sets .hero-content: 1400px, .container-2: 1280px, .footer-4: 1080px
-     Below 991px Webflow constrains these, but 992-1024px has ZERO constraints */
-  .hero-content {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .container-2 {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .footer-4 {
-    width: auto;
-    max-width: 100%;
-  }
-
-  .section-counter {
-    max-width: 100%;
-  }
-
   .container-4 {
     grid-column-gap: 40px;
     grid-row-gap: 40px;
-    max-width: 100%;
-    flex-wrap: wrap;
-  }
-
-  .faq-border {
-    width: 100%;
-    max-width: 824px;
-  }
-
-  .div-block-91 {
-    width: 100%;
-    max-width: 700px;
-  }
-
-  .div-block-92 {
-    width: 100%;
-    max-width: 700px;
-  }
-
-  .div-block-98 {
-    width: 100%;
-    max-width: 700px;
   }
 
   .f-grid-four-column {
@@ -10488,6 +10409,63 @@ body {
   .container-regular {
     width: 100%;
     max-width: 824px;
+  }
+}
+
+/* ========================================
+   992-1024px OVERFLOW GAP
+   Webflow's max-width:991px does NOT apply here,
+   so desktop fixed widths (1400px, 1280px, 1080px)
+   would overflow. These rules cap them.
+   ======================================== */
+@media screen and (min-width: 992px) and (max-width: 1024px) {
+  .hero-section {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section-counter {
+    max-width: 100%;
+  }
+
+  .container-2 {
+    width: 100%;
+  }
+
+  .footer-4 {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .container-4 {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .faq-border {
+    width: 100%;
+  }
+
+  .div-block-91,
+  .div-block-92,
+  .div-block-98 {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .div-block-144 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .div-block-145 {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
