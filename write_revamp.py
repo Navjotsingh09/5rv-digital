@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""Write the new revamped homepage for 5RV Digital."""
+
+HTML = r'''<!DOCTYPE html>
 <html data-wf-page="68f64ae22c49fc91e8b09d82" data-wf-site="68f64ae12c49fc91e8b09d22" lang="en">
 <head>
   <meta charset="utf-8">
@@ -609,4 +612,9 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
   setTimeout(function(){if(!sessionStorage.getItem('5rv_popup_shown')){sessionStorage.setItem('5rv_popup_shown','1');fltOpen('auto_6s')}},6000);
   </script>
 </body>
-</html>
+</html>'''
+
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(HTML)
+
+print(f"Written {len(HTML):,} characters to index.html")
