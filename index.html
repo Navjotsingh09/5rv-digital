@@ -120,7 +120,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 .rv-home .section,.rv-home .counter,.rv-home .section-3,.rv-home .section-11,.rv-home .section-4,.rv-home .team-wrap-3,.rv-home .section-copy,.rv-home .div-block-147{display:none!important}
 
 /* === HERO === */
-.rv-hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#f0f4ff}
+.rv-hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:linear-gradient(175deg,#eef3ff 0%,#f5f8ff 40%,#ffffff 100%)}
 .rv-hero__bg-img{position:absolute;inset:0;z-index:0;background:url('images/hero-bg.jpg') center/cover no-repeat;opacity:.35;pointer-events:none}
 .rv-hero__blob{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;will-change:transform}
 .rv-hero__blob--1{width:700px;height:700px;background:radial-gradient(circle,rgba(53,110,255,.13) 0%,transparent 70%);top:-200px;right:-80px;animation:rv-blob-a 22s ease-in-out infinite alternate}
@@ -240,7 +240,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 .rv-btn:hover svg{transform:translateX(3px)}
 
 /* === LOGOS === */
-.rv-logos{padding:40px 0;background:var(--c-white);border-bottom:1px solid var(--c-gray-100)}
+.rv-logos{padding:40px 0;background:linear-gradient(180deg,#ffffff 0%,#f4f8ff 100%);border-bottom:1px solid #e8eeff}
 .rv-logos__inner{display:flex;align-items:center;width:var(--container);margin:0 auto;gap:40px}
 .rv-logos__side{font-family:var(--font-primary);font-size:13px;font-weight:600;color:#9ca3af;min-width:140px;flex-shrink:0;line-height:1.5}
 .rv-logos__scroll{flex:1;overflow:hidden}
@@ -251,7 +251,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 
 /* === STATS === */
 /* === WHO WE ARE (stats replacement) === */
-.rv-wwa{padding:120px 0;background:#fff}
+.rv-wwa{padding:120px 0;background:linear-gradient(180deg,#f4f8ff 0%,#ffffff 100%)}
 .rv-wwa__inner{width:var(--container);margin:0 auto}
 .rv-wwa__label{display:inline-flex;align-items:center;gap:10px;margin-bottom:40px}
 .rv-wwa__label-sq{width:14px;height:14px;background:var(--c-blue);border-radius:4px}
@@ -267,7 +267,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 @media(max-width:768px){.rv-wwa{padding:80px 0}}
 
 /* === SERVICES === */
-.rv-services{padding:100px 0;background:var(--c-white)}
+.rv-services{padding:100px 0;background:#ffffff}
 .rv-section-header{text-align:center;margin-bottom:64px}
 .rv-section-header__tag{font-family:var(--font-primary);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--c-blue);margin-bottom:16px}
 .rv-section-header h2{font-family:var(--font-primary);font-size:clamp(32px,4vw,48px);font-weight:600;color:var(--c-navy);line-height:1.2;margin:0 auto;max-width:600px;letter-spacing:-0.01em}
@@ -290,7 +290,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 
 /* === WORK === */
 /* === WORK CAROUSEL === */
-.rv-work{padding:100px 0;background:#fff}
+.rv-work{padding:100px 0;background:linear-gradient(180deg,#f4f8ff 0%,#ffffff 100%)}
 .rv-work__head{width:var(--container);margin:0 auto}
 .rv-work__label{display:inline-flex;align-items:center;gap:10px;margin-bottom:40px}
 .rv-work__label-sq{width:14px;height:14px;background:var(--c-blue);border-radius:4px}
@@ -329,7 +329,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 @media(max-width:768px){.rv-work{padding:80px 0}.rv-work-card{width:300px;height:240px}.rv-work__sub-row{flex-direction:column;align-items:flex-start;gap:16px}.rv-work__track-wrap{padding-left:5vw}}
 
 /* === TESTIMONIALS === */
-.rv-reviews{padding:100px 0;background:#f4f5f8}
+.rv-reviews{padding:100px 0;background:linear-gradient(180deg,#eef3ff 0%,#f4f8ff 100%)}
 .rv-reviews__head{width:var(--container);margin:0 auto 48px}
 .rv-reviews__label{display:inline-flex;align-items:center;gap:10px;margin-bottom:40px}
 .rv-reviews__label-sq{width:14px;height:14px;background:var(--c-blue);border-radius:4px}
@@ -355,7 +355,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 .rv-review-card__name{font-family:var(--font-primary);font-size:14px;font-weight:800;color:var(--c-navy);margin:0 0 3px;line-height:1.2}
 .rv-review-card__role{font-family:var(--font-primary);font-size:12px;font-weight:400;color:#6b7280;margin:0;line-height:1.3}
 @media(max-width:768px){.rv-reviews{padding:80px 0}.rv-review-card{width:280px;padding:24px;scroll-snap-align:start}.rv-reviews__track-wrap{padding-left:5vw;overflow-x:scroll;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}.rv-reviews__track-wrap::-webkit-scrollbar{display:none}.rv-reviews__track{padding-right:5vw}.rv-reviews__sub-row{flex-direction:column;align-items:flex-start}}
-.rv-faq{padding:100px 0;background:#fff}
+.rv-faq{padding:100px 0;background:linear-gradient(180deg,#ffffff 0%,#f4f8ff 100%)}
 .rv-faq__head{width:var(--container);margin:0 auto 56px}
 .rv-faq__label{display:inline-flex;align-items:center;gap:10px;margin-bottom:40px}
 .rv-faq__label-sq{width:14px;height:14px;background:var(--c-blue);border-radius:4px}
@@ -400,7 +400,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 @media(max-width:768px){.rv-faq{padding:80px 0}.rv-faq__cta-card{padding:32px}}
 
 /* === FOOTER === */
-.rv-prefooter{background:#f2f3f5;padding:80px 0 72px}
+.rv-prefooter{background:linear-gradient(180deg,#eef3ff 0%,#e8f0ff 100%);padding:80px 0 72px}
 .rv-prefooter__inner{width:var(--container);margin:0 auto}
 .rv-prefooter__card{background:#fff;border-radius:24px;padding:60px 64px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px;border:1px solid rgba(0,0,0,.07);box-shadow:0 4px 40px rgba(0,0,0,.06)}
 .rv-prefooter__label{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-primary);font-size:12px;font-weight:600;color:var(--c-blue);background:rgba(53,110,255,.08);border:1px solid rgba(53,110,255,.15);border-radius:100px;padding:5px 14px;margin:0 0 18px;letter-spacing:.03em;text-transform:uppercase}
@@ -445,14 +445,17 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 /* Inner dots — offset 80px above wrap centre, counter-rotate CW (cancels CCW wrap) */
 .rv-orbit__dot-wrap--i1 .rv-orbit__dot{top:-80px;animation:rv-orbit-cw 16s linear infinite}
 .rv-orbit__dot-wrap--i2 .rv-orbit__dot{top:-80px;animation:rv-orbit-cw 16s linear infinite;animation-delay:-8s}
-.rv-footer{background:#f2f3f5;padding:64px 0 0}
+.rv-footer{background:#e8f0ff;padding:64px 0 0}
 .rv-footer__inner{width:var(--container);margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:48px}
 .rv-footer__brand p{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#374151;margin:18px 0 0;max-width:260px}
-.rv-footer__social{display:flex;align-items:center;gap:10px;margin-top:20px}
-.rv-footer__social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#d1d5db;transition:background .2s,transform .15s}
-.rv-footer__social a:hover{background:var(--c-blue);transform:translateY(-2px)}
-.rv-footer__social img{width:17px;height:17px;opacity:1;display:block;filter:brightness(0) invert(1)}
-.rv-footer__social a:hover img{opacity:1}
+.rv-footer__social{display:flex;align-items:center;gap:12px;margin-top:20px}
+.rv-footer__social a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#0f172a;box-shadow:0 2px 10px rgba(0,0,0,.18);transition:background .25s ease,transform .22s ease,box-shadow .25s ease;text-decoration:none}
+.rv-footer__social a:hover{transform:translateY(-4px) scale(1.1)}
+.rv-footer__social a[aria-label='Facebook']:hover{background:#1877F2;box-shadow:0 8px 24px rgba(24,119,242,.45)}
+.rv-footer__social a[aria-label='X']:hover{background:#18191A;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.rv-footer__social a[aria-label='LinkedIn']:hover{background:#0A66C2;box-shadow:0 8px 24px rgba(10,102,194,.45)}
+.rv-footer__social a[aria-label='Instagram']:hover{background:linear-gradient(135deg,#f09433 0%,#dc2743 50%,#bc1888 100%);box-shadow:0 8px 24px rgba(220,39,67,.4)}
+.rv-footer__social img{width:18px;height:18px;filter:brightness(0) invert(1);display:block}
 .rv-footer__col h4{font-family:var(--font-primary);font-size:11.5px;font-weight:700;color:#111827;margin:0 0 20px;letter-spacing:.08em;text-transform:uppercase}
 .rv-footer__newsletter h4{font-family:var(--font-primary);font-size:11.5px;font-weight:700;color:#111827;margin:0 0 10px;letter-spacing:.08em;text-transform:uppercase}
 .rv-footer__col a{display:flex;align-items:center;gap:5px;font-family:var(--font-body);font-size:14px;color:#4b5563;text-decoration:none;padding:7px 0;line-height:1.4;transition:color .2s}
@@ -496,12 +499,16 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 .rv-topbar__cta:hover{background:#2a5ed6;transform:translateY(-1px)}
 .rv-topbar.rv-top--hidden{transform:translateY(-115%);opacity:0;pointer-events:none}
 /* ── Desktop bottom pill nav (dock state) ── */
-.rv-navbar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(90px);width:auto;height:42px;display:none;align-items:center;background:rgba(28,28,30,0.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:100px;padding:0;z-index:9998;opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.32,1.2,.68,1),opacity .4s ease}
+.rv-navbar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(90px);width:auto;height:56px;display:none;align-items:center;gap:0;background:rgba(13,13,15,0.92);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border-radius:100px;border:1px solid rgba(255,255,255,.11);padding:6px;z-index:9998;opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.32,1.2,.68,1),opacity .4s ease;box-shadow:0 8px 40px rgba(0,0,0,.45),0 1px 0 rgba(255,255,255,.06) inset,0 -1px 0 rgba(0,0,0,.4) inset}
 .rv-navbar.rv-dock--visible{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:all}
-.rv-navbar__logo{display:none}
-.rv-navbar__links{display:flex;align-items:center;height:100%;padding:0 6px}
-.rv-navbar__links a{font-family:var(--font-primary);font-size:13px;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;padding:0 18px;height:100%;display:flex;align-items:center;transition:color .2s;white-space:nowrap;border-radius:100px}
-.rv-navbar__links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.rv-navbar__logo{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;display:block;box-shadow:0 0 0 1.5px rgba(255,255,255,.18);transition:box-shadow .25s ease,transform .2s ease}
+.rv-navbar__logo:hover{box-shadow:0 0 0 2.5px rgba(255,255,255,.38);transform:scale(1.06)}
+.rv-navbar__logo img{width:100%;height:100%;object-fit:cover;display:block}
+.rv-navbar__sep{width:1px;height:22px;background:rgba(255,255,255,.1);margin:0 6px;flex-shrink:0}
+.rv-navbar__links{display:flex;align-items:center;height:100%;padding:0 2px;background:transparent;border-radius:100px;gap:2px}
+.rv-navbar__links a{font-family:var(--font-primary);font-size:13px;font-weight:500;color:rgba(255,255,255,.58);text-decoration:none;padding:0 15px;height:42px;display:flex;align-items:center;border-radius:100px;transition:color .2s ease,background .2s ease;white-space:nowrap}
+.rv-navbar__links a:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.09)}
+.rv-navbar__links a.active{color:#111827;background:#fff;font-weight:600}
 /* ── Desktop Book a Call CTA pill (dock state, bottom-right) ── */
 .rv-cta-pill{position:fixed;bottom:28px;right:28px;height:48px;background:var(--c-navy);border-radius:100px;padding:4px 18px 4px 4px;display:none;align-items:center;gap:10px;z-index:9998;text-decoration:none;transform:translateY(90px);opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.32,1.2,.68,1) .06s,opacity .4s ease .06s,background .2s}
 .rv-cta-pill:hover{background:#1a2d5c}
@@ -553,15 +560,17 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 .rv-topbar__drop-icon svg{width:14px;height:14px;stroke:var(--c-blue);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 /* ── Services hover dropdown (bottom dock nav — opens upward) ── */
 .rv-navbar__has-drop{position:relative;display:flex;align-items:center;height:100%}
-.rv-navbar__has-drop>a{display:flex;align-items:center;gap:3px;height:100%;padding:0 18px;font-family:var(--font-primary);font-size:13px;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;border-radius:100px;white-space:nowrap;transition:color .2s,background .2s}
-.rv-navbar__has-drop>a:hover,.rv-navbar__has-drop:hover>a{color:#fff;background:rgba(255,255,255,.1)}
-.rv-navbar__has-drop>a .rv-drop-caret{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease;margin-left:2px}
-.rv-navbar__has-drop:hover>a .rv-drop-caret{transform:rotate(180deg)}
-.rv-navbar__drop{position:absolute;bottom:100%;left:50%;transform:translateX(-50%) translateY(4px);width:210px;padding-bottom:10px;opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:100}
-.rv-navbar__drop-inner{background:rgba(22,22,24,.97);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:8px}
+.rv-navbar__has-drop>a{display:flex;align-items:center;gap:4px;height:42px;padding:0 15px;font-family:var(--font-primary);font-size:13px;font-weight:500;color:rgba(255,255,255,.58);text-decoration:none;border-radius:100px;white-space:nowrap;transition:color .2s ease,background .2s ease}
+.rv-navbar__has-drop>a:hover,.rv-navbar__has-drop:hover>a{color:rgba(255,255,255,.9);background:rgba(255,255,255,.09)}
+.rv-navbar__has-drop>a.active{color:#111827;background:#fff;font-weight:600}
+.rv-navbar__has-drop>a .rv-drop-caret{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s cubic-bezier(.32,1,.68,1);margin-left:2px;opacity:.7}
+.rv-navbar__has-drop:hover>a .rv-drop-caret{transform:rotate(180deg);opacity:1}
+.rv-navbar__drop{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(6px);width:220px;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:100}
+.rv-navbar__drop-inner{background:rgba(16,16,18,0.97);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:6px;box-shadow:0 16px 40px rgba(0,0,0,.5)}
 .rv-navbar__has-drop:hover .rv-navbar__drop{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
-.rv-navbar__drop a{display:block;padding:9px 14px;border-radius:8px;font-family:var(--font-primary);font-size:12.5px;font-weight:500;color:rgba(255,255,255,.78);text-decoration:none;transition:background .15s,color .15s}
-.rv-navbar__drop a:hover{background:rgba(255,255,255,.1);color:#fff}
+.rv-navbar__drop a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:10px;font-family:var(--font-primary);font-size:13px;font-weight:500;color:rgba(255,255,255,.72);text-decoration:none;transition:background .15s,color .15s}
+.rv-navbar__drop a::before{content:'';width:5px;height:5px;border-radius:50%;background:rgba(53,110,255,.7);flex-shrink:0}
+.rv-navbar__drop a:hover{background:rgba(255,255,255,.09);color:#fff}
 /* ── WhatsApp ── */
 @media(max-width:767px){.rv-topbar{display:none!important}.rv-navbar{display:none!important}.rv-cta-pill{display:none!important}.rv-mobile-bar{display:flex!important}}
 @media(min-width:768px){.rv-mobile-bar{display:none!important}.rv-topbar{display:flex}.rv-navbar{display:flex}.rv-cta-pill{display:flex}}
@@ -1243,7 +1252,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
         </div>
         <h3 class="rv-faq__cta-title">Book a 30 min free call</h3>
         <p class="rv-faq__cta-sub">Got more Qs? Let's chat</p>
-        <button class="rv-faq__cta-btn" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp" data-cal-config='{"layout":"month_view"}' style="border:none;">
+        <button class="rv-faq__cta-btn" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}' style="border:none;">
           <span>Book a Call</span>
           <div class="rv-faq__cta-btn-circ">
             <svg class="arr-out" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
@@ -1423,7 +1432,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
       </div>
-      <button class="rv-topbar__cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
+      <button class="rv-topbar__cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
     </div>
   </nav>
 
@@ -1436,7 +1445,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
         <path d="M1 11H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
     </button>
-    <button class="rv-mobile-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp" data-cal-config='{"layout":"month_view"}'>
+    <button class="rv-mobile-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>
       <div class="rv-mobile-cta__avatar">
         <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="Prab Samra" width="36" height="36">
       </div>
@@ -1446,6 +1455,10 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 
   <!-- Desktop: bottom pill nav (dock state) -->
   <nav class="rv-navbar" role="navigation" aria-label="Primary navigation">
+    <a class="rv-navbar__logo" href="index.html" aria-label="5RV Digital home">
+      <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="44" height="44">
+    </a>
+    <div class="rv-navbar__sep" aria-hidden="true"></div>
     <div class="rv-navbar__links">
       <a href="about.html">About</a>
       <a href="work.html">Work</a>
@@ -1453,12 +1466,12 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
         <a href="services.html">Services <svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="rv-navbar__drop">
           <div class="rv-navbar__drop-inner">
-          <a href="seo-expert.html">SEO</a>
-          <a href="web-development.html">Web Design &amp; Dev</a>
-          <a href="digital-marketing-strategies.html">Social Media</a>
-          <a href="branding.html">Branding</a>
-          <a href="digital-marketing-strategies.html">Paid Ads (PPC)</a>
-          <a href="digital-marketing-strategies.html">Content Marketing</a>
+            <a href="seo-expert.html">SEO</a>
+            <a href="web-development.html">Web Design &amp; Dev</a>
+            <a href="social-media-marketing-agency.html">Social Media</a>
+            <a href="branding.html">Branding</a>
+            <a href="digital-marketing-strategies.html">Paid Ads (PPC)</a>
+            <a href="digital-marketing-strategies.html">Content Marketing</a>
           </div>
         </div>
       </div>
@@ -1493,7 +1506,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
       </div>
-      <button class="n5__drawer-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp" data-cal-config='{"layout":"month_view"}'>Book a Free Call</button>
+      <button class="n5__drawer-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>Book a Free Call</button>
     </div>
   </div>
 
@@ -1561,6 +1574,15 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
     /* Services sub-group toggle */
     var svcToggle=document.getElementById('n5SvcToggle'),svcSub=document.getElementById('n5SvcSub');
     if(svcToggle)svcToggle.addEventListener('click',function(){svcToggle.classList.toggle('open');svcSub.classList.toggle('open')});
+
+    /* Auto-mark active nav link by current page */
+    (function(){
+      var page = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('.rv-navbar__links a, .rv-navbar__has-drop > a').forEach(function(a){
+        var href = (a.getAttribute('href') || '').split('/').pop();
+        if(href && href !== '#' && href === page) a.classList.add('active');
+      });
+    })();
   })();
   </script>
 
@@ -1687,7 +1709,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
   </script>
 
   <!-- Contact Form Modal -->
-  <button class="rv-book-pill" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp" data-cal-config='{"layout":"month_view"}' aria-label="Book a 30 minute free call with 5RV Digital" style="cursor:pointer;border:none;">
+  <button class="rv-book-pill" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}' aria-label="Book a 30 minute free call with 5RV Digital" style="cursor:pointer;border:none;">
     <div class="rv-book-pill__avatar">
       <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="" width="44" height="44">
       <span class="rv-book-pill__dot"></span>

@@ -32,7 +32,7 @@
   --ease:cubic-bezier(0.25,0.46,0.45,0.94);--container:min(1200px,90vw);
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--font-body);color:var(--c-gray-800);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;margin:0;padding:0}
+body{font-family:var(--font-body);color:var(--c-gray-800);background:linear-gradient(175deg,#eef3ff 0%,#f5f8ff 8%,#ffffff 30%);overflow-x:hidden;-webkit-font-smoothing:antialiased;margin:0;padding:0}
 a{text-decoration:none;color:inherit}
 
 /* ── NAV ── */
@@ -45,17 +45,31 @@ a{text-decoration:none;color:inherit}
 .rv-topbar__cta{font-family:var(--font-primary);font-size:14px;font-weight:600;color:#fff;background:var(--c-blue);padding:10px 22px;border-radius:100px;cursor:pointer;border:none;transition:background .2s,transform .2s}
 .rv-topbar__cta:hover{background:#2a5ed6;transform:translateY(-1px)}
 .rv-topbar.rv-top--hidden{transform:translateY(-115%);opacity:0;pointer-events:none}
-.rv-navbar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(90px);height:42px;display:none;align-items:center;background:rgba(28,28,30,0.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:100px;z-index:9998;opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.32,1.2,.68,1),opacity .4s ease}
+.rv-navbar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(90px);width:auto;height:56px;display:none;align-items:center;gap:0;background:rgba(13,13,15,0.92);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border-radius:100px;border:1px solid rgba(255,255,255,.11);padding:6px;z-index:9998;opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.32,1.2,.68,1),opacity .4s ease;box-shadow:0 8px 40px rgba(0,0,0,.45),0 1px 0 rgba(255,255,255,.06) inset,0 -1px 0 rgba(0,0,0,.4) inset}
 .rv-navbar.rv-dock--visible{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:all}
-.rv-navbar__links{display:flex;align-items:center;height:100%;padding:0 6px}
-.rv-navbar__links a{font-family:var(--font-primary);font-size:13px;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;padding:0 18px;height:100%;display:flex;align-items:center;transition:color .2s;white-space:nowrap;border-radius:100px}
-.rv-navbar__links a:hover,.rv-navbar__links a.active{color:#fff;background:rgba(255,255,255,.1)}
-.rv-cta-pill{position:fixed;bottom:28px;right:28px;height:48px;background:var(--c-navy);border-radius:100px;padding:4px 18px 4px 4px;display:none;align-items:center;gap:10px;z-index:9998;text-decoration:none;transform:translateY(90px);opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.32,1.2,.68,1) .06s,opacity .4s ease .06s,background .2s}
-.rv-cta-pill:hover{background:#1a2d5c}
-.rv-cta-pill.rv-dock--visible{transform:translateY(0);opacity:1;pointer-events:all}
-.rv-cta-avatar{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0}
-.rv-cta-avatar img{width:100%;height:100%;object-fit:cover;display:block}
-.rv-cta-text{font-family:var(--font-primary);font-size:13px;font-weight:600;color:#fff;white-space:nowrap}
+.rv-navbar__logo{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;display:block;box-shadow:0 0 0 1.5px rgba(255,255,255,.18);transition:box-shadow .25s ease,transform .2s ease}
+.rv-navbar__logo:hover{box-shadow:0 0 0 2.5px rgba(255,255,255,.38);transform:scale(1.06)}
+.rv-navbar__logo img{width:100%;height:100%;object-fit:cover;display:block}
+.rv-navbar__sep{width:1px;height:22px;background:rgba(255,255,255,.1);margin:0 6px;flex-shrink:0}
+.rv-navbar__links{display:flex;align-items:center;height:100%;padding:0 2px;background:transparent;border-radius:100px;gap:2px}
+.rv-navbar__links a{font-family:var(--font-primary);font-size:13px;font-weight:500;color:rgba(255,255,255,.58);text-decoration:none;padding:0 15px;height:42px;display:flex;align-items:center;border-radius:100px;transition:color .2s ease,background .2s ease;white-space:nowrap}
+.rv-navbar__links a:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.09)}
+.rv-navbar__links a.active{color:#111827;background:#fff;font-weight:600}
+/* Book a Call floating pill */
+.rv-book-pill{position:fixed;bottom:28px;right:28px;background:linear-gradient(135deg,#5a85ff 0%,#356EFF 50%,#1e50d8 100%);border-radius:100px;padding:10px 22px 10px 10px;display:inline-flex;align-items:center;gap:14px;z-index:9997;text-decoration:none;box-shadow:none;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .4s ease,transform .4s ease,padding .3s ease}
+.rv-book-pill.rv-pill--visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.rv-book-pill:hover{padding:10px 10px 10px 10px}
+.rv-book-pill__avatar{position:relative;width:46px;height:46px;border-radius:50%;overflow:hidden;flex-shrink:0;background:rgba(255,255,255,.2)}
+.rv-book-pill__avatar img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}
+.rv-book-pill__dot{position:absolute;bottom:1px;right:1px;width:11px;height:11px;background:#22c55e;border-radius:50%;border:2.5px solid #356EFF;z-index:1}
+.rv-book-pill__text{display:flex;flex-direction:column;gap:4px;white-space:nowrap}
+.rv-book-pill__main{font-family:var(--font-primary);font-size:15px;font-weight:700;color:#fff;white-space:nowrap;line-height:1.2}
+.rv-book-pill__sub{font-family:var(--font-primary);font-size:12px;font-weight:500;color:rgba(255,255,255,.85);white-space:nowrap;line-height:1;max-height:0;overflow:hidden;opacity:0;transition:max-height .25s ease,opacity .2s .05s ease}
+.rv-book-pill:hover .rv-book-pill__sub{max-height:20px;opacity:1}
+.rv-book-pill__arrow{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;flex-shrink:0;max-width:0;overflow:hidden;opacity:0;transition:max-width .3s ease,opacity .2s .1s ease}
+.rv-book-pill:hover .rv-book-pill__arrow{max-width:46px;opacity:1}
+.rv-book-pill__arrow svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:767px){.rv-book-pill{display:none!important}}
 .rv-mobile-bar{display:none;position:fixed;top:0;left:0;right:0;padding:18px 20px;align-items:center;gap:8px;z-index:9999}
 .rv-mobile-hamburger{width:36px;height:36px;border-radius:50%;background:rgba(28,28,30,0.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:grid;place-items:center;border:none;cursor:pointer;flex-shrink:0}
 .rv-mobile-cta{margin-left:auto;height:44px;background:linear-gradient(135deg,#5a85ff 0%,#356EFF 50%,#1e50d8 100%);border-radius:100px;padding:4px 18px 4px 4px;display:flex;align-items:center;gap:10px;font-family:var(--font-primary);font-size:13px;font-weight:700;color:#fff;text-decoration:none;white-space:nowrap;border:none;cursor:pointer}
@@ -91,52 +105,75 @@ a{text-decoration:none;color:inherit}
 .rv-topbar__drop a:hover{background:rgba(53,110,255,.06);color:var(--c-blue)}
 .rv-topbar__drop-icon{width:28px;height:28px;border-radius:7px;background:var(--c-gray-100);display:grid;place-items:center;flex-shrink:0}
 .rv-topbar__drop-icon svg{width:14px;height:14px;stroke:var(--c-navy);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
-.rv-navbar__has-drop{position:relative;display:flex;align-items:center}
-.rv-navbar__drop{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(6px);width:200px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:100}
-.rv-navbar__drop-inner{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;box-shadow:0 12px 40px rgba(11,23,57,.13);padding:6px}
+.rv-navbar__has-drop{position:relative;display:flex;align-items:center;height:100%}
+.rv-navbar__has-drop>a{display:flex;align-items:center;gap:4px;height:42px;padding:0 15px;font-family:var(--font-primary);font-size:13px;font-weight:500;color:rgba(255,255,255,.58);text-decoration:none;border-radius:100px;white-space:nowrap;transition:color .2s ease,background .2s ease}
+.rv-navbar__has-drop>a:hover,.rv-navbar__has-drop:hover>a{color:rgba(255,255,255,.9);background:rgba(255,255,255,.09)}
+.rv-navbar__has-drop>a.active{color:#111827;background:#fff;font-weight:600}
+.rv-navbar__has-drop>a .rv-drop-caret{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s cubic-bezier(.32,1,.68,1);margin-left:2px;opacity:.7}
+.rv-navbar__has-drop:hover>a .rv-drop-caret{transform:rotate(180deg);opacity:1}
+.rv-navbar__drop{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(6px);width:220px;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:100}
+.rv-navbar__drop-inner{background:rgba(16,16,18,0.97);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:6px;box-shadow:0 16px 40px rgba(0,0,0,.5)}
 .rv-navbar__has-drop:hover .rv-navbar__drop{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
-.rv-navbar__drop a{display:block;padding:8px 14px;font-family:var(--font-primary);font-size:13px;font-weight:500;color:var(--c-navy);text-decoration:none;border-radius:8px;transition:background .15s,color .15s}
-.rv-navbar__drop a:hover{background:rgba(53,110,255,.06);color:var(--c-blue)}
-@media(max-width:767px){.rv-topbar{display:none!important}.rv-navbar{display:none!important}.rv-cta-pill{display:none!important}.rv-mobile-bar{display:flex!important}}
-@media(min-width:768px){.rv-mobile-bar{display:none!important}.rv-topbar{display:flex}.rv-navbar{display:flex}.rv-cta-pill{display:flex}}
+.rv-navbar__drop a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:10px;font-family:var(--font-primary);font-size:13px;font-weight:500;color:rgba(255,255,255,.72);text-decoration:none;transition:background .15s,color .15s}
+.rv-navbar__drop a::before{content:'';width:5px;height:5px;border-radius:50%;background:rgba(53,110,255,.7);flex-shrink:0}
+.rv-navbar__drop a:hover{background:rgba(255,255,255,.09);color:#fff}
+@media(max-width:767px){.rv-topbar{display:none!important}.rv-navbar{display:none!important}.rv-mobile-bar{display:flex!important}}
+@media(min-width:768px){.rv-mobile-bar{display:none!important}.rv-topbar{display:flex}.rv-navbar{display:flex}}
 
 /* ── PAGE WRAPPER ── */
 .wk-page{padding-top:100px}
 
+/* ── Scroll reveals ── */
+.rv-reveal{opacity:0;transform:translateY(44px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.rv-reveal.rv-reveal--in{opacity:1;transform:none}
+@keyframes wkCardPopIn{from{opacity:0;transform:scale(.94) translateY(16px)}to{opacity:1;transform:none}}
+.wk-card--popin{animation:wkCardPopIn .46s cubic-bezier(.16,1,.3,1) both}
 /* ── FEATURED SECTION ── */
-.wk-featured{padding:52px 0 72px;background:#fff}
+.wk-featured{padding:52px 0 72px;background:linear-gradient(180deg,#f4f8ff 0%,#ffffff 100%)}
 .wk-featured__inner{width:var(--container);margin:0 auto}
-/* eyebrow row */
 .wk-featured__eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:36px}
 .wk-featured__sq{display:inline-block;width:14px;height:14px;background:var(--c-blue);border-radius:3px;flex-shrink:0}
 .wk-featured__eyebrow-text{font-family:var(--font-primary);font-size:14px;font-weight:400;color:#111;letter-spacing:.01em}
 .wk-featured__eyebrow-text strong{font-weight:700}
-/* open two-col layout — no card box */
-.wk-featured__split{display:grid;grid-template-columns:1fr 1.45fr;gap:52px;align-items:center}
-/* left info pane */
+/* Manual featured slider */
+.wk-swiper{position:relative}
+.wk-feat-slider{display:grid}
+.wk-feat-slide{grid-area:1/1;display:grid;grid-template-columns:1fr 1.45fr;gap:52px;align-items:center;opacity:0;pointer-events:none}
+.wk-feat-slide.active{opacity:1;pointer-events:all}
 .wk-featured__info{display:flex;flex-direction:column;padding:8px 0}
-.wk-featured__plus{width:52px;height:52px;border-radius:50%;background:#111;display:grid;place-items:center;border:none;cursor:default;flex-shrink:0;margin-bottom:28px}
-.wk-featured__plus svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
 .wk-featured__title{font-family:var(--font-primary);font-size:clamp(28px,3.8vw,52px);font-weight:800;line-height:1.05;color:#111;letter-spacing:-0.03em;margin:0 0 20px}
 .wk-featured__desc{font-family:var(--font-body);font-size:15.5px;line-height:1.75;color:#6b7280;margin:0 0 36px;max-width:400px}
-.wk-featured__cta{display:inline-flex;align-items:center;gap:10px;background:var(--c-blue);color:#fff;font-family:var(--font-primary);font-size:15px;font-weight:600;padding:6px 6px 6px 26px;border-radius:100px;text-decoration:none;transition:background .2s,transform .15s,filter .2s;width:fit-content}
-.wk-featured__cta:hover{background:var(--c-blue-deep);transform:translateY(-1px);filter:brightness(1.08)}
-.wk-featured__cta-arrow{width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;flex-shrink:0}
-.wk-featured__cta-arrow svg{width:16px;height:16px;stroke:var(--c-blue);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.32,1.2,.68,1);transform:rotate(-45deg)}
+.wk-featured__cta{display:inline-flex;align-items:center;gap:0;background:linear-gradient(135deg,#5a85ff 0%,#356EFF 55%,#1e50d8 100%);color:#fff;font-family:var(--font-primary);font-size:15px;font-weight:600;padding:6px 6px 6px 26px;border-radius:100px;text-decoration:none;transition:filter .2s,transform .2s;overflow:hidden;white-space:nowrap;width:fit-content}
+.wk-featured__cta:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.wk-featured__cta-text{position:relative;overflow:hidden;height:22px;display:flex;align-items:center}
+.wk-featured__cta-text span{display:block;line-height:22px;transition:transform .35s cubic-bezier(.32,1.2,.68,1);color:#fff}
+.wk-featured__cta-text span.rv-clone{position:absolute;left:0;top:0;transform:translateY(100%)}
+.wk-featured__cta:hover .wk-featured__cta-text span:first-child{transform:translateY(-100%)}
+.wk-featured__cta:hover .wk-featured__cta-text span.rv-clone{transform:translateY(0)}
+.wk-featured__cta-arrow{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;margin-left:12px;flex-shrink:0}
+.wk-featured__cta-arrow svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.32,1.2,.68,1);transform:rotate(-45deg)}
 .wk-featured__cta:hover .wk-featured__cta-arrow svg{transform:rotate(0deg)}
 .wk-featured__divider{border:none;border-top:1px solid var(--c-gray-200);margin:32px 0 20px}
 .wk-featured__tags{display:flex;gap:8px;flex-wrap:wrap}
 .wk-featured__tag{font-family:var(--font-primary);font-size:13px;font-weight:500;color:#374151;background:transparent;border:1px solid var(--c-gray-200);border-radius:100px;padding:6px 16px}
-/* right image — standalone, rounded */
 .wk-featured__img-col{border-radius:20px;overflow:hidden;height:430px}
 .wk-featured__img-col img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
-.wk-featured__split:hover .wk-featured__img-col img{transform:scale(1.03)}
-@media(max-width:960px){.wk-featured__split{grid-template-columns:1fr;gap:28px}.wk-featured__img-col{height:280px;order:-1}}
+.wk-feat-slide.active .wk-featured__img-col img{transform:scale(1.02)}
+/* slider nav */
+.wk-swiper__nav{display:flex;align-items:center;gap:12px;margin-top:28px}
+.wk-swiper__btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--c-gray-200);background:#fff;display:grid;place-items:center;cursor:pointer;transition:border-color .2s,background .2s;flex-shrink:0}
+.wk-swiper__btn:hover{border-color:var(--c-blue);background:rgba(53,110,255,.06)}
+.wk-swiper__btn svg{width:16px;height:16px;stroke:#111;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wk-swiper__dots{display:flex;gap:6px}
+.wk-swiper__dot{width:8px;height:8px;border-radius:50%;background:var(--c-gray-200);cursor:pointer;border:none;padding:0;transition:background .2s,transform .2s}
+.wk-swiper__dot.active{background:var(--c-blue);transform:scale(1.2)}
+@media(max-width:960px){.wk-feat-slide{grid-template-columns:1fr;gap:28px}.wk-featured__img-col{height:280px;order:-1}}
 
 /* ── FILTER BAR ── */
 .wk-filter{background:#fff;border-bottom:1px solid var(--c-gray-200)}
 .wk-filter__inner{width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:14px 0}
-.wk-filter__tabs{display:flex;align-items:center;gap:24px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.wk-filter__tabs{display:flex;align-items:center;gap:24px;overflow-x:hidden;scrollbar-width:none}
 .wk-filter__tabs::-webkit-scrollbar{display:none}
 .wk-filter__tab{font-family:var(--font-primary);font-size:15px;font-weight:400;color:#6b7280;background:transparent;border:none;padding:0;cursor:pointer;transition:color .15s;white-space:nowrap;display:flex;align-items:center;gap:5px}
 .wk-filter__tab:hover{color:#111}
@@ -149,7 +186,7 @@ a{text-decoration:none;color:inherit}
 .wk-filter__search input{width:100%;padding:9px 16px 9px 42px;border:1px solid rgba(18,18,18,.1);border-radius:100px;background:#fff;font-family:var(--font-body);font-size:14px;color:#111;outline:none;transition:border-color .2s}
 .wk-filter__search input::placeholder{color:#9ca3af}
 .wk-filter__search input:focus{border-color:rgba(18,18,18,.28)}
-@media(max-width:768px){.wk-filter__inner{flex-direction:column;align-items:flex-start;gap:12px}.wk-filter__right{width:100%}}
+@media(max-width:768px){.wk-filter__inner{flex-direction:column;align-items:flex-start;gap:12px}.wk-filter__right{width:100%}.wk-filter__tabs{overflow-x:auto;-webkit-overflow-scrolling:touch}}
 
 /* ── PROJECT GRID ── */
 .wk-grid{padding:40px 0 80px;background:#fff}
@@ -158,89 +195,177 @@ a{text-decoration:none;color:inherit}
 .wk-grid__count span{color:#111;font-weight:700}
 .wk-grid__list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 
-/* Card base */
-.wk-card{border-radius:14px;overflow:hidden;position:relative;display:block;text-decoration:none;aspect-ratio:1/1;background:#111;cursor:pointer}
-.wk-card__img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease),filter .5s ease}
-.wk-card:hover .wk-card__img{transform:scale(1.06);filter:brightness(.5)}
+/* Card base — dmazing layout: title top-left, CTA bottom-right, hover-reveal */
+.wk-card{border-radius:20px;overflow:hidden;position:relative;display:block;text-decoration:none;aspect-ratio:4/3;background:#111;cursor:pointer}
+.wk-card__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .65s cubic-bezier(.16,1,.3,1),filter .5s ease}
+.wk-card:hover .wk-card__img{transform:scale(1.06);filter:brightness(.55)}
 
-/* Overlay — fades in on hover */
-.wk-card__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,10,30,.88) 0%,rgba(5,10,30,.3) 55%,transparent 100%);opacity:0;transition:opacity .4s ease}
+/* Overlay — invisible by default, deepens on hover */
+.wk-card__overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,10,30,.72) 0%,rgba(5,10,30,.25) 50%,rgba(5,10,30,.65) 100%);opacity:0;transition:opacity .38s ease}
 .wk-card:hover .wk-card__overlay{opacity:1}
 
-/* Body (hover reveal) */
-.wk-card__body{position:absolute;bottom:0;left:0;right:0;padding:20px;transform:translateY(10px);opacity:0;transition:transform .35s ease,opacity .35s ease}
-.wk-card:hover .wk-card__body{transform:translateY(0);opacity:1}
-.wk-card__tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
-.wk-card__tag{font-family:var(--font-primary);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.65);background:rgba(255,255,255,.1);border-radius:4px;padding:3px 9px}
-.wk-card__title{font-family:var(--font-primary);font-size:17px;font-weight:700;color:#fff;margin:0 0 12px;line-height:1.25}
-.wk-card__see{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-primary);font-size:12px;font-weight:600;color:#fff}
-.wk-card__see svg{width:12px;height:12px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
-.wk-card:hover .wk-card__see svg{transform:translateX(4px)}
+/* Top-left: title + tags — hidden, slides down into view on hover */
+.wk-card__top{position:absolute;top:0;left:0;right:0;padding:22px 22px 0;pointer-events:none;opacity:0;transform:translateY(-8px);transition:opacity .35s ease,transform .35s cubic-bezier(.16,1,.3,1)}
+.wk-card:hover .wk-card__top{opacity:1;transform:translateY(0)}
+.wk-card__title{font-family:var(--font-primary);font-size:clamp(16px,1.8vw,22px);font-weight:700;color:#fff;margin:0 0 11px;line-height:1.2;letter-spacing:-0.02em;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.wk-card__tags{display:flex;gap:6px;flex-wrap:wrap}
+.wk-card__tag{font-family:var(--font-primary);font-size:11px;font-weight:500;color:rgba(255,255,255,.82);background:rgba(10,10,20,.45);border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:4px 12px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 
-/* "Named" cards: title visible by default (before hover) */
-.wk-card--named .wk-card__name-plate{position:absolute;bottom:0;left:0;right:0;padding:52px 18px 16px;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 100%);transition:opacity .3s ease}
-.wk-card--named .wk-card__name-plate span{font-family:var(--font-primary);font-size:14px;font-weight:700;color:#fff;display:block;line-height:1.3}
-.wk-card--named:hover .wk-card__name-plate{opacity:0}
+/* Bottom-right: "See Full Project →" — plain white text, hidden until hover */
+.wk-card__see{position:absolute;bottom:20px;right:20px;display:inline-flex;align-items:center;gap:8px;font-family:var(--font-primary);font-size:14px;font-weight:600;color:#fff;text-decoration:none;opacity:0;transform:translateY(8px);transition:opacity .35s ease,transform .35s cubic-bezier(.16,1,.3,1)}
+.wk-card:hover .wk-card__see{opacity:1;transform:translateY(0)}
+.wk-card__see svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s cubic-bezier(.32,1.2,.68,1)}
+.wk-card:hover .wk-card__see svg{transform:translateX(4px)}
 
 .wk-grid__empty{display:none;grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--c-gray-400);font-family:var(--font-primary);font-size:18px;font-weight:600}
 .wk-grid__empty.show{display:block}
+/* cursor arrow circle */
+.wk-cursor{width:56px;height:56px;border-radius:50%;background:#fff;pointer-events:none;position:fixed;top:0;left:0;z-index:9990;display:grid;place-items:center;opacity:0;transform:translate(-50%,-50%) scale(.6);transition:opacity .25s ease,transform .25s ease,background .2s}
+.wk-cursor.visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.wk-cursor svg{width:18px;height:18px;stroke:var(--c-blue);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+@media(hover:none){.wk-cursor{display:none}}
 @media(max-width:900px){.wk-grid__list{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.wk-grid__list{grid-template-columns:1fr}}
 
 /* ── FAQ ── */
-.wk-faq{padding:80px 0 0;background:#fff}
-.wk-faq__inner{width:var(--container);margin:0 auto}
-.wk-faq__eyebrow{font-family:var(--font-primary);font-size:12px;font-weight:600;color:var(--c-blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
-.wk-faq__eyebrow::before{content:'● ';font-size:8px}
-.wk-faq__title{font-family:var(--font-primary);font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#111;letter-spacing:-0.025em;line-height:1.1;margin:0 0 48px}
-.wk-faq__layout{display:grid;grid-template-columns:360px 1fr;gap:48px;align-items:start}
-.wk-faq__cta-card{background:linear-gradient(145deg,#356EFF 0%,#1a3db5 100%);border-radius:20px;padding:40px 36px;color:#fff;position:sticky;top:120px}
-.wk-faq__cta-card h3{font-family:var(--font-primary);font-size:26px;font-weight:800;line-height:1.2;margin:0 0 12px}
-.wk-faq__cta-card p{font-family:var(--font-body);font-size:14px;line-height:1.7;color:rgba(255,255,255,.75);margin:0 0 28px}
-.wk-faq__cta-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--c-navy);font-family:var(--font-primary);font-size:14px;font-weight:700;padding:10px 10px 10px 22px;border-radius:100px;text-decoration:none;transition:background .2s;cursor:pointer;border:none;width:fit-content}
-.wk-faq__cta-btn:hover{background:#e8eeff}
-.wk-faq__cta-btn-circ{width:32px;height:32px;border-radius:50%;background:var(--c-navy);display:grid;place-items:center;flex-shrink:0}
-.wk-faq__cta-btn-circ svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.wk-faq__cta-meta{display:flex;align-items:center;gap:8px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15)}
-.wk-faq__cta-meta img{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.3);object-fit:cover}
-.wk-faq__cta-meta-text{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.7);line-height:1.5}
-.wk-faq__cta-meta-text strong{display:block;color:#fff;font-weight:600}
-.wk-faq__list{display:flex;flex-direction:column;gap:0}
-.wk-faq__item{border-bottom:1px solid var(--c-gray-200)}
-.wk-faq__question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--font-primary);font-size:16px;font-weight:600;color:#111;background:none;border:none;padding:22px 0;cursor:pointer;text-align:left;transition:color .2s}
-.wk-faq__question:hover{color:var(--c-blue)}
-.wk-faq__q-icon{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--c-gray-200);display:grid;place-items:center;flex-shrink:0;transition:border-color .2s,background .2s}
-.wk-faq__q-icon svg{width:13px;height:13px;stroke:#6b7280;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s ease}
-.wk-faq__item.open .wk-faq__q-icon{border-color:var(--c-blue);background:var(--c-blue)}
-.wk-faq__item.open .wk-faq__q-icon svg{stroke:#fff;transform:rotate(45deg)}
-.wk-faq__answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
-.wk-faq__answer-inner{font-family:var(--font-body);font-size:15px;line-height:1.75;color:#4b5563;padding-bottom:22px}
-.wk-faq__item.open .wk-faq__answer{max-height:300px}
-@media(max-width:900px){.wk-faq__layout{grid-template-columns:1fr}.wk-faq__cta-card{position:static}}
+.rv-faq{padding:100px 0;background:linear-gradient(180deg,#ffffff 0%,#f4f8ff 100%)}
+.rv-faq__head{width:var(--container);margin:0 auto 56px}
+.rv-faq__label{display:inline-flex;align-items:center;gap:10px;margin-bottom:40px}
+.rv-faq__label-sq{width:14px;height:14px;background:var(--c-blue);border-radius:4px}
+.rv-faq__label-text{font-family:var(--font-primary);font-size:14px;font-weight:400;color:var(--c-navy)}
+.rv-faq__label-text strong{font-weight:700}
+.rv-faq__headline{font-family:var(--font-primary);font-size:clamp(40px,5.5vw,72px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:var(--c-navy);margin:0}
+.rv-faq__body{width:var(--container);margin:0 auto;display:grid;grid-template-columns:420px 1fr;gap:48px;align-items:start}
+.rv-faq__cta-card{background:linear-gradient(145deg,#5a85ff 0%,#356EFF 55%,#1e50d8 100%);border-radius:24px;padding:40px;display:flex;flex-direction:column;gap:0;position:relative;isolation:isolate;overflow:hidden;transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.rv-faq__cta-card.rv-reveal{opacity:0;transform:translateY(60px) scale(.95)}
+.rv-faq__cta-card.rv-reveal--in{opacity:1;transform:none}
+.rv-faq__cta-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle 220px at var(--mx,50%) var(--my,-20%),rgba(255,255,255,.22) 0%,rgba(255,255,255,.06) 45%,transparent 70%);opacity:0;transition:opacity .4s ease;pointer-events:none;z-index:0;border-radius:inherit}
+.rv-faq__cta-card:hover::before{opacity:1}
+.rv-faq__cta-card>*{position:relative;z-index:1}
+.rv-faq__cta-avatar{width:72px;height:72px;border-radius:50%;overflow:hidden;background:#f5c842;margin-bottom:28px;flex-shrink:0;position:relative}
+.rv-faq__cta-avatar img{width:100%;height:100%;object-fit:cover;display:block;mix-blend-mode:multiply}
+.rv-faq__cta-title{font-family:var(--font-primary);font-size:clamp(36px,4vw,52px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin:0 0 16px}
+.rv-faq__cta-sub{font-family:var(--font-body);font-size:16px;color:rgba(255,255,255,.75);margin:0 0 32px;line-height:1.5}
+.rv-faq__cta-btn{display:flex;align-items:center;justify-content:space-between;background:#111;color:#fff;border-radius:100px;padding:10px 10px 10px 28px;font-family:var(--font-primary);font-size:16px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:background .25s;width:100%;text-align:left}
+.rv-faq__cta-btn:hover{background:#000}
+.rv-faq__cta-btn-circ{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;flex-shrink:0;overflow:hidden;position:relative}
+.rv-faq__cta-btn-circ .arr-out{width:18px;height:18px;stroke:#111;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.4,0,.2,1);transform:translate(0,0);display:block}
+.rv-faq__cta-btn:hover .rv-faq__cta-btn-circ .arr-out{transform:translate(130%,-130%)}
+.rv-faq__cta-btn-circ .arr-in{position:absolute;inset:0;display:grid;place-items:center;transform:translate(-130%,130%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.rv-faq__cta-btn:hover .rv-faq__cta-btn-circ .arr-in{transform:translate(0,0)}
+.rv-faq__cta-btn-circ .arr-in svg{width:18px;height:18px;stroke:#111;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.rv-faq__cta-email{display:flex;align-items:center;gap:12px;margin-top:28px;padding-top:28px;border-top:1px solid rgba(255,255,255,.2)}
+.rv-faq__cta-email-icon{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;flex-shrink:0}
+.rv-faq__cta-email-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rv-faq__cta-email-label{font-family:var(--font-primary);font-size:12px;color:rgba(255,255,255,.65);margin:0 0 2px}
+.rv-faq__cta-email-addr{font-family:var(--font-primary);font-size:14px;font-weight:700;color:#fff;margin:0;text-decoration:none}
+.rv-faq__list{display:flex;flex-direction:column}
+.rv-faq-item{border-bottom:1px solid #e5e7eb;overflow:hidden}
+.rv-faq-item:first-child{border-top:1px solid #e5e7eb}
+.rv-faq-item__q{display:flex;justify-content:space-between;align-items:center;padding:24px 0;cursor:pointer;gap:16px}
+.rv-faq-item__q h3{font-family:var(--font-primary);font-size:17px;font-weight:700;color:#111827;margin:0;line-height:1.4}
+.rv-faq-item__icon{width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease);flex-shrink:0}
+.rv-faq-item.active .rv-faq-item__icon{transform:rotate(180deg)}
+.rv-faq-item__icon svg{width:20px;height:20px;stroke:#111827;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rv-faq-item__a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+.rv-faq-item__a-inner{padding:0 40px 24px 0}
+.rv-faq-item__a p{font-family:var(--font-body);font-size:15px;line-height:1.75;color:#4b5563;margin:0}
+@media(max-width:1024px){.rv-faq__body{grid-template-columns:1fr}}
+@media(max-width:768px){.rv-faq{padding:80px 0}.rv-faq__cta-card{padding:32px}}
+
+/* ── BOOK A CALL ── */
+.rv-bac{padding:96px 0 72px;background:#ffffff;position:relative;overflow:hidden}
+.rv-bac__wire{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.rv-bac__inner{width:var(--container);margin:0 auto;position:relative;z-index:1}
+.rv-bac__header{text-align:center;margin-bottom:64px}
+.rv-bac__eyebrow{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-primary);font-size:12px;font-weight:700;color:var(--c-blue);background:rgba(53,110,255,.08);border:1px solid rgba(53,110,255,.18);border-radius:100px;padding:5px 16px;margin-bottom:18px;letter-spacing:.04em;text-transform:uppercase}
+.rv-bac__title{font-family:var(--font-primary);font-size:clamp(28px,3.5vw,46px);font-weight:800;color:var(--c-navy);letter-spacing:-0.025em;line-height:1.1;margin:0 0 16px}
+.rv-bac__sub{font-family:var(--font-body);font-size:16px;line-height:1.75;color:#4b5563;max-width:520px;margin:0 auto}
+.rv-bac__grid{display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:start}
+.rv-bac__info{padding:4px 0}
+.rv-bac__info-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-primary);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-blue);margin-bottom:28px;position:relative;z-index:1}
+.rv-bac__info-tag span{display:block;width:28px;height:1.5px;background:var(--c-blue);flex-shrink:0}
+.rv-bac__info-headline{font-family:var(--font-primary);font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--c-navy);line-height:1.18;letter-spacing:-0.02em;margin:0 0 22px;position:relative;z-index:1}
+.rv-bac__info-body{font-family:var(--font-body);font-size:16px;color:#4b5563;line-height:1.75;margin:0 0 28px;max-width:440px;position:relative;z-index:1}
+.rv-bac__perks{list-style:none;padding:0;margin:0 0 130px;display:flex;flex-direction:column;gap:14px}
+.rv-bac__perks li{display:flex;align-items:flex-start;gap:12px;font-family:var(--font-body);font-size:15px;color:#374151;line-height:1.5}
+.rv-bac__perks li svg{flex-shrink:0;margin-top:2px;color:var(--c-blue)}
+.rv-bac__cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--c-navy);color:#fff;font-family:var(--font-primary);font-size:15px;font-weight:700;padding:15px 30px;border-radius:100px;text-decoration:none;transition:background .2s,gap .2s}
+.rv-bac__cta-btn:hover{background:#1a2d5c;gap:14px}
+.rv-bac__cta-btn svg{flex-shrink:0}
+.rv-bac__info-note{margin-top:48px;font-family:var(--font-body);font-size:13px;color:#9ca3af;line-height:1.6}
+.rv-bac__info-note a{color:var(--c-blue);text-decoration:none}
+.rv-bac__info-note a:hover{text-decoration:underline}
+.rv-bac__form-wrap{background:#fff;border:1px solid rgba(0,0,0,.08);box-shadow:0 8px 40px rgba(11,23,57,.08);border-radius:20px;padding:40px 36px}
+.rv-bac__form-title{font-family:var(--font-primary);font-size:20px;font-weight:800;color:var(--c-navy);margin:0 0 6px}
+.rv-bac__form-sub{font-family:var(--font-body);font-size:14px;color:#6b7280;margin:0 0 28px;line-height:1.6}
+.rv-bac__field{margin-bottom:16px}
+.rv-bac__field label{display:block;font-family:var(--font-primary);font-size:12px;font-weight:600;color:#374151;margin-bottom:6px;letter-spacing:.03em;text-transform:uppercase}
+.rv-bac__field input,.rv-bac__field select,.rv-bac__field textarea{width:100%;padding:11px 16px;border:1.5px solid #e5e7eb;border-radius:10px;font-family:var(--font-body);font-size:14px;color:#111;background:#fff;outline:none;transition:border-color .2s;resize:none}
+.rv-bac__field input::placeholder,.rv-bac__field textarea::placeholder{color:#9ca3af}
+.rv-bac__field input:focus,.rv-bac__field select:focus,.rv-bac__field textarea:focus{border-color:var(--c-blue)}
+.rv-bac__field textarea{height:90px}
+.rv-bac__submit{width:100%;background:var(--c-navy);color:#fff;font-family:var(--font-primary);font-size:15px;font-weight:700;border:none;border-radius:100px;padding:14px 28px;cursor:pointer;transition:background .2s;margin-top:8px}
+.rv-bac__submit:hover{background:#1a2d5c}
+@media(max-width:960px){.rv-bac{padding:64px 0 56px}.rv-bac__grid{grid-template-columns:1fr;gap:40px}.rv-bac__wire{display:none}.rv-bac__perks{margin-bottom:36px}.rv-bac__form-wrap{padding:32px 24px}}
+@media(max-width:640px){.rv-bac{padding:48px 0 40px}.rv-bac__inner{padding:0 20px;width:100%;box-sizing:border-box}.rv-bac__info-headline{font-size:clamp(22px,6vw,30px)}.rv-bac__info-body{font-size:15px;line-height:1.65}.rv-bac__perks li{font-size:14px}.rv-bac__cta-btn{width:100%;justify-content:center;padding:14px 24px}.rv-bac__form-wrap{padding:28px 20px;border-radius:16px}.rv-bac__form-title{font-size:18px}}
 
 /* ── PRE-FOOTER ── */
-.rv-prefooter{background:#f2f3f5;padding:80px 0 72px;margin-top:80px}
+.rv-prefooter{background:linear-gradient(180deg,#eef3ff 0%,#e8f0ff 100%);padding:80px 0 72px;margin-top:0}
 .rv-prefooter__inner{width:var(--container);margin:0 auto}
-.rv-prefooter__card{background:#fff;border-radius:24px;padding:60px 64px;border:1px solid rgba(0,0,0,.07);box-shadow:0 4px 40px rgba(0,0,0,.06)}
+.rv-prefooter__card{background:#fff;border-radius:24px;padding:60px 64px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px;border:1px solid rgba(0,0,0,.07);box-shadow:0 4px 40px rgba(0,0,0,.06)}
 .rv-prefooter__label{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-primary);font-size:12px;font-weight:600;color:var(--c-blue);background:rgba(53,110,255,.08);border:1px solid rgba(53,110,255,.15);border-radius:100px;padding:5px 14px;margin:0 0 18px;letter-spacing:.03em;text-transform:uppercase}
 .rv-prefooter__title{font-family:var(--font-primary);font-size:clamp(28px,3vw,40px);font-weight:800;color:var(--c-navy);line-height:1.1;letter-spacing:-0.02em;margin:0 0 18px}
 .rv-prefooter__sub{font-family:var(--font-body);font-size:15px;line-height:1.75;color:#4b5563;margin:0 0 32px;max-width:520px}
 .rv-prefooter__sub strong{color:var(--c-navy);font-weight:700}
-.rv-prefooter__btn{display:inline-flex;align-items:center;gap:0;background:var(--c-navy);color:#fff;font-family:var(--font-primary);font-size:15px;font-weight:600;padding:8px 8px 8px 28px;border-radius:100px;text-decoration:none;transition:background .2s;white-space:nowrap;width:fit-content}
-.rv-prefooter__btn:hover{background:#1a2d5c}
-.rv-prefooter__btn-circ{width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;margin-left:16px;flex-shrink:0}
-.rv-prefooter__btn-circ svg{width:18px;height:18px;stroke:var(--c-navy);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.32,1.2,.68,1);transform:rotate(-45deg)}
+.rv-prefooter__btn{display:inline-flex;align-items:center;gap:0;background:linear-gradient(135deg,#5a85ff 0%,#356EFF 55%,#1e50d8 100%);color:#fff;font-family:var(--font-primary);font-size:15px;font-weight:600;padding:8px 8px 8px 28px;border-radius:100px;text-decoration:none;transition:filter .2s,transform .2s;overflow:hidden;white-space:nowrap}
+.rv-prefooter__btn:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.rv-prefooter__btn-text{position:relative;overflow:hidden;height:24px;display:flex;align-items:center}
+.rv-prefooter__btn-text span{display:block;line-height:24px;transition:transform .35s cubic-bezier(.32,1.2,.68,1);color:#fff}
+.rv-prefooter__btn-text span.rv-clone{position:absolute;left:0;top:0;transform:translateY(100%)}
+.rv-prefooter__btn:hover .rv-prefooter__btn-text span:first-child{transform:translateY(-100%)}
+.rv-prefooter__btn:hover .rv-prefooter__btn-text span.rv-clone{transform:translateY(0)}
+.rv-prefooter__btn-circ{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;margin-left:16px;flex-shrink:0}
+.rv-prefooter__btn-circ svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.32,1.2,.68,1);transform:rotate(-45deg)}
 .rv-prefooter__btn:hover .rv-prefooter__btn-circ svg{transform:rotate(0deg)}
+.rv-prefooter__visual{display:flex;align-items:center;justify-content:center;padding:24px}
+@keyframes rv-orbit-cw{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes rv-orbit-ccw{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+@keyframes rv-center-pulse{0%,100%{box-shadow:0 0 0 8px rgba(53,110,255,.05),0 0 0 20px rgba(53,110,255,.02)}50%{box-shadow:0 0 0 16px rgba(53,110,255,.09),0 0 0 34px rgba(53,110,255,.04)}}
+.rv-orbit{position:relative;width:320px;height:320px}
+.rv-orbit__ring{position:absolute;border-radius:50%;pointer-events:none}
+.rv-orbit__ring--1{top:30px;left:30px;width:260px;height:260px;border:1.5px solid rgba(53,110,255,.18)}
+.rv-orbit__ring--2{top:80px;left:80px;width:160px;height:160px;border:1.5px dashed rgba(53,110,255,.28)}
+.rv-orbit__center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,rgba(53,110,255,.15),rgba(53,110,255,.06));display:grid;place-items:center;border:1.5px solid rgba(53,110,255,.28);animation:rv-center-pulse 3s ease-in-out infinite;z-index:3}
+.rv-orbit__center svg{width:26px;height:26px;stroke:var(--c-blue);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.rv-orbit__dot-wrap{position:absolute;width:44px;height:44px;top:calc(50% - 22px);left:calc(50% - 22px)}
+.rv-orbit__dot-wrap--o1{animation:rv-orbit-cw 22s linear infinite}
+.rv-orbit__dot-wrap--o2{animation:rv-orbit-cw 22s linear infinite;animation-delay:-7.33s}
+.rv-orbit__dot-wrap--o3{animation:rv-orbit-cw 22s linear infinite;animation-delay:-14.67s}
+.rv-orbit__dot-wrap--i1{animation:rv-orbit-ccw 16s linear infinite}
+.rv-orbit__dot-wrap--i2{animation:rv-orbit-ccw 16s linear infinite;animation-delay:-8s}
+.rv-orbit__dot{position:absolute;left:0;width:44px;height:44px;border-radius:50%;overflow:hidden;background:#e5e7eb;border:3px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,.16)}
+.rv-orbit__dot img{width:100%;height:100%;object-fit:cover;display:block}
+.rv-orbit__dot-wrap--o1 .rv-orbit__dot{top:-130px;animation:rv-orbit-ccw 22s linear infinite}
+.rv-orbit__dot-wrap--o2 .rv-orbit__dot{top:-130px;animation:rv-orbit-ccw 22s linear infinite;animation-delay:-7.33s}
+.rv-orbit__dot-wrap--o3 .rv-orbit__dot{top:-130px;animation:rv-orbit-ccw 22s linear infinite;animation-delay:-14.67s}
+.rv-orbit__dot-wrap--i1 .rv-orbit__dot{top:-80px;animation:rv-orbit-cw 16s linear infinite}
+.rv-orbit__dot-wrap--i2 .rv-orbit__dot{top:-80px;animation:rv-orbit-cw 16s linear infinite;animation-delay:-8s}
+@media(max-width:960px){.rv-prefooter__card{grid-template-columns:1fr}.rv-prefooter__visual{display:none}}
 @media(max-width:768px){.rv-prefooter__card{padding:40px 28px}}
 
 /* ── FOOTER ── */
-.rv-footer{background:#f2f3f5;padding:64px 0 0}
+.rv-footer{background:#e8f0ff;padding:64px 0 0}
 .rv-footer__inner{width:var(--container);margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:48px}
 .rv-footer__brand p{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#374151;margin:18px 0 0;max-width:260px}
-.rv-footer__social{display:flex;align-items:center;gap:10px;margin-top:20px}
-.rv-footer__social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#d1d5db;transition:background .2s,transform .15s}
-.rv-footer__social a:hover{background:var(--c-blue);transform:translateY(-2px)}
-.rv-footer__social img{width:17px;height:17px;filter:brightness(0) invert(1);display:block}
+.rv-footer__social{display:flex;align-items:center;gap:12px;margin-top:20px}
+.rv-footer__social a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#0f172a;box-shadow:0 2px 10px rgba(0,0,0,.18);transition:background .25s ease,transform .22s ease,box-shadow .25s ease;text-decoration:none}
+.rv-footer__social a:hover{transform:translateY(-4px) scale(1.1)}
+.rv-footer__social a[aria-label='Facebook']:hover{background:#1877F2;box-shadow:0 8px 24px rgba(24,119,242,.45)}
+.rv-footer__social a[aria-label='X']:hover{background:#18191A;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+.rv-footer__social a[aria-label='LinkedIn']:hover{background:#0A66C2;box-shadow:0 8px 24px rgba(10,102,194,.45)}
+.rv-footer__social a[aria-label='Instagram']:hover{background:linear-gradient(135deg,#f09433 0%,#dc2743 50%,#bc1888 100%);box-shadow:0 8px 24px rgba(220,39,67,.4)}
+.rv-footer__social img{width:18px;height:18px;filter:brightness(0) invert(1);display:block}
 .rv-footer__col h4{font-family:var(--font-primary);font-size:11.5px;font-weight:700;color:#111827;margin:0 0 20px;letter-spacing:.08em;text-transform:uppercase}
 .rv-footer__newsletter h4{font-family:var(--font-primary);font-size:11.5px;font-weight:700;color:#111827;margin:0 0 10px;letter-spacing:.08em;text-transform:uppercase}
 .rv-footer__col a{display:flex;align-items:center;gap:5px;font-family:var(--font-body);font-size:14px;color:#4b5563;text-decoration:none;padding:7px 0;line-height:1.4;transition:color .2s}
@@ -278,7 +403,7 @@ a{text-decoration:none;color:inherit}
   <button class="rv-mobile-hamburger" id="rvBurger" aria-label="Open menu" aria-expanded="false" aria-controls="n5Drawer">
     <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M1 1H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M1 6H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M1 11H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
   </button>
-  <button class="rv-mobile-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp" data-cal-config='{"layout":"month_view"}'>
+  <button class="rv-mobile-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>
     <div class="rv-mobile-cta__avatar"><img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV" width="36" height="36"></div>
     Book a 30 Min Free Call
   </button>
@@ -307,27 +432,51 @@ a{text-decoration:none;color:inherit}
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </div>
-    <button class="rv-topbar__cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
+    <button class="rv-topbar__cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
   </div>
 </nav>
 
 <!-- Dock navbar -->
 <nav class="rv-navbar" role="navigation" aria-label="Primary navigation">
-  <a class="rv-navbar__logo" href="index.html" aria-label="5RV Digital home"><img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="40" height="40"></a>
+  <a class="rv-navbar__logo" href="index.html" aria-label="5RV Digital home">
+    <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="44" height="44">
+  </a>
+  <div class="rv-navbar__sep" aria-hidden="true"></div>
   <div class="rv-navbar__links">
     <a href="about.html">About</a>
     <a href="work.html" class="active">Work</a>
-    <a href="services.html">Services</a>
+    <div class="rv-navbar__has-drop">
+      <a href="services.html">Services <svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="rv-navbar__drop">
+        <div class="rv-navbar__drop-inner">
+          <a href="seo-expert.html">SEO</a>
+          <a href="web-development.html">Web Design &amp; Dev</a>
+          <a href="social-media-marketing-agency.html">Social Media</a>
+          <a href="branding.html">Branding</a>
+          <a href="digital-marketing-strategies.html">Paid Ads (PPC)</a>
+          <a href="digital-marketing-strategies.html">Content Marketing</a>
+        </div>
+      </div>
+    </div>
     <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
 
 <!-- CTA pill -->
-<a href="#" class="rv-cta-pill" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp" data-cal-config='{"layout":"month_view"}'>
-  <div class="rv-cta-avatar"><img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV" width="40" height="40"></div>
-  <span class="rv-cta-text">Book a Free Call</span>
-</a>
+<button class="rv-book-pill" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}' aria-label="Book a 30 minute free call with 5RV Digital" style="cursor:pointer;border:none;">
+  <div class="rv-book-pill__avatar">
+    <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="" width="44" height="44">
+    <span class="rv-book-pill__dot"></span>
+  </div>
+  <div class="rv-book-pill__text">
+    <span class="rv-book-pill__main">Book a 30 Min Free Call</span>
+    <span class="rv-book-pill__sub">Schedule Now</span>
+  </div>
+  <div class="rv-book-pill__arrow">
+    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+  </div>
+</button>
 
 <!-- Mobile drawer -->
 <div id="n5Drawer" class="n5__drawer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Navigation menu">
@@ -351,42 +500,102 @@ a{text-decoration:none;color:inherit}
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </div>
-    <button class="n5__drawer-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp" data-cal-config='{"layout":"month_view"}'>Book a Free Call</button>
+    <button class="n5__drawer-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>Book a Free Call</button>
   </div>
 </div>
 
 <!-- Page content -->
 <div class="wk-page">
 
-  <!-- ── FEATURED PROJECT ── -->
-  <section class="wk-featured">
+  <!-- ── FEATURED PROJECT (Swiper) ── -->
+  <section id="wkProjects" class="wk-featured">
     <div class="wk-featured__inner">
       <div class="wk-featured__eyebrow">
         <span class="wk-featured__sq"></span>
         <span class="wk-featured__eyebrow-text">Featured <strong>Projects</strong></span>
       </div>
-      <div class="wk-featured__split">
-        <div class="wk-featured__info">
-          <div class="wk-featured__plus" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+      <div class="wk-swiper">
+        <div class="wk-feat-slider">
+
+          <!-- Slide 1: Hilston Park -->
+          <div class="wk-feat-slide active">
+            <div class="wk-featured__info">
+              <h2 class="wk-featured__title">Hilston Park</h2>
+              <p class="wk-featured__desc">A full-scale brand overhaul and ongoing digital management for Hilston Park &mdash; elevating their presence across every channel and driving consistent, measurable growth.</p>
+              <a href="hilstonpark.html" class="wk-featured__cta">
+                <div class="wk-featured__cta-text"><span>See Full Project</span><span class="rv-clone">See Full Project</span></div>
+                <div class="wk-featured__cta-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+              </a>
+              <hr class="wk-featured__divider">
+              <div class="wk-featured__tags">
+                <span class="wk-featured__tag">Branding</span>
+                <span class="wk-featured__tag">Social Media</span>
+                <span class="wk-featured__tag">Management</span>
+              </div>
+            </div>
+            <div class="wk-featured__img-col">
+              <img src="images/Rectangle-5-4.webp" alt="Hilston Park" loading="eager">
+            </div>
           </div>
-          <h2 class="wk-featured__title">Hilston Park</h2>
-          <p class="wk-featured__desc">A full-scale brand overhaul and ongoing digital management for Hilston Park &mdash; elevating their presence across every channel and driving consistent, measurable growth.</p>
-          <a href="hilstonpark.html" class="wk-featured__cta">
-            See Full Project
-            <div class="wk-featured__cta-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
-          </a>
-          <hr class="wk-featured__divider">
-          <div class="wk-featured__tags">
-            <span class="wk-featured__tag">Branding</span>
-            <span class="wk-featured__tag">Social Media</span>
-            <span class="wk-featured__tag">Management</span>
+
+          <!-- Slide 2: Contello -->
+          <div class="wk-feat-slide">
+            <div class="wk-featured__info">
+              <h2 class="wk-featured__title">Contello</h2>
+              <p class="wk-featured__desc">Full brand identity, web design, and SEO strategy for Contello &mdash; a clean, conversion-focused presence that established their authority from day one.</p>
+              <a href="contello.html" class="wk-featured__cta">
+                <div class="wk-featured__cta-text"><span>See Full Project</span><span class="rv-clone">See Full Project</span></div>
+                <div class="wk-featured__cta-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+              </a>
+              <hr class="wk-featured__divider">
+              <div class="wk-featured__tags">
+                <span class="wk-featured__tag">Branding</span>
+                <span class="wk-featured__tag">Web Design</span>
+                <span class="wk-featured__tag">SEO</span>
+              </div>
+            </div>
+            <div class="wk-featured__img-col">
+              <img src="images/Rectangle-6-1_1.webp" alt="Contello" loading="lazy">
+            </div>
           </div>
+
+          <!-- Slide 3: NHS -->
+          <div class="wk-feat-slide">
+            <div class="wk-featured__info">
+              <h2 class="wk-featured__title">NHS</h2>
+              <p class="wk-featured__desc">Social media management and paid advertising for NHS &mdash; reaching the right audiences with clear, trusted messaging that drove real community engagement.</p>
+              <a href="national-health-services.html" class="wk-featured__cta">
+                <div class="wk-featured__cta-text"><span>See Full Project</span><span class="rv-clone">See Full Project</span></div>
+                <div class="wk-featured__cta-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+              </a>
+              <hr class="wk-featured__divider">
+              <div class="wk-featured__tags">
+                <span class="wk-featured__tag">Social Media</span>
+                <span class="wk-featured__tag">Paid Ads</span>
+              </div>
+            </div>
+            <div class="wk-featured__img-col">
+              <img src="images/Rectangle-6_1.webp" alt="NHS" loading="lazy">
+            </div>
+          </div>
+
+        </div><!-- /wk-feat-slider -->
+
+        <!-- Slider nav -->
+        <div class="wk-swiper__nav" style="display:none">
+          <button class="wk-swiper__btn" id="featPrev" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>
+          </button>
+          <div class="wk-swiper__dots" id="featDots">
+            <button class="wk-swiper__dot active" data-idx="0" aria-label="Slide 1"></button>
+            <button class="wk-swiper__dot" data-idx="1" aria-label="Slide 2"></button>
+            <button class="wk-swiper__dot" data-idx="2" aria-label="Slide 3"></button>
+          </div>
+          <button class="wk-swiper__btn" id="featNext" aria-label="Next slide">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </button>
         </div>
-        <div class="wk-featured__img-col">
-          <img src="images/Rectangle-5-4.webp" alt="Hilston Park — Featured Project">
-        </div>
-      </div>
+      </div><!-- /wk-swiper -->
     </div>
   </section>
 
@@ -416,164 +625,144 @@ a{text-decoration:none;color:inherit}
       <p class="wk-grid__count"><span id="wkCountNum">14</span> projects</p>
       <div class="wk-grid__list" id="wkGrid">
 
-        <!-- 1 Hilston Park -->
         <a href="hilstonpark.html" class="wk-card" data-cats="branding social">
           <img src="images/Rectangle-5-4.webp" alt="Hilston Park" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">Branding</span><span class="wk-card__tag">Social</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">Hilston Park</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">Branding</span><span class="wk-card__tag">Social Media</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 2 NHS -->
         <a href="national-health-services.html" class="wk-card" data-cats="social paid">
           <img src="images/Rectangle-6_1.webp" alt="NHS" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">Social Media</span><span class="wk-card__tag">Paid Ads</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">NHS</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">Social Media</span><span class="wk-card__tag">Paid Ads</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 3 University of Birmingham -->
-        <a href="university-of-birmingham.html" class="wk-card wk-card--named" data-cats="social seo">
+        <a href="university-of-birmingham.html" class="wk-card" data-cats="social seo">
           <img src="images/Rectangle-7_1.webp" alt="University of Birmingham" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__name-plate"><span>University of Birmingham</span></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">SEO</span><span class="wk-card__tag">Social Media</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">University of Birmingham</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">SEO</span><span class="wk-card__tag">Social Media</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 4 BT Sports -->
         <a href="bt-sports.html" class="wk-card" data-cats="paid social">
           <img src="images/Rectangle-5.webp" alt="BT Sports" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">Paid Ads</span><span class="wk-card__tag">Social Media</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">BT Sports</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">Paid Ads</span><span class="wk-card__tag">Social Media</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 5 Contello -->
-        <a href="contello.html" class="wk-card wk-card--named" data-cats="branding web seo">
+        <a href="contello.html" class="wk-card" data-cats="branding web seo">
           <img src="images/Rectangle-6-1_1.webp" alt="Contello" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__name-plate"><span>Contello Brand Identity</span></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">Branding</span><span class="wk-card__tag">Web Design</span><span class="wk-card__tag">SEO</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">Contello</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">Branding</span><span class="wk-card__tag">Web Design</span><span class="wk-card__tag">SEO</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 6 Lightologist -->
         <a href="lightologist.html" class="wk-card" data-cats="seo paid social">
           <img src="images/Rectangle-7-1_1.webp" alt="Lightologist" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">SEO</span><span class="wk-card__tag">Paid Ads</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">Lightologist</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">SEO</span><span class="wk-card__tag">Paid Ads</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 7 Qcom Ltd -->
-        <a href="qcom-ltd.html" class="wk-card wk-card--named" data-cats="branding seo social">
+        <a href="qcom-ltd.html" class="wk-card" data-cats="branding seo social">
           <img src="images/Qcom-Ltd.webp" alt="Qcom Ltd" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__name-plate"><span>Qcom Ltd</span></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">Branding</span><span class="wk-card__tag">SEO</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">Qcom Ltd</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">Branding</span><span class="wk-card__tag">SEO</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 8 Halle Properties -->
         <a href="halle-properties.html" class="wk-card" data-cats="seo paid social">
           <img src="images/Rectangle-9.webp" alt="Halle Properties" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">SEO</span><span class="wk-card__tag">Paid Ads</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">Halle Properties</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">SEO</span><span class="wk-card__tag">Paid Ads</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 9 IV Land -->
         <a href="iv-land.html" class="wk-card" data-cats="branding seo">
           <img src="images/Rectangle-10.webp" alt="IV Land" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">Branding</span><span class="wk-card__tag">SEO</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">IV Land</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">Branding</span><span class="wk-card__tag">SEO</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 10 Klassic Trade Frames -->
-        <a href="klassic-trade-frames.html" class="wk-card wk-card--named" data-cats="web seo">
+        <a href="klassic-trade-frames.html" class="wk-card" data-cats="web seo">
           <img src="images/Rectangle-11.webp" alt="Klassic Trade Frames" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__name-plate"><span>Klassic Trade Frames</span></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">Web Design</span><span class="wk-card__tag">SEO</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">Klassic Trade Frames</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">Web Design</span><span class="wk-card__tag">SEO</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 11 W13 -->
         <a href="w13.html" class="wk-card" data-cats="social branding">
           <img src="images/Rectangle-12.webp" alt="W13" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">Social Media</span><span class="wk-card__tag">Branding</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">W13</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">Social Media</span><span class="wk-card__tag">Branding</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 12 Halesowen Dental -->
-        <a href="halesowen-dental.html" class="wk-card wk-card--named" data-cats="seo social">
+        <a href="halesowen-dental.html" class="wk-card" data-cats="seo social">
           <img src="images/Rectangle-13.webp" alt="Halesowen Dental" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__name-plate"><span>Halesowen Dental</span></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">SEO</span><span class="wk-card__tag">Social Media</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">Halesowen Dental</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">SEO</span><span class="wk-card__tag">Social Media</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 13 VoIP Experts -->
         <a href="voip-experts.html" class="wk-card" data-cats="web seo social">
           <img src="images/Rectangle-14.webp" alt="VoIP Experts" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">Web Design</span><span class="wk-card__tag">SEO</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">VoIP Experts</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">Web Design</span><span class="wk-card__tag">SEO</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <!-- 14 Pass 11 Plus -->
-        <a href="pass-11-plus.html" class="wk-card wk-card--named" data-cats="web seo social">
+        <a href="pass-11-plus.html" class="wk-card" data-cats="web seo social">
           <img src="images/Rectangle-15.webp" alt="Pass 11 Plus" class="wk-card__img" loading="lazy">
           <div class="wk-card__overlay"></div>
-          <div class="wk-card__name-plate"><span>Pass 11 Plus</span></div>
-          <div class="wk-card__body">
-            <div class="wk-card__tags"><span class="wk-card__tag">SEO</span><span class="wk-card__tag">Web Design</span></div>
+          <div class="wk-card__top">
             <h3 class="wk-card__title">Pass 11 Plus</h3>
-            <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            <div class="wk-card__tags"><span class="wk-card__tag">SEO</span><span class="wk-card__tag">Web Design</span></div>
           </div>
+          <span class="wk-card__see">See Full Project <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
         </a>
 
         <p class="wk-grid__empty" id="wkEmpty">No projects match your filter.</p>
@@ -582,64 +771,174 @@ a{text-decoration:none;color:inherit}
   </section>
 
   <!-- ── FAQ ── -->
-  <section class="wk-faq">
-    <div class="wk-faq__inner">
-      <p class="wk-faq__eyebrow">Frequently Asked Questions</p>
-      <h2 class="wk-faq__title">Questions? We've got answers.</h2>
-      <div class="wk-faq__layout">
-        <!-- CTA card -->
-        <div class="wk-faq__cta-card">
-          <h3>Book a 30 min free call</h3>
-          <p>Got more questions? Let's chat about your goals and how we can help you grow.</p>
-          <button class="wk-faq__cta-btn" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp" data-cal-config='{"layout":"month_view"}'>
-            Book a Call
-            <div class="wk-faq__cta-btn-circ"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
-          </button>
-          <div class="wk-faq__cta-meta">
-            <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="36" height="36">
-            <div class="wk-faq__cta-meta-text">
-              <strong>Navjot Singh</strong>
-              hello@5rvdigital.co.uk
-            </div>
+  <section class="rv-faq">
+    <div class="rv-faq__head">
+      <div class="rv-faq__label">
+        <span class="rv-faq__label-sq"></span>
+        <span class="rv-faq__label-text">Frequently <strong>Asked Questions</strong></span>
+      </div>
+      <h2 class="rv-faq__headline">Questions? We've got answers.</h2>
+    </div>
+    <div class="rv-faq__body">
+
+      <!-- Left: CTA card -->
+      <div class="rv-faq__cta-card rv-reveal">
+        <div class="rv-faq__cta-avatar">
+          <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="64" height="64">
+        </div>
+        <h3 class="rv-faq__cta-title">Book a 30 min free call</h3>
+        <p class="rv-faq__cta-sub">Got more questions? Let's chat</p>
+        <button class="rv-faq__cta-btn" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}' style="border:none;">
+          <span>Book a Call</span>
+          <div class="rv-faq__cta-btn-circ">
+            <svg class="arr-out" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+            <span class="arr-in"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></span>
+          </div>
+        </button>
+        <div class="rv-faq__cta-email">
+          <div class="rv-faq__cta-email-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <p class="rv-faq__cta-email-label">Do you prefer email?</p>
+            <a href="mailto:hello@5rvdigital.co.uk" class="rv-faq__cta-email-addr">hello@5rvdigital.co.uk</a>
           </div>
         </div>
-        <!-- FAQ list -->
-        <div class="wk-faq__list" id="wkFaqList">
-          <div class="wk-faq__item">
-            <button class="wk-faq__question">
-              What's your team good at?
-              <span class="wk-faq__q-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
-            </button>
-            <div class="wk-faq__answer"><div class="wk-faq__answer-inner">We specialise in SEO, paid advertising, social media management, web design, and brand strategy. Our strength is combining all of these into a single joined-up growth strategy — so your campaigns, content, and creative all work together.</div></div>
-          </div>
-          <div class="wk-faq__item">
-            <button class="wk-faq__question">
-              Do you work with businesses outside Birmingham?
-              <span class="wk-faq__q-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
-            </button>
-            <div class="wk-faq__answer"><div class="wk-faq__answer-inner">Absolutely. While we're based in Birmingham, we work with clients across the UK and internationally. Everything we do is built around results, not geography — and our remote process means you get full-service support wherever you are.</div></div>
-          </div>
-          <div class="wk-faq__item">
-            <button class="wk-faq__question">
-              What happens after I subscribe or sign up?
-              <span class="wk-faq__q-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
-            </button>
-            <div class="wk-faq__answer"><div class="wk-faq__answer-inner">We start with a free 30-minute strategy call to understand your business, goals, and current digital presence. From there we produce a tailored audit and growth roadmap — then once you're happy, we get to work immediately.</div></div>
-          </div>
-          <div class="wk-faq__item">
-            <button class="wk-faq__question">
-              How do you measure campaign success?
-              <span class="wk-faq__q-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
-            </button>
-            <div class="wk-faq__answer"><div class="wk-faq__answer-inner">We align KPIs to your actual business goals — whether that's leads, revenue, search rankings, or brand awareness. You get a live dashboard so you can see exactly what's working, and we review performance with you every month.</div></div>
-          </div>
-          <div class="wk-faq__item">
-            <button class="wk-faq__question">
-              Can you handle multiple services at once?
-              <span class="wk-faq__q-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
-            </button>
-            <div class="wk-faq__answer"><div class="wk-faq__answer-inner">Yes — and this is where we really shine. Managing SEO, paid ads, social, and branding under one roof means everything stays consistent and connected. No briefing multiple agencies, no gaps in strategy, and no duplicated spend.</div></div>
-          </div>
+      </div>
+
+      <!-- Right: Accordion -->
+      <div class="rv-faq__list">
+        <div class="rv-faq-item">
+          <div class="rv-faq-item__q"><h3>What's your team good at?</h3><div class="rv-faq-item__icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div>
+          <div class="rv-faq-item__a"><div class="rv-faq-item__a-inner"><p>We specialise in SEO, paid advertising, social media management, web design, and brand strategy. Our strength is combining all of these into a single joined-up growth strategy &mdash; so your campaigns, content, and creative all work together.</p></div></div>
+        </div>
+        <div class="rv-faq-item">
+          <div class="rv-faq-item__q"><h3>Do you work with businesses outside Birmingham?</h3><div class="rv-faq-item__icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div>
+          <div class="rv-faq-item__a"><div class="rv-faq-item__a-inner"><p>Absolutely. While we're based in Birmingham, we work with clients across the UK and internationally. Everything we do is built around results, not geography &mdash; and our remote process means you get full-service support wherever you are.</p></div></div>
+        </div>
+        <div class="rv-faq-item">
+          <div class="rv-faq-item__q"><h3>What happens after I get in touch?</h3><div class="rv-faq-item__icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div>
+          <div class="rv-faq-item__a"><div class="rv-faq-item__a-inner"><p>We start with a free 30-minute strategy call to understand your business, goals, and current digital presence. From there we produce a tailored audit and growth roadmap &mdash; then once you're happy, we get to work immediately.</p></div></div>
+        </div>
+        <div class="rv-faq-item">
+          <div class="rv-faq-item__q"><h3>How do you measure campaign success?</h3><div class="rv-faq-item__icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div>
+          <div class="rv-faq-item__a"><div class="rv-faq-item__a-inner"><p>We align KPIs to your actual business goals &mdash; whether that's leads, revenue, search rankings, or brand awareness. You get a live dashboard so you can see exactly what's working, and we review performance with you every month.</p></div></div>
+        </div>
+        <div class="rv-faq-item">
+          <div class="rv-faq-item__q"><h3>Can you handle multiple services at once?</h3><div class="rv-faq-item__icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div>
+          <div class="rv-faq-item__a"><div class="rv-faq-item__a-inner"><p>Yes &mdash; and this is where we really shine. Managing SEO, paid ads, social, and branding under one roof means everything stays consistent and connected. No briefing multiple agencies, no gaps in strategy, and no duplicated spend.</p></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── BOOK A CALL ── -->
+  <section class="rv-bac" id="book-a-call">
+    <!-- LangSmith-style converging beam: full section width, lines from page edges merge into one wire -->
+    <svg class="rv-bac__wire" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <filter id="bacBeamBlurA" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="18"/></filter>
+        <filter id="bacBeamBlurB" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="10"/></filter>
+        <filter id="bacBeamBlurC" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="6"/></filter>
+        <linearGradient id="bacBeamGradA" x1="0" y1="0" x2="1400" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#7FC8FF"/><stop offset="0.5" stop-color="#7FC8FF" stop-opacity="0"/></linearGradient>
+        <linearGradient id="bacBeamGradB" x1="0" y1="0" x2="1400" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#7FC8FF"/><stop offset="0.4" stop-color="#7FC8FF" stop-opacity="0"/></linearGradient>
+        <linearGradient id="bacBeamGradC" x1="0" y1="0" x2="1400" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#7FC8FF"/><stop offset="0.3" stop-color="#7FC8FF" stop-opacity="0"/></linearGradient>
+      </defs>
+      <path d="M 0 60 C 0 60 40 520 180 520 L 1000 520" fill="none" stroke="#7FC8FF" stroke-opacity="0.7" stroke-width="1" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.25 0.1 0.25 1"/></path>
+      <path d="M 0 860 C 0 860 40 520 180 520 L 1000 520" fill="none" stroke="#7FC8FF" stroke-opacity="0.7" stroke-width="1" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.25 0.1 0.25 1"/></path>
+      <g filter="url(#bacBeamBlurA)" opacity="0.5">
+        <path d="M 0 60 C 0 60 40 520 180 520 L 1000 520" fill="none" stroke="url(#bacBeamGradA)" stroke-width="8" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0s" fill="freeze"/></path>
+        <path d="M 0 860 C 0 860 40 520 180 520 L 1000 520" fill="none" stroke="url(#bacBeamGradA)" stroke-width="8" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0s" fill="freeze"/></path>
+      </g>
+      <path d="M 0 220 C 0 220 40 520 180 520 L 1000 520" fill="none" stroke="#7FC8FF" stroke-opacity="0.6" stroke-width="1" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0.2s" fill="freeze"/></path>
+      <path d="M 0 700 C 0 700 40 520 180 520 L 1000 520" fill="none" stroke="#7FC8FF" stroke-opacity="0.6" stroke-width="1" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0.2s" fill="freeze"/></path>
+      <g filter="url(#bacBeamBlurB)" opacity="0.45">
+        <path d="M 0 220 C 0 220 40 520 180 520 L 1000 520" fill="none" stroke="url(#bacBeamGradB)" stroke-width="6" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0.2s" fill="freeze"/></path>
+        <path d="M 0 700 C 0 700 40 520 180 520 L 1000 520" fill="none" stroke="url(#bacBeamGradB)" stroke-width="6" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0.2s" fill="freeze"/></path>
+      </g>
+      <path d="M 0 380 C 0 380 40 520 180 520 L 1000 520" fill="none" stroke="#7FC8FF" stroke-opacity="0.5" stroke-width="1" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0.4s" fill="freeze"/></path>
+      <path d="M 0 520 C 0 520 40 520 180 520 L 1000 520" fill="none" stroke="#7FC8FF" stroke-opacity="0.5" stroke-width="1" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0.4s" fill="freeze"/></path>
+      <g filter="url(#bacBeamBlurC)" opacity="0.4">
+        <path d="M 0 380 C 0 380 40 520 180 520 L 1000 520" fill="none" stroke="url(#bacBeamGradC)" stroke-width="4" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0.4s" fill="freeze"/></path>
+        <path d="M 0 520 C 0 520 40 520 180 520 L 1000 520" fill="none" stroke="url(#bacBeamGradC)" stroke-width="4" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="3s" begin="0.4s" fill="freeze"/></path>
+      </g>
+      <g>
+        <animateMotion begin="0s" dur="14s" repeatCount="indefinite" path="M 0 60 C 0 60 40 520 180 520 L 1000 520" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines="0.42 0 0.58 1"/>
+        <animate attributeName="opacity" begin="0s" dur="14s" repeatCount="indefinite" keyTimes="0;0.05;0.85;1" values="0;1;1;0"/>
+        <circle r="8" fill="#356EFF" fill-opacity="0.25"/>
+        <circle r="3" fill="#356EFF"/>
+      </g>
+      <g>
+        <animateMotion begin="7s" dur="14s" repeatCount="indefinite" path="M 0 860 C 0 860 40 520 180 520 L 1000 520" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines="0.42 0 0.58 1"/>
+        <animate attributeName="opacity" begin="7s" dur="14s" repeatCount="indefinite" keyTimes="0;0.05;0.85;1" values="0;1;1;0"/>
+        <circle r="8" fill="#356EFF" fill-opacity="0.25"/>
+        <circle r="3" fill="#356EFF"/>
+      </g>
+    </svg>
+    <div class="rv-bac__inner">
+      <div class="rv-bac__grid">
+        <!-- Info block -->
+        <div class="rv-bac__info">
+          <h3 class="rv-bac__info-headline">See exactly what&rsquo;s holding your business back online</h3>
+          <p class="rv-bac__info-body">Book a free, no-obligation call with our team. We&rsquo;ll audit your current digital presence, identify quick wins, and map a clear growth plan &mdash; no fluff, no sales pitch.</p>
+
+          <ul class="rv-bac__perks">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Focused 30-minute session &mdash; no rambling
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              A tailored action plan you keep, regardless
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Honest assessment &mdash; we only take you on if it makes sense
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Available Mon&ndash;Fri, 9am&ndash;6pm GMT
+            </li>
+          </ul>
+          <a href="https://cal.com/navjot-singh-gfjevp/rv30min" target="_blank" rel="noopener" class="rv-bac__cta-btn">
+            Pick a time that works for you
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="rv-bac__info-note">Prefer to message first? Use the form &rarr; or email <a href="mailto:hello@5rvdigital.co.uk">hello@5rvdigital.co.uk</a></p>
+        </div>
+        <!-- Quote enquiry form -->
+        <div class="rv-bac__form-wrap">
+          <h3 class="rv-bac__form-title">Send a project brief</h3>
+          <p class="rv-bac__form-sub">Prefer email? Fill this in and we&#8217;ll send a tailored proposal within 24 hours.</p>
+          <form action="https://formspree.io/f/hello@5rvdigital.co.uk" method="POST" novalidate>
+            <div class="rv-bac__field">
+              <label for="bacName">Your name</label>
+              <input type="text" id="bacName" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="rv-bac__field">
+              <label for="bacEmail">Email address</label>
+              <input type="email" id="bacEmail" name="email" placeholder="jane@company.com" required>
+            </div>
+            <div class="rv-bac__field">
+              <label for="bacService">Service interest</label>
+              <select id="bacService" name="service">
+                <option value="">Select a service&hellip;</option>
+                <option>SEO</option>
+                <option>Web Design &amp; Development</option>
+                <option>Social Media Management</option>
+                <option>Branding</option>
+                <option>Paid Ads (PPC)</option>
+                <option>Content Marketing</option>
+                <option>Full-Service Growth Package</option>
+              </select>
+            </div>
+            <div class="rv-bac__field">
+              <label for="bacMsg">Tell us about your project</label>
+              <textarea id="bacMsg" name="message" placeholder="What are you looking to achieve?"></textarea>
+            </div>
+            <button type="submit" class="rv-bac__submit">Send Enquiry</button>
+          </form>
         </div>
       </div>
     </div>
@@ -649,10 +948,44 @@ a{text-decoration:none;color:inherit}
   <div class="rv-prefooter">
     <div class="rv-prefooter__inner">
       <div class="rv-prefooter__card">
-        <p class="rv-prefooter__label">Let's Work Together</p>
-        <h2 class="rv-prefooter__title">Ready to grow your business online?</h2>
-        <p class="rv-prefooter__sub">Get a <strong>free strategy session</strong> with our team. We'll audit your current digital presence and map out a clear plan to drive more visibility, leads, and revenue.</p>
-        <a href="contact.html" class="rv-prefooter__btn">Get Your Free Site Audit<div class="rv-prefooter__btn-circ"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div></a>
+        <div>
+          <p class="rv-prefooter__label">Work with 5RV Digital</p>
+          <h2 class="rv-prefooter__title">Ready to grow<br>your business online?</h2>
+          <p class="rv-prefooter__sub">Get a <strong>free strategy session</strong> with our team. We'll audit your current digital presence and map out a clear plan to drive more visibility, leads, and revenue.</p>
+          <a href="contact.html" class="rv-prefooter__btn">
+            <div class="rv-prefooter__btn-text">
+              <span>Get Your Free Site Audit</span>
+              <span class="rv-clone">Get Your Free Site Audit</span>
+            </div>
+            <div class="rv-prefooter__btn-circ">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </div>
+          </a>
+        </div>
+        <div class="rv-prefooter__visual">
+          <div class="rv-orbit">
+            <div class="rv-orbit__ring rv-orbit__ring--1"></div>
+            <div class="rv-orbit__ring rv-orbit__ring--2"></div>
+            <div class="rv-orbit__center">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="rv-orbit__dot-wrap rv-orbit__dot-wrap--o1">
+              <div class="rv-orbit__dot"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aria&backgroundColor=b6e3f4" alt="Client avatar" loading="lazy"></div>
+            </div>
+            <div class="rv-orbit__dot-wrap rv-orbit__dot-wrap--o2">
+              <div class="rv-orbit__dot"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus&backgroundColor=ffd5dc" alt="Client avatar" loading="lazy"></div>
+            </div>
+            <div class="rv-orbit__dot-wrap rv-orbit__dot-wrap--o3">
+              <div class="rv-orbit__dot"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Priya&backgroundColor=c0aede" alt="Client avatar" loading="lazy"></div>
+            </div>
+            <div class="rv-orbit__dot-wrap rv-orbit__dot-wrap--i1">
+              <div class="rv-orbit__dot"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=James&backgroundColor=ffdfbf" alt="Client avatar" loading="lazy"></div>
+            </div>
+            <div class="rv-orbit__dot-wrap rv-orbit__dot-wrap--i2">
+              <div class="rv-orbit__dot"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sofia&backgroundColor=d1d4f9" alt="Client avatar" loading="lazy"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -701,6 +1034,11 @@ a{text-decoration:none;color:inherit}
   </footer>
 </div><!-- /wk-page -->
 
+<!-- Cursor arrow circle -->
+<div class="wk-cursor" id="wkCursor" aria-hidden="true">
+  <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+</div>
+
 <!-- Cookie banner -->
 <div class="rv-cookie" id="rvCookie">
   <img src="images/cookies-1.svg" alt="" width="40" height="40">
@@ -708,8 +1046,127 @@ a{text-decoration:none;color:inherit}
   <button class="rv-cookie__accept" id="rvCookieAccept">Accept</button>
 </div>
 
-<!-- Cal.com -->
-<script>(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?cal.ns[namespace]=api:p(cal,ar);return}p(cal,ar)};"object"===typeof A&&(A=A.src);const api=C.Cal;typeof api!=="function"&&(C.Cal=function(){p(api,arguments)};C.Cal.q=api.q||[])})(window,"https://app.cal.com/embed/embed.js","init");Cal("init","rv30min",{origin:"https://cal.com"});Cal.ns.rv30min("ui",{"hideEventTypeDetails":false,"layout":"month_view"});</script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function(){
+
+  /* ── 1. IntersectionObserver scroll reveals ── */
+  var rvIO=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      e.target.classList.add('rv-reveal--in');
+      rvIO.unobserve(e.target);
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -24px 0px'});
+
+  ['.wk-filter__inner','.rv-faq__head','.rv-faq__cta-card','.rv-orbit__wrapper'].forEach(function(sel){
+    var el=document.querySelector(sel);if(el){el.classList.add('rv-reveal');rvIO.observe(el);}
+  });
+  document.querySelectorAll('.wk-card').forEach(function(card,i){
+    card.classList.add('rv-reveal');
+    card.style.transitionDelay=(i%3*0.09)+'s';
+    rvIO.observe(card);
+  });
+
+  /* ── 2. GSAP-powered featured slider ── */
+  function initSlider(){
+    if(typeof gsap==='undefined'){setTimeout(initSlider,40);return;}
+
+    var slides=Array.from(document.querySelectorAll('.wk-feat-slide'));
+    var dots=Array.from(document.querySelectorAll('.wk-swiper__dot'));
+    var N=slides.length,cur=0,busy=false,timer;
+
+    function g(sl){return{
+      title:sl.querySelector('.wk-featured__title'),
+      desc:sl.querySelector('.wk-featured__desc'),
+      cta:sl.querySelector('.wk-featured__cta'),
+      tags:sl.querySelector('.wk-featured__tags'),
+      img:sl.querySelector('.wk-featured__img-col img')
+    };}
+
+    /* Set slide children to hidden start state */
+    function prep(e){
+      gsap.set([e.title,e.desc,e.cta,e.tags].filter(Boolean),{y:36,opacity:0});
+      if(e.img)gsap.set(e.img,{scale:1.08,opacity:0});
+    }
+
+    /* Animate children in — container must already have .active before calling */
+    function animIn(e,cb){
+      var tl=gsap.timeline({onComplete:cb||null});
+      if(e.img)  tl.to(e.img,  {scale:1,opacity:1,duration:.80,ease:'power2.out'},0);
+      if(e.title)tl.to(e.title,{y:0,opacity:1,duration:.55,ease:'power3.out'},.10);
+      if(e.desc) tl.to(e.desc, {y:0,opacity:1,duration:.46,ease:'power2.out'},.20);
+      if(e.cta)  tl.to(e.cta,  {y:0,opacity:1,duration:.40,ease:'power2.out',onComplete:function(){gsap.set(e.cta,{clearProps:'transform'});}},.28);
+      if(e.tags) tl.to(e.tags, {y:0,opacity:1,duration:.36,ease:'power2.out'},.35);
+    }
+
+    /* Animate children out, then call cb */
+    function animOut(e,cb){
+      var tl=gsap.timeline({onComplete:cb||null});
+      var ts=[e.title,e.desc,e.cta,e.tags].filter(Boolean);
+      if(ts.length)tl.to(ts,{y:-16,opacity:0,duration:.22,stagger:.025,ease:'power2.in'});
+      if(e.img)tl.to(e.img,{scale:1.04,opacity:0,duration:.26,ease:'power2.in'},0);
+    }
+
+    function activate(i){
+      slides[i].classList.add('active');
+      if(dots[i])dots[i].classList.add('active');
+    }
+    function deactivate(i){
+      slides[i].classList.remove('active');
+      if(dots[i])dots[i].classList.remove('active');
+    }
+
+    function goTo(next){
+      next=((next%N)+N)%N;
+      if(busy||next===cur)return;
+      busy=true;
+      var from=cur;
+      cur=next;
+      animOut(g(slides[from]),function(){
+        deactivate(from);
+        activate(cur);
+        var ne=g(slides[cur]);
+        prep(ne);
+        animIn(ne,function(){busy=false;});
+      });
+    }
+
+    function startAuto(){clearInterval(timer);timer=setInterval(function(){goTo(cur+1);},5500);}
+
+    /* Boot: slide 0 already has .active from HTML; prep children then animate in */
+    var e0=g(slides[0]);
+    prep(e0);
+    busy=true;
+    animIn(e0,function(){busy=false;startAuto();});
+    document.getElementById('featPrev').addEventListener('click',function(){clearInterval(timer);goTo(cur-1);startAuto();});
+    document.getElementById('featNext').addEventListener('click',function(){clearInterval(timer);goTo(cur+1);startAuto();});
+    dots.forEach(function(d,i){d.addEventListener('click',function(){clearInterval(timer);goTo(i);startAuto();});});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initSlider);
+  else initSlider();
+
+  /* ── 3. Magnetic hover on featured CTAs ── */
+  /* ── 4. Card subtle lift on hover (no 3D tilt — conflicts with CSS transitions) ── */
+
+  /* ── 5. Filter: pop-in newly visible cards ── */
+  document.querySelectorAll('.wk-filter__tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      setTimeout(function(){
+        document.querySelectorAll('.wk-card').forEach(function(card,i){
+          if(card.style.display==='none')return;
+          card.classList.remove('wk-card--popin');
+          void card.offsetWidth; /* force reflow */
+          card.style.animationDelay=(i%3*0.055)+'s';
+          card.classList.add('wk-card--popin');
+        });
+      },16);
+    });
+  });
+
+})();
+</script>
 
 <script>
 (function(){
@@ -717,14 +1174,15 @@ a{text-decoration:none;color:inherit}
   var DESKTOP=function(){return window.innerWidth>=768};
   var topbar=document.getElementById("rvTopbar");
   var navbar=document.querySelector(".rv-navbar");
-  var ctaPill=document.querySelector(".rv-cta-pill");
+  var bookPill=document.querySelector(".rv-book-pill");
   var SCROLL_THRESH=80,IDLE_MS=3000,isScrolled=false,idleTimer=null;
-  function showDock(){navbar.classList.add("rv-dock--visible");if(ctaPill)ctaPill.classList.add("rv-dock--visible")}
-  function hideDock(){navbar.classList.remove("rv-dock--visible");if(ctaPill)ctaPill.classList.remove("rv-dock--visible")}
+  function showDock(){navbar.classList.add("rv-dock--visible");if(bookPill)bookPill.classList.add("rv-pill--visible")}
+  function hideDock(){navbar.classList.remove("rv-dock--visible");if(bookPill)bookPill.classList.remove("rv-pill--visible")}
   function resetIdle(){clearTimeout(idleTimer);showDock();idleTimer=setTimeout(hideDock,IDLE_MS)}
   function onScroll(){
     if(!DESKTOP())return;
     var y=window.scrollY,nowScrolled=y>SCROLL_THRESH;
+    if(bookPill)bookPill.classList.toggle("rv-pill--visible",y>120);
     if(nowScrolled===isScrolled){if(nowScrolled)resetIdle();return}
     isScrolled=nowScrolled;
     if(nowScrolled){topbar.classList.add("rv-top--hidden");resetIdle()}
@@ -779,21 +1237,50 @@ a{text-decoration:none;color:inherit}
   searchEl.addEventListener("input",applyFilter);
   applyFilter();
 
-  /* ── FAQ accordion ── */
-  document.querySelectorAll(".wk-faq__question").forEach(function(btn){
-    btn.addEventListener("click",function(){
-      var item=btn.closest(".wk-faq__item");
-      var isOpen=item.classList.contains("open");
-      document.querySelectorAll(".wk-faq__item.open").forEach(function(i){i.classList.remove("open")});
-      if(!isOpen)item.classList.add("open");
+  /* ── FAQ accordion (rv-faq) ── */
+  (function(){
+    var items=document.querySelectorAll('.rv-faq-item');
+    items.forEach(function(item){
+      var q=item.querySelector('.rv-faq-item__q'),a=item.querySelector('.rv-faq-item__a');
+      q.addEventListener('click',function(){
+        var open=item.classList.contains('active');
+        items.forEach(function(o){o.classList.remove('active');o.querySelector('.rv-faq-item__a').style.maxHeight=null;});
+        if(!open){item.classList.add('active');a.style.maxHeight=a.scrollHeight+'px';}
+      });
     });
-  });
+  })();
+  /* ── FAQ CTA card mouse glow ── */
+  (function(){
+    var card=document.querySelector('.rv-faq__cta-card');
+    if(!card)return;
+    card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect();card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');card.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');});
+    card.addEventListener('mouseleave',function(){card.style.setProperty('--mx','50%');card.style.setProperty('--my','-20%');});
+  })();
 
   /* ── Cookie ── */
   var banner=document.getElementById("rvCookie"),accept=document.getElementById("rvCookieAccept");
   if(banner&&!localStorage.getItem("rv_cookie_ok")){setTimeout(function(){banner.classList.add("show")},1800)}
   if(accept)accept.addEventListener("click",function(){banner.classList.remove("show");localStorage.setItem("rv_cookie_ok","1")});
 })();
+
+
+  /* ── Cursor arrow circle ── */
+  (function(){
+    var cur=document.getElementById('wkCursor');
+    var grid=document.getElementById('wkGrid');
+    if(!cur||!grid)return;
+    var inside=false;
+    grid.addEventListener('mouseenter',function(){inside=true;cur.classList.add('visible');});
+    grid.addEventListener('mouseleave',function(){inside=false;cur.classList.remove('visible');});
+    document.addEventListener('mousemove',function(e){
+      if(!inside)return;
+      cur.style.left=e.clientX+'px';
+      cur.style.top=e.clientY+'px';
+    },{passive:true});
+  })();
+
+  /* ── Cal inline embed initialised above in Cal init script ── */
+
 </script>
 </body>
 </html>
