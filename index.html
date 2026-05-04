@@ -135,7 +135,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 .rv-hero__badge-dot{width:8px;height:8px;border-radius:50%;background:#356EFF;box-shadow:0 0 0 3px rgba(53,110,255,.18);animation:rv-pulse 2s ease-in-out infinite;flex-shrink:0}
 @keyframes rv-pulse{0%,100%{box-shadow:0 0 0 3px rgba(53,110,255,.18)}50%{box-shadow:0 0 0 7px rgba(53,110,255,.05)}}
 .rv-hero__badge-text{font-family:var(--font-primary);font-size:12px;font-weight:600;color:var(--c-blue);letter-spacing:.04em;text-transform:uppercase}
-.rv-hero__title{font-family:var(--font-primary);font-size:clamp(40px,5vw,76px);font-weight:800;line-height:1.06;color:var(--c-navy);letter-spacing:-0.03em;margin:0 0 28px}
+.rv-hero__title{font-family:var(--font-primary);font-size:clamp(40px,5vw,76px);font-weight:800;line-height:1.06;color:var(--c-navy);letter-spacing:-0.03em;margin:0 0 28px;min-height:2.2em}
 .rv-h1-line{display:block;overflow:hidden}.rv-h1-cursor{display:inline-block;width:2px;height:.85em;background:var(--c-navy);margin-left:3px;vertical-align:middle;animation:rv-blink .65s step-end infinite}@keyframes rv-blink{0%,100%{opacity:1}50%{opacity:0}}
 .rv-h1-inner{display:block}
 .rv-hero__accent{background:linear-gradient(130deg,#356EFF 0%,#5a85ff 50%,#7c3aed 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
@@ -663,10 +663,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
           <span class="rv-hero__badge-dot"></span>
           <span class="rv-hero__badge-text">Birmingham&#39;s Growth Agency</span>
         </div>
-        <h1 class="rv-hero__title" id="rvHeroTitle">
-          <span class="rv-h1-line"><span class="rv-h1-inner">Turning Clicks Into</span></span>
-          <span class="rv-h1-line"><span class="rv-h1-inner"><em class="rv-hero__accent">Revenue.</em></span></span>
-        </h1>
+        <h1 class="rv-hero__title" id="rvHeroTitle"><span class="rv-h1-line"><span class="rv-h1-inner">Turning Clicks Into <em class="rv-hero__accent">Revenue.</em></span></span></h1>
         <p class="rv-hero__sub">5RV Digital blends creativity and data to craft campaigns that boost visibility, generate quality leads, and maximise ROI for brands across the UK.</p>
         <div class="rv-hero__actions">
           <a href="contact.html" class="rv-hero__pill-btn">
