@@ -1768,11 +1768,14 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
     function cycleNext(){
       cur=(cur+1)%questions.length;
       var inners=title.querySelectorAll('.rv-h1-inner');
-      gsap.to(inners,{y:'-105%',duration:.55,stagger:.07,ease:'power3.in',onComplete:function(){
+      /* Use a timeline so onComplete fires ONCE (not once-per-element like gsap.to stagger) */
+      var tl=gsap.timeline({onComplete:function(){
         title.innerHTML=questions[cur];
-        gsap.set(title.querySelectorAll('.rv-h1-inner'),{y:'105%'});
-        gsap.to(title.querySelectorAll('.rv-h1-inner'),{y:'0%',duration:.8,stagger:.1,ease:'power4.out'});
+        var next=title.querySelectorAll('.rv-h1-inner');
+        gsap.set(next,{y:'105%'});
+        gsap.to(next,{y:'0%',duration:.8,stagger:.1,ease:'power4.out'});
       }});
+      tl.to(inners,{y:'-105%',duration:.55,stagger:.07,ease:'power3.in'});
     }
     setTimeout(function(){cycleNext();setInterval(cycleNext,3800);},4200);
   })();
