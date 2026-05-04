@@ -136,7 +136,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 @keyframes rv-pulse{0%,100%{box-shadow:0 0 0 3px rgba(53,110,255,.18)}50%{box-shadow:0 0 0 7px rgba(53,110,255,.05)}}
 .rv-hero__badge-text{font-family:var(--font-primary);font-size:12px;font-weight:600;color:var(--c-blue);letter-spacing:.04em;text-transform:uppercase}
 .rv-hero__title{font-family:var(--font-primary);font-size:clamp(40px,5vw,76px);font-weight:800;line-height:1.06;color:var(--c-navy);letter-spacing:-0.03em;margin:0 0 28px}
-.rv-h1-line{display:block;overflow:hidden}
+.rv-h1-line{display:block;overflow:hidden}.rv-h1-cursor{display:inline-block;width:2px;height:.85em;background:var(--c-navy);margin-left:3px;vertical-align:middle;animation:rv-blink .65s step-end infinite}@keyframes rv-blink{0%,100%{opacity:1}50%{opacity:0}}
 .rv-h1-inner{display:block}
 .rv-hero__accent{background:linear-gradient(130deg,#356EFF 0%,#5a85ff 50%,#7c3aed 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
 .rv-hero__sub{font-family:var(--font-body);font-size:17px;line-height:1.75;color:rgba(11,23,57,.52);max-width:500px;margin:0 0 40px}
@@ -1764,26 +1764,66 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
   })();
   </script>
 
-  <!-- Hero Question Cycle -->
+  <!-- Hero Question Cycle (typewriter) -->
   <script>
   (function(){
-    if(typeof gsap==='undefined') return;
-    var title=document.getElementById('rvHeroTitle');
-    if(!title) return;
-    var questions=[
-      'Turning Clicks Into <em class="rv-hero__accent">Revenue.</em>',
-      'How does AI see your <em class="rv-hero__accent">brand?</em>',
-      'Are you in the <em class="rv-hero__accent">AI conversation?</em>'
+    var title = document.getElementById('rvHeroTitle');
+    if (!title) return;
+
+    var questions = [
+      {plain: 'Turning Clicks Into ', accent: 'Revenue.'},
+      {plain: 'How does AI see your ', accent: 'brand?'},
+      {plain: 'Are you in the ', accent: 'AI conversation?'}
     ];
-    var cur=0;
-    function cycleNext(){
-      cur=(cur+1)%questions.length;
-      gsap.to(title,{opacity:0,y:-30,duration:.4,ease:'power2.in',onComplete:function(){
-        title.innerHTML='<span class="rv-h1-line"><span class="rv-h1-inner">'+questions[cur]+'</span></span>';
-        gsap.fromTo(title,{opacity:0,y:30},{opacity:1,y:0,duration:.6,ease:'power3.out'});
-      }});
+    var cur = 0;
+    var SPEED = 48;   // ms per character
+    var HOLD  = 2600; // ms to hold after typing finishes
+
+    function render(plainTyped, accentTyped, cursor) {
+      var c = cursor ? '<span class="rv-h1-cursor"></span>' : '';
+      title.innerHTML =
+        '<span class="rv-h1-line"><span class="rv-h1-inner">' +
+        plainTyped +
+        (accentTyped ? '<em class="rv-hero__accent">' + accentTyped + '</em>' : '') +
+        c +
+        '</span></span>';
     }
-    setTimeout(function(){cycleNext();setInterval(cycleNext,4000);},4000);
+
+    function typeQuestion(q, onDone) {
+      var full = q.plain + q.accent;
+      var i = 0;
+      render('', '', true);
+      var t = setInterval(function () {
+        i++;
+        var typed = full.substring(0, i);
+        if (typed.length <= q.plain.length) {
+          render(typed, '', true);
+        } else {
+          render(q.plain, typed.substring(q.plain.length), true);
+        }
+        if (i >= full.length) {
+          clearInterval(t);
+          setTimeout(function () {
+            render(q.plain, q.accent, false); // remove cursor
+            setTimeout(onDone, HOLD);
+          }, 300);
+        }
+      }, SPEED);
+    }
+
+    function cycle() {
+      cur = (cur + 1) % questions.length;
+      // Quick fade out via opacity CSS transition on the title
+      title.style.transition = 'opacity 0.25s';
+      title.style.opacity = '0';
+      setTimeout(function () {
+        title.style.opacity = '1';
+        typeQuestion(questions[cur], cycle);
+      }, 260);
+    }
+
+    // Start after entry animation (~3s) + hold on first question
+    setTimeout(cycle, 4200);
   })();
   </script>
 </body>
