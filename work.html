@@ -1073,9 +1073,13 @@ a{text-decoration:none;color:inherit}
   function initSlider(){
     if(typeof gsap==='undefined'){setTimeout(initSlider,40);return;}
 
+    /* Prevent GSAP from fast-forwarding after tab hide/show */
+    gsap.ticker.lagSmoothing(0);
+
     var slides=Array.from(document.querySelectorAll('.wk-feat-slide'));
     var dots=Array.from(document.querySelectorAll('.wk-swiper__dot'));
     var N=slides.length,cur=0,busy=false,timer;
+    var activeTls=[];
 
     function g(sl){return{
       title:sl.querySelector('.wk-featured__title'),
@@ -1085,15 +1089,36 @@ a{text-decoration:none;color:inherit}
       img:sl.querySelector('.wk-featured__img-col img')
     };}
 
+    function killAll(){
+      activeTls.forEach(function(tl){tl.kill();});
+      activeTls=[];
+    }
+
+    function snapHidden(e){
+      var els=[e.title,e.desc,e.cta,e.tags].filter(Boolean);
+      gsap.set(els,{y:36,opacity:0,clearProps:'transform'});
+      if(e.img)gsap.set(e.img,{scale:1.08,opacity:0});
+    }
+
+    function snapVisible(e){
+      var els=[e.title,e.desc,e.cta,e.tags].filter(Boolean);
+      gsap.set(els,{y:0,opacity:1,clearProps:'transform'});
+      if(e.img)gsap.set(e.img,{scale:1,opacity:1});
+    }
+
     /* Set slide children to hidden start state */
     function prep(e){
       gsap.set([e.title,e.desc,e.cta,e.tags].filter(Boolean),{y:36,opacity:0});
       if(e.img)gsap.set(e.img,{scale:1.08,opacity:0});
     }
 
-    /* Animate children in — container must already have .active before calling */
+    /* Animate children in */
     function animIn(e,cb){
-      var tl=gsap.timeline({onComplete:cb||null});
+      var tl=gsap.timeline({onComplete:function(){
+        activeTls=activeTls.filter(function(t){return t!==tl;});
+        if(cb)cb();
+      }});
+      activeTls.push(tl);
       if(e.img)  tl.to(e.img,  {scale:1,opacity:1,duration:.80,ease:'power2.out'},0);
       if(e.title)tl.to(e.title,{y:0,opacity:1,duration:.55,ease:'power3.out'},.10);
       if(e.desc) tl.to(e.desc, {y:0,opacity:1,duration:.46,ease:'power2.out'},.20);
@@ -1103,7 +1128,11 @@ a{text-decoration:none;color:inherit}
 
     /* Animate children out, then call cb */
     function animOut(e,cb){
-      var tl=gsap.timeline({onComplete:cb||null});
+      var tl=gsap.timeline({onComplete:function(){
+        activeTls=activeTls.filter(function(t){return t!==tl;});
+        if(cb)cb();
+      }});
+      activeTls.push(tl);
       var ts=[e.title,e.desc,e.cta,e.tags].filter(Boolean);
       if(ts.length)tl.to(ts,{y:-16,opacity:0,duration:.22,stagger:.025,ease:'power2.in'});
       if(e.img)tl.to(e.img,{scale:1.04,opacity:0,duration:.26,ease:'power2.in'},0);
@@ -1141,10 +1170,21 @@ a{text-decoration:none;color:inherit}
       },5500);
     }
 
-    /* Unstick busy + resume when tab becomes visible again */
+    /* On tab hide: kill tweens, snap current slide visible, clear busy immediately */
     document.addEventListener('visibilitychange',function(){
-      if(document.hidden){clearTimeout(timer);}
-      else{busy=false;startAuto();}
+      if(document.hidden){
+        clearTimeout(timer);
+        killAll();
+        /* Snap: ensure current slide is fully visible, others hidden */
+        slides.forEach(function(sl,i){
+          if(i===cur){activate(i);snapVisible(g(sl));}
+          else{deactivate(i);snapHidden(g(sl));}
+        });
+        busy=false;
+      } else {
+        busy=false;
+        startAuto();
+      }
     });
 
     /* Boot: slide 0 already has .active from HTML; prep children then animate in */
