@@ -136,7 +136,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 @keyframes rv-pulse{0%,100%{box-shadow:0 0 0 3px rgba(53,110,255,.18)}50%{box-shadow:0 0 0 7px rgba(53,110,255,.05)}}
 .rv-hero__badge-text{font-family:var(--font-primary);font-size:12px;font-weight:600;color:var(--c-blue);letter-spacing:.04em;text-transform:uppercase}
 .rv-hero__title{font-family:var(--font-primary);font-size:clamp(40px,5vw,76px);font-weight:800;line-height:1.06;color:var(--c-navy);letter-spacing:-0.03em;margin:0 0 28px}
-.rv-hero__title-wrap{position:relative}.rv-h1-line{display:block;overflow:hidden}
+.rv-h1-line{display:block;overflow:hidden}
 .rv-h1-inner{display:block}
 .rv-hero__accent{background:linear-gradient(130deg,#356EFF 0%,#5a85ff 50%,#7c3aed 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
 .rv-hero__sub{font-family:var(--font-body);font-size:17px;line-height:1.75;color:rgba(11,23,57,.52);max-width:500px;margin:0 0 40px}
@@ -663,20 +663,10 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
           <span class="rv-hero__badge-dot"></span>
           <span class="rv-hero__badge-text">Birmingham&#39;s Growth Agency</span>
         </div>
-        <div class="rv-hero__title-wrap" id="rvHeroTitleWrap">
-          <h1 class="rv-hero__title rv-q rv-q--active" id="rvHeroTitle">
-            <span class="rv-h1-line"><span class="rv-h1-inner">Turning Clicks Into</span></span>
-            <span class="rv-h1-line"><span class="rv-h1-inner"><em class="rv-hero__accent">Revenue.</em></span></span>
-          </h1>
-          <h1 class="rv-hero__title rv-q" aria-hidden="true">
-            <span class="rv-h1-line"><span class="rv-h1-inner">How does AI</span></span>
-            <span class="rv-h1-line"><span class="rv-h1-inner">see your <em class="rv-hero__accent">brand?</em></span></span>
-          </h1>
-          <h1 class="rv-hero__title rv-q" aria-hidden="true">
-            <span class="rv-h1-line"><span class="rv-h1-inner">Are you in the</span></span>
-            <span class="rv-h1-line"><span class="rv-h1-inner"><em class="rv-hero__accent">AI conversation?</em></span></span>
-          </h1>
-        </div>
+        <h1 class="rv-hero__title" id="rvHeroTitle">
+          <span class="rv-h1-line"><span class="rv-h1-inner">Turning Clicks Into</span></span>
+          <span class="rv-h1-line"><span class="rv-h1-inner"><em class="rv-hero__accent">Revenue.</em></span></span>
+        </h1>
         <p class="rv-hero__sub">5RV Digital blends creativity and data to craft campaigns that boost visibility, generate quality leads, and maximise ROI for brands across the UK.</p>
         <div class="rv-hero__actions">
           <a href="contact.html" class="rv-hero__pill-btn">
@@ -1760,12 +1750,12 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
   (function(){
     if(typeof gsap==='undefined') return;
     gsap.set('.rv-hero__badge,.rv-hero__sub,.rv-hero__actions,.rv-hero__proof',{opacity:0,y:20});
-    gsap.set('.rv-q:first-child .rv-h1-inner',{y:'105%'});
+    gsap.set('.rv-h1-inner',{y:'105%'});
     gsap.set('.rv-hero__right',{opacity:0,x:36});
     gsap.set('.rv-hero__chip',{opacity:0,scale:.8,y:10});
     var tl=gsap.timeline({defaults:{ease:'power3.out'}});
     tl.to('.rv-hero__badge',{opacity:1,y:0,duration:.55})
-      .to('.rv-q:first-child .rv-h1-inner',{y:'0%',duration:.85,stagger:.1,ease:'power4.out'},'-=.15')
+      .to('.rv-h1-inner',{y:'0%',duration:.85,stagger:.1,ease:'power4.out'},'-=.15')
       .to('.rv-hero__sub',{opacity:1,y:0,duration:.65},'-=.5')
       .to('.rv-hero__actions',{opacity:1,y:0,duration:.55},'-=.4')
       .to('.rv-hero__proof',{opacity:1,y:0,duration:.55},'-=.35')
@@ -1778,43 +1768,22 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
   <script>
   (function(){
     if(typeof gsap==='undefined') return;
-    var cards=document.querySelectorAll('.rv-q');
-    if(!cards||cards.length<2) return;
+    var title=document.getElementById('rvHeroTitle');
+    if(!title) return;
+    var questions=[
+      'Turning Clicks Into <em class="rv-hero__accent">Revenue.</em>',
+      'How does AI see your <em class="rv-hero__accent">brand?</em>',
+      'Are you in the <em class="rv-hero__accent">AI conversation?</em>'
+    ];
     var cur=0;
-    /* Hide all but first upfront */
-    for(var i=1;i<cards.length;i++){
-      gsap.set(cards[i].querySelectorAll('.rv-h1-inner'),{y:'105%'});
-      cards[i].setAttribute('aria-hidden','true');
-      cards[i].style.position='absolute';
-      cards[i].style.top='0';
-      cards[i].style.left='0';
-      cards[i].style.visibility='hidden';
-    }
-    cards[0].style.position='relative';
     function cycleNext(){
-      var prev=cur;
-      cur=(cur+1)%cards.length;
-      var outCard=cards[prev];
-      var inCard=cards[cur];
-      var outInners=outCard.querySelectorAll('.rv-h1-inner');
-      var inInners=inCard.querySelectorAll('.rv-h1-inner');
-      /* Show incoming card offscreen below */
-      gsap.set(inInners,{y:'105%'});
-      inCard.style.visibility='visible';
-      inCard.setAttribute('aria-hidden','false');
-      /* Slide out current, then slide in next */
-      var tl=gsap.timeline();
-      tl.to(outInners,{y:'-105%',duration:.5,stagger:.06,ease:'power3.in'})
-        .call(function(){
-          outCard.style.visibility='hidden';
-          outCard.setAttribute('aria-hidden','true');
-          /* make incoming absolute, outgoing relative to hold layout */
-          outCard.style.position='absolute';
-          inCard.style.position='relative';
-        })
-        .to(inInners,{y:'0%',duration:.8,stagger:.1,ease:'power4.out'},'-=0.05');
+      cur=(cur+1)%questions.length;
+      gsap.to(title,{opacity:0,y:-30,duration:.4,ease:'power2.in',onComplete:function(){
+        title.innerHTML='<span class="rv-h1-line"><span class="rv-h1-inner">'+questions[cur]+'</span></span>';
+        gsap.fromTo(title,{opacity:0,y:30},{opacity:1,y:0,duration:.6,ease:'power3.out'});
+      }});
     }
-    setTimeout(function(){cycleNext();setInterval(cycleNext,3800);},4200);
+    setTimeout(function(){cycleNext();setInterval(cycleNext,4000);},4000);
   })();
   </script>
 </body>
