@@ -138,8 +138,17 @@ a{text-decoration:none;color:inherit}
 /* Manual featured slider */
 .wk-swiper{position:relative}
 .wk-feat-slider{display:grid}
-.wk-feat-slide{grid-area:1/1;display:grid;grid-template-columns:1fr 1.45fr;gap:52px;align-items:center;opacity:0;pointer-events:none}
+.wk-feat-slide{grid-area:1/1;display:grid;grid-template-columns:1fr 1.45fr;gap:52px;align-items:center;opacity:0;pointer-events:none;transition:opacity .35s ease}
 .wk-feat-slide.active{opacity:1;pointer-events:all}
+/* Slide children: hidden by default, no transition (so snap back is instant on deactivate) */
+.wk-feat-slide .wk-featured__title,.wk-feat-slide .wk-featured__desc,.wk-feat-slide .wk-featured__cta,.wk-feat-slide .wk-featured__tags{opacity:0;transform:translateY(28px);transition:none}
+.wk-feat-slide .wk-featured__img-col img{opacity:0;transform:scale(1.08);transition:none}
+/* Active: children animate in with staggered delays */
+.wk-feat-slide.active .wk-featured__img-col img{opacity:1;transform:scale(1.02);transition:opacity .8s ease,transform .8s ease}
+.wk-feat-slide.active .wk-featured__title{opacity:1;transform:none;transition:opacity .55s ease .1s,transform .55s ease .1s}
+.wk-feat-slide.active .wk-featured__desc{opacity:1;transform:none;transition:opacity .46s ease .2s,transform .46s ease .2s}
+.wk-feat-slide.active .wk-featured__cta{opacity:1;transform:none;transition:opacity .4s ease .28s,transform .4s ease .28s}
+.wk-feat-slide.active .wk-featured__tags{opacity:1;transform:none;transition:opacity .36s ease .35s,transform .36s ease .35s}
 .wk-featured__info{display:flex;flex-direction:column;padding:8px 0}
 
 .wk-featured__title{font-family:var(--font-primary);font-size:clamp(28px,3.8vw,52px);font-weight:800;line-height:1.05;color:#111;letter-spacing:-0.03em;margin:0 0 20px}
@@ -158,8 +167,7 @@ a{text-decoration:none;color:inherit}
 .wk-featured__tags{display:flex;gap:8px;flex-wrap:wrap}
 .wk-featured__tag{font-family:var(--font-primary);font-size:13px;font-weight:500;color:#374151;background:transparent;border:1px solid var(--c-gray-200);border-radius:100px;padding:6px 16px}
 .wk-featured__img-col{border-radius:20px;overflow:hidden;height:430px}
-.wk-featured__img-col img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
-.wk-feat-slide.active .wk-featured__img-col img{transform:scale(1.02)}
+.wk-featured__img-col img{width:100%;height:100%;object-fit:cover;display:block}
 /* slider nav */
 .wk-swiper__nav{display:flex;align-items:center;gap:12px;margin-top:28px}
 .wk-swiper__btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--c-gray-200);background:#fff;display:grid;place-items:center;cursor:pointer;transition:border-color .2s,background .2s;flex-shrink:0}
@@ -1069,129 +1077,45 @@ a{text-decoration:none;color:inherit}
     rvIO.observe(card);
   });
 
-  /* ── 2. GSAP-powered featured slider ── */
+  /* ── 2. CSS-transition featured slider (no GSAP — immune to tab switching) ── */
   function initSlider(){
-    if(typeof gsap==='undefined'){setTimeout(initSlider,40);return;}
-
-    /* Prevent GSAP from fast-forwarding after tab hide/show */
-    gsap.ticker.lagSmoothing(0);
-
     var slides=Array.from(document.querySelectorAll('.wk-feat-slide'));
     var dots=Array.from(document.querySelectorAll('.wk-swiper__dot'));
     var N=slides.length,cur=0,busy=false,timer;
-    var activeTls=[];
 
-    function g(sl){return{
-      title:sl.querySelector('.wk-featured__title'),
-      desc:sl.querySelector('.wk-featured__desc'),
-      cta:sl.querySelector('.wk-featured__cta'),
-      tags:sl.querySelector('.wk-featured__tags'),
-      img:sl.querySelector('.wk-featured__img-col img')
-    };}
-
-    function killAll(){
-      activeTls.forEach(function(tl){tl.kill();});
-      activeTls=[];
-    }
-
-    function snapHidden(e){
-      var els=[e.title,e.desc,e.cta,e.tags].filter(Boolean);
-      gsap.set(els,{y:36,opacity:0,clearProps:'transform'});
-      if(e.img)gsap.set(e.img,{scale:1.08,opacity:0});
-    }
-
-    function snapVisible(e){
-      var els=[e.title,e.desc,e.cta,e.tags].filter(Boolean);
-      gsap.set(els,{y:0,opacity:1,clearProps:'transform'});
-      if(e.img)gsap.set(e.img,{scale:1,opacity:1});
-    }
-
-    /* Set slide children to hidden start state */
-    function prep(e){
-      gsap.set([e.title,e.desc,e.cta,e.tags].filter(Boolean),{y:36,opacity:0});
-      if(e.img)gsap.set(e.img,{scale:1.08,opacity:0});
-    }
-
-    /* Animate children in */
-    function animIn(e,cb){
-      var tl=gsap.timeline({onComplete:function(){
-        activeTls=activeTls.filter(function(t){return t!==tl;});
-        if(cb)cb();
-      }});
-      activeTls.push(tl);
-      if(e.img)  tl.to(e.img,  {scale:1,opacity:1,duration:.80,ease:'power2.out'},0);
-      if(e.title)tl.to(e.title,{y:0,opacity:1,duration:.55,ease:'power3.out'},.10);
-      if(e.desc) tl.to(e.desc, {y:0,opacity:1,duration:.46,ease:'power2.out'},.20);
-      if(e.cta)  tl.to(e.cta,  {y:0,opacity:1,duration:.40,ease:'power2.out',onComplete:function(){gsap.set(e.cta,{clearProps:'transform'});}},.28);
-      if(e.tags) tl.to(e.tags, {y:0,opacity:1,duration:.36,ease:'power2.out'},.35);
-    }
-
-    /* Animate children out, then call cb */
-    function animOut(e,cb){
-      var tl=gsap.timeline({onComplete:function(){
-        activeTls=activeTls.filter(function(t){return t!==tl;});
-        if(cb)cb();
-      }});
-      activeTls.push(tl);
-      var ts=[e.title,e.desc,e.cta,e.tags].filter(Boolean);
-      if(ts.length)tl.to(ts,{y:-16,opacity:0,duration:.22,stagger:.025,ease:'power2.in'});
-      if(e.img)tl.to(e.img,{scale:1.04,opacity:0,duration:.26,ease:'power2.in'},0);
-    }
-
-    function activate(i){
-      slides[i].classList.add('active');
-      if(dots[i])dots[i].classList.add('active');
-    }
-    function deactivate(i){
-      slides[i].classList.remove('active');
-      if(dots[i])dots[i].classList.remove('active');
-    }
+    function activate(i){slides[i].classList.add('active');if(dots[i])dots[i].classList.add('active');}
+    function deactivate(i){slides[i].classList.remove('active');if(dots[i])dots[i].classList.remove('active');}
 
     function goTo(next){
       next=((next%N)+N)%N;
       if(busy||next===cur)return;
       busy=true;
-      var from=cur;
+      deactivate(cur);
       cur=next;
-      animOut(g(slides[from]),function(){
-        deactivate(from);
-        activate(cur);
-        var ne=g(slides[cur]);
-        prep(ne);
-        animIn(ne,function(){busy=false;});
+      /* 1 rAF lets browser paint the deactivated (opacity:0) state before adding active */
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          activate(cur);
+          /* longest animation: img 0.8s + 0s delay — give 950ms then unlock */
+          setTimeout(function(){busy=false;},950);
+        });
       });
     }
 
     function startAuto(){
       clearTimeout(timer);
-      timer=setTimeout(function(){
-        if(!busy)goTo(cur+1);
-        startAuto();
-      },5500);
+      timer=setTimeout(function(){goTo(cur+1);startAuto();},5500);
     }
 
-    /* On tab hide: kill tweens, snap current slide visible, clear busy immediately */
+    /* Tab hide/show: CSS transitions work fine but reset busy & timer */
     document.addEventListener('visibilitychange',function(){
-      if(document.hidden){
-        clearTimeout(timer);
-        killAll();
-        /* Snap: ensure current slide is fully visible, others hidden */
-        slides.forEach(function(sl,i){
-          if(i===cur){activate(i);snapVisible(g(sl));}
-          else{deactivate(i);snapHidden(g(sl));}
-        });
-        busy=false;
-      } else {
-        busy=false;
-        startAuto();
-      }
+      if(document.hidden){clearTimeout(timer);busy=false;}
+      else{busy=false;startAuto();}
     });
 
-    /* Boot: slide 0 already has .active from HTML; prep children then animate in */
-    var e0=g(slides[0]);
-    prep(e0);
-    busy=true;
-    animIn(e0,function(){busy=false;startAuto();});
+    /* Boot */
+    activate(0);
+    startAuto();
     document.getElementById('featPrev').addEventListener('click',function(){clearTimeout(timer);goTo(cur-1);startAuto();});
     document.getElementById('featNext').addEventListener('click',function(){clearTimeout(timer);goTo(cur+1);startAuto();});
     dots.forEach(function(d,i){d.addEventListener('click',function(){clearTimeout(timer);goTo(i);startAuto();});});
