@@ -1133,16 +1133,28 @@ a{text-decoration:none;color:inherit}
       });
     }
 
-    function startAuto(){clearInterval(timer);timer=setInterval(function(){goTo(cur+1);},5500);}
+    function startAuto(){
+      clearTimeout(timer);
+      timer=setTimeout(function(){
+        if(!busy)goTo(cur+1);
+        startAuto();
+      },5500);
+    }
+
+    /* Unstick busy + resume when tab becomes visible again */
+    document.addEventListener('visibilitychange',function(){
+      if(document.hidden){clearTimeout(timer);}
+      else{busy=false;startAuto();}
+    });
 
     /* Boot: slide 0 already has .active from HTML; prep children then animate in */
     var e0=g(slides[0]);
     prep(e0);
     busy=true;
     animIn(e0,function(){busy=false;startAuto();});
-    document.getElementById('featPrev').addEventListener('click',function(){clearInterval(timer);goTo(cur-1);startAuto();});
-    document.getElementById('featNext').addEventListener('click',function(){clearInterval(timer);goTo(cur+1);startAuto();});
-    dots.forEach(function(d,i){d.addEventListener('click',function(){clearInterval(timer);goTo(i);startAuto();});});
+    document.getElementById('featPrev').addEventListener('click',function(){clearTimeout(timer);goTo(cur-1);startAuto();});
+    document.getElementById('featNext').addEventListener('click',function(){clearTimeout(timer);goTo(cur+1);startAuto();});
+    dots.forEach(function(d,i){d.addEventListener('click',function(){clearTimeout(timer);goTo(i);startAuto();});});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initSlider);
   else initSlider();
