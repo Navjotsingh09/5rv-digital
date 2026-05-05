@@ -403,6 +403,27 @@ a{text-decoration:none;color:inherit}
 .rv-cookie__accept{background:var(--c-blue);color:#fff;border:none;padding:10px 20px;border-radius:var(--radius-sm);font-family:var(--font-primary);font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap;transition:background .2s}
 .rv-cookie__accept:hover{background:var(--c-blue-deep)}
   </style>
+<style id="rv-cookie-override">
+/* === RV COOKIE REDESIGN 2026 === */
+.rv-cookie{position:fixed!important;bottom:24px!important;right:24px!important;left:auto!important;transform:translateY(calc(100% + 36px))!important;max-width:360px!important;width:calc(100vw - 48px)!important;background:#fff!important;border-radius:16px!important;padding:20px 20px 18px!important;box-shadow:0 8px 40px rgba(11,23,57,.16),0 0 0 1px rgba(0,0,0,.07)!important;overflow:hidden!important;display:block!important;flex-direction:unset!important;align-items:unset!important;gap:unset!important}
+.rv-cookie::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#356EFF,#0263E0);border-radius:16px 0 0 16px;pointer-events:none}
+.rv-cookie.show{transform:translateY(0)!important}
+.rv-cookie>img{display:none!important}
+.rv-cookie__text{flex:unset!important}
+.rv-cookie__text h5{display:none!important}
+.rv-cookie__text p{font-size:13px!important;line-height:1.6!important;color:#6b7280!important;margin:0 0 14px!important}
+.rv-cookie__text a{color:#356EFF!important;text-decoration:underline;text-underline-offset:2px}
+.rv-cookie__header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.rv-cookie__header-title{font-family:'Urbanist',sans-serif;font-size:15px;font-weight:700;color:#111827;margin:0;flex:1}
+.rv-cookie__x{width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(0,0,0,.1);background:transparent;font-size:12px;cursor:pointer;display:flex!important;align-items:center;justify-content:center;color:#6b7280;flex-shrink:0;line-height:1;padding:0}
+.rv-cookie__x:hover{background:#f3f4f6}
+.rv-cookie__btns{display:flex!important;gap:8px;margin-top:4px}
+.rv-cookie__accept{flex:1;background:#356EFF!important;color:#fff!important;border:none;padding:9px 14px!important;border-radius:8px!important;font-family:'Urbanist',sans-serif;font-weight:600;font-size:13px!important;cursor:pointer;transition:background .2s;white-space:nowrap}
+.rv-cookie__accept:hover{background:#0263E0!important}
+.rv-cookie__ess{flex:1;background:transparent!important;color:#374151!important;border:1.5px solid rgba(0,0,0,.15)!important;padding:9px 14px!important;border-radius:8px!important;font-family:'Urbanist',sans-serif;font-weight:600;font-size:13px!important;cursor:pointer;transition:all .2s;white-space:nowrap}
+.rv-cookie__ess:hover{background:#f9fafb!important;border-color:rgba(0,0,0,.2)!important}
+@media(max-width:479px){.rv-cookie{right:12px!important;bottom:12px!important;max-width:calc(100vw - 24px)!important}}
+</style>
 </head>
 <body>
 
@@ -1049,9 +1070,19 @@ a{text-decoration:none;color:inherit}
 
 <!-- Cookie banner -->
 <div class="rv-cookie" id="rvCookie">
-  <img src="images/cookies-1.svg" alt="" width="40" height="40">
-  <div class="rv-cookie__text"><h5>Cookie Policy</h5><p>We care about your data, and we'd use cookies only to improve your experience. <a href="documents/5rv_cookie_policy.pdf">Learn More</a></p></div>
-  <button class="rv-cookie__accept" id="rvCookieAccept">Accept</button>
+  <div class="rv-cookie__header">
+    <span style="font-size:20px;line-height:1" aria-hidden="true">🍪</span>
+    <p class="rv-cookie__header-title">Cookie Preferences</p>
+    <button class="rv-cookie__x" id="rvCookieX" aria-label="Dismiss">&#10005;</button>
+  </div>
+  <div class="rv-cookie__text">
+    <p>We use cookies to improve your experience and analyse site traffic. <a href="documents/5rv_cookie_policy.pdf">Privacy Policy</a></p>
+  </div>
+  <div class="rv-cookie__btns">
+    <button class="rv-cookie__accept" id="rvCookieAccept">Accept All</button>
+    <button class="rv-cookie__ess" id="rvCookieEss">Essential Only</button>
+  </div>
+</div><button class="rv-cookie__accept" id="rvCookieAccept">Accept</button>
 </div>
 
 <!-- GSAP -->
@@ -1234,9 +1265,7 @@ a{text-decoration:none;color:inherit}
   })();
 
   /* ── Cookie ── */
-  var banner=document.getElementById("rvCookie"),accept=document.getElementById("rvCookieAccept");
-  if(banner&&!localStorage.getItem("rv_cookie_ok")){setTimeout(function(){banner.classList.add("show")},1800)}
-  if(accept)accept.addEventListener("click",function(){banner.classList.remove("show");localStorage.setItem("rv_cookie_ok","1")});
+  (function(){var b=document.getElementById('rvCookie');if(!b)return;var a=document.getElementById('rvCookieAccept'),e=document.getElementById('rvCookieEss'),x=document.getElementById('rvCookieX');function dismiss(){b.classList.remove('show');localStorage.setItem('rv_cookie_ok','1')}function ess(){b.classList.remove('show');sessionStorage.setItem('rv_cookie_ess','1')}if(!localStorage.getItem('rv_cookie_ok')&&!sessionStorage.getItem('rv_cookie_ess'))setTimeout(function(){b.classList.add('show')},1800);if(a)a.addEventListener('click',dismiss);if(e)e.addEventListener('click',ess);if(x)x.addEventListener('click',ess)})();
 })();
 
 
