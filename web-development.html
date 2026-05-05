@@ -1106,7 +1106,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <div class="rv-footer__inner">
     <div class="rv-footer__brand">
       <a href="index.html" aria-label="5RV Digital home">
-        <img src="images/logo-light.png" alt="5RV Digital" width="52" height="52">
+        <img src="images/logo-dark.png" alt="5RV Digital" width="52" height="52">
       </a>
       <p>Birmingham-based digital agency helping brands grow with smart design, SEO, and 27&nbsp;years of proven expertise.</p>
       <address class="rv-footer__contact">
@@ -1266,8 +1266,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var navbar=document.querySelector(".rv-navbar");
   var bookPill=document.querySelector(".rv-book-pill");
   var SCROLL_THRESH=80,IDLE_MS=3000,isScrolled=false,idleTimer=null;
-  function showDock(){navbar.classList.add("rv-dock--visible");if(bookPill)bookPill.classList.add("rv-pill--visible")}
-  function hideDock(){navbar.classList.remove("rv-dock--visible");if(bookPill)bookPill.classList.remove("rv-pill--visible")}
+  function showDock(){navbar.classList.add("rv-dock--visible")}
+  function hideDock(){navbar.classList.remove("rv-dock--visible")}
   function resetIdle(){clearTimeout(idleTimer);showDock();idleTimer=setTimeout(hideDock,IDLE_MS)}
   function onScroll(){
     if(!DESKTOP())return;
