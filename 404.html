@@ -509,111 +509,121 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- GTM noscript -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5LLVK6F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- Mobile bar -->
-<div class="rv-mobile-bar">
-  <button class="rv-mobile-hamburger" id="rvBurger" aria-label="Open menu" aria-expanded="false" aria-controls="n5Drawer">
-    <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M1 1H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M1 6H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M1 11H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
-  </button>
-  <button class="rv-mobile-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>
-    <div class="rv-mobile-cta__avatar"><img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV" width="36" height="36"></div>
-    Book a 30 Min Free Call
-  </button>
-</div>
+  <!-- Desktop top bar (visible at page top, hides on scroll) -->
+  <nav id="rvTopbar" class="rv-topbar" role="navigation" aria-label="Primary navigation">
+    <div class="rv-topbar__bar">
+      <a href="index.html" class="rv-topbar__logo" aria-label="5RV Digital home">
+        <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="40" height="40">
+      </a>
+      <div class="rv-topbar__links">
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <div class="rv-topbar__has-drop">
+          <a href="services.html">Services <svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="rv-topbar__drop">
+            <div class="rv-topbar__drop-inner">
+            <a href="seo-expert.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>SEO</a>
+            <a href="web-development.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>Web Design &amp; Dev</a>
+            <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg></span>Social Media</a>
+            <a href="branding.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>Branding</a>
+            <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>Paid Ads (PPC)</a>
+            <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>Content Marketing</a>
+            </div>
+          </div>
+        </div>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <button class="rv-topbar__cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
+    </div>
+  </nav>
 
-<!-- Desktop topbar -->
-<nav id="rvTopbar" class="rv-topbar" role="navigation" aria-label="Primary navigation">
-  <div class="rv-topbar__bar">
-    <a href="index.html" class="rv-topbar__logo" aria-label="5RV Digital home">
-      <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="40" height="40">
+  <!-- Mobile top bar -->
+  <div class="rv-mobile-bar">
+    <button class="rv-mobile-hamburger" id="rvBurger" aria-label="Open menu" aria-expanded="false" aria-controls="n5Drawer">
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M1 6H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M1 11H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button class="rv-mobile-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>
+      <div class="rv-mobile-cta__avatar">
+        <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="36" height="36">
+      </div>
+      Book a 30 Min Free Call
+    </button>
+  </div>
+
+  <!-- Desktop: bottom pill nav (dock state) -->
+  <nav class="rv-navbar" role="navigation" aria-label="Primary navigation">
+    <a class="rv-navbar__logo" href="index.html" aria-label="5RV Digital home">
+      <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="44" height="44">
     </a>
-    <div class="rv-topbar__links">
+    <div class="rv-navbar__sep" aria-hidden="true"></div>
+    <div class="rv-navbar__links">
       <a href="about.html">About</a>
       <a href="work.html">Work</a>
-      <div class="rv-topbar__has-drop">
+      <div class="rv-navbar__has-drop">
         <a href="services.html">Services <svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-        <div class="rv-topbar__drop"><div class="rv-topbar__drop-inner">
-          <a href="seo-expert.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>SEO</a>
-          <a href="web-development.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>Web Design &amp; Dev</a>
-          <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg></span>Social Media</a>
-          <a href="branding.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>Branding</a>
-          <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>Paid Ads (PPC)</a>
-          <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>Content Marketing</a>
-        </div></div>
+        <div class="rv-navbar__drop">
+          <div class="rv-navbar__drop-inner">
+            <a href="seo-expert.html">SEO</a>
+            <a href="web-development.html">Web Design &amp; Dev</a>
+            <a href="social-media-marketing-agency.html">Social Media</a>
+            <a href="branding.html">Branding</a>
+            <a href="digital-marketing-strategies.html">Paid Ads (PPC)</a>
+            <a href="digital-marketing-strategies.html">Content Marketing</a>
+          </div>
+        </div>
       </div>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </div>
-    <button class="rv-topbar__cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
-  </div>
-</nav>
+  </nav>
 
-<!-- Dock navbar -->
-<nav class="rv-navbar" role="navigation" aria-label="Primary navigation">
-  <a class="rv-navbar__logo" href="index.html" aria-label="5RV Digital home">
-    <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="44" height="44">
-  </a>
-  <div class="rv-navbar__sep" aria-hidden="true"></div>
-  <div class="rv-navbar__links">
-    <a href="about.html">About</a>
-    <a href="work.html">Work</a>
-    <div class="rv-navbar__has-drop">
-      <a href="services.html">Services <svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-      <div class="rv-navbar__drop">
-        <div class="rv-navbar__drop-inner">
+  <!-- Mobile drawer -->
+  <div class="n5__drawer" id="n5Drawer" aria-hidden="true">
+    <div class="n5__drawer-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="n5__drawer-top">
+        <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="44" height="44">
+        <button class="n5__drawer-close" id="n5DrawerClose" aria-label="Close menu">&times;</button>
+      </div>
+      <div class="n5__drawer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <button class="n5__svc-toggle" id="n5SvcToggle">Services <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="n5__svc-sub" id="n5SvcSub">
+          <a href="services.html">All Services</a>
           <a href="seo-expert.html">SEO</a>
           <a href="web-development.html">Web Design &amp; Dev</a>
-          <a href="digital-marketing-strategies.html">Social Media</a>
+          <a href="social-media-marketing-agency.html">Social Media</a>
           <a href="branding.html">Branding</a>
           <a href="digital-marketing-strategies.html">Paid Ads (PPC)</a>
           <a href="digital-marketing-strategies.html">Content Marketing</a>
         </div>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </div>
+      <button class="n5__drawer-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>Book a Free Call</button>
     </div>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
   </div>
-</nav>
 
-<!-- CTA pill -->
-<button class="rv-book-pill" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}' aria-label="Book a 30 minute free call" style="cursor:pointer;border:none;">
-  <div class="rv-book-pill__avatar">
-    <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="" width="46" height="46">
-    <span class="rv-book-pill__dot"></span>
-  </div>
-  <div class="rv-book-pill__text">
-    <span class="rv-book-pill__main">Book a 30 Min Free Call</span>
-    <span class="rv-book-pill__sub">Schedule Now</span>
-  </div>
-  <div class="rv-book-pill__arrow">
-    <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-  </div>
-</button>
-
-<!-- Mobile drawer -->
-<div id="n5Drawer" class="n5__drawer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Navigation menu">
-  <div class="n5__drawer-panel">
-    <div class="n5__drawer-top">
-      <img src="images/5rv-new-logo-1.webp" alt="5RV Digital" height="32">
-      <button class="n5__drawer-close" id="n5DrawerClose" aria-label="Close menu">&times;</button>
+  <!-- Floating CTA pill -->
+  <button class="rv-book-pill" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}' aria-label="Book a 30 minute free call with 5RV Digital" style="cursor:pointer;border:none;">
+    <div class="rv-book-pill__avatar">
+      <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="" width="44" height="44">
+      <span class="rv-book-pill__dot"></span>
     </div>
-    <div class="n5__drawer-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="work.html">Work</a>
-      <button class="n5__svc-toggle" id="n5SvcToggle">Services <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-      <div class="n5__svc-sub" id="n5SvcSub">
-        <a href="seo-expert.html">SEO</a>
-        <a href="web-development.html">Web Design &amp; Dev</a>
-        <a href="digital-marketing-strategies.html">Social Media</a>
-        <a href="branding.html">Branding</a>
-        <a href="digital-marketing-strategies.html">Paid Ads (PPC)</a>
-      </div>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+    <div class="rv-book-pill__text">
+      <span class="rv-book-pill__main">Book a 30 Min Free Call</span>
+      <span class="rv-book-pill__sub">Schedule Now</span>
     </div>
-    <button class="n5__drawer-cta" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}'>Book a Free Call</button>
-  </div>
-</div>
+    <div class="rv-book-pill__arrow">
+      <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+    </div>
+  </button>
 
 
   <div class="utility-page-wrap">
@@ -1269,5 +1279,67 @@ setTimeout(function() {
   }
 }, 6000); /* ← change 6000 to adjust delay in milliseconds */
 </script>
+<footer class="rv-footer">
+  <div class="rv-footer__inner">
+    <div class="rv-footer__brand">
+      <a href="index.html" aria-label="5RV Digital home">
+        <img src="https://cdn.prod.website-files.com/67b07fea7fafbe2c20354127/67d14e0c6569603a85009912_Logo%20Site%20150x150%20(2).png" alt="5RV Digital" width="52" height="52">
+      </a>
+      <p>Birmingham-based digital agency helping brands grow with smart design, SEO, and 27&nbsp;years of proven expertise.</p>
+      <address class="rv-footer__contact">
+        <span><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>16 Summer Lane, Birmingham B19 3SD</span>
+        <a href="tel:+441212882488"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.39 16l.61.92z"/></svg>0121 288 2488</a>
+      </address>
+      <div class="rv-footer__social">
+        <a href="https://www.linkedin.com/company/5rv-digital/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://www.instagram.com/5rvdigital/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/5rvdigital/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://x.com/5rvdigital" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="rv-footer__cols">
+      <div class="rv-footer__col">
+        <h4>Services</h4>
+        <a href="seo-expert.html">SEO</a>
+        <a href="web-development.html">Web Design &amp; Dev</a>
+        <a href="digital-marketing-strategies.html">Social Media</a>
+        <a href="branding.html">Branding</a>
+        <a href="digital-marketing-strategies.html">Paid Ads</a>
+        <a href="services.html">All Services</a>
+      </div>
+      <div class="rv-footer__col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="work.html">Our Work</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="rv-footer__col rv-footer__newsletter">
+        <h4>Stay Updated</h4>
+        <p>Get digital marketing tips delivered to your inbox.</p>
+        <form class="rv-footer__form" onsubmit="return false;">
+          <input type="email" placeholder="Your email address" aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="rv-footer__bar">
+    <span>&copy; <script>document.write(new Date().getFullYear())</script> 5RV Digital Ltd. All rights reserved.</span>
+    <div class="rv-footer__bar-links">
+      <a href="documents/5rv_privacy_policy.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      <a href="documents/5rv_cookie_policy.pdf" target="_blank" rel="noopener noreferrer">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
