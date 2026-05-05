@@ -407,7 +407,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <nav id="rvTopbar" class="rv-topbar" role="navigation" aria-label="Primary navigation">
     <div class="rv-topbar__bar">
       <a href="index.html" class="rv-topbar__logo" aria-label="5RV Digital home">
-        <img src="images/logo-dark.png" alt="5RV Digital" width="72" height="72">
+        <img src="images/logo-dark.png" alt="5RV Digital" width="36" height="36">
       </a>
       <div class="rv-topbar__links">
         <a href="about.html">About</a>
@@ -666,8 +666,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   var navbar=document.querySelector(".rv-navbar");
   var bookPill=document.querySelector(".rv-book-pill");
   var SCROLL_THRESH=80,IDLE_MS=3000,isScrolled=false,idleTimer=null;
-  function showDock(){navbar.classList.add("rv-dock--visible")}
-  function hideDock(){navbar.classList.remove("rv-dock--visible")}
+  function showDock(){if(navbar)navbar.classList.add("rv-dock--visible")}
+  function hideDock(){if(navbar)navbar.classList.remove("rv-dock--visible")}
   function resetIdle(){clearTimeout(idleTimer);showDock();idleTimer=setTimeout(hideDock,IDLE_MS)}
   function onScroll(){
     if(!DESKTOP())return;

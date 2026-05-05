@@ -38,7 +38,7 @@ a{text-decoration:none;color:inherit}
 /* ── NAV ── */
 .rv-topbar{position:fixed;top:0;left:0;right:0;z-index:9999;display:none;justify-content:center;padding:20px 24px;transition:transform .5s cubic-bezier(.32,1,.68,1),opacity .4s ease}
 .rv-topbar__bar{width:100%;max-width:1180px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.55);border-radius:14px;padding:14px 28px;box-shadow:0 4px 24px rgba(11,23,57,.08),0 1px 0 rgba(255,255,255,.7) inset;-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%)}
-.rv-topbar__logo img{height:72px;width:auto;display:block}
+.rv-topbar__logo{display:flex;align-items:center;justify-content:center;width:36px;height:36px;overflow:hidden;flex-shrink:0}.rv-topbar__logo img{width:36px;height:36px;display:block;transform:scale(2.5);transform-origin:center}
 .rv-topbar__links{display:flex;align-items:center;gap:4px}
 .rv-topbar__links a{font-family:var(--font-primary);font-size:14px;font-weight:500;color:var(--c-navy);text-decoration:none;padding:8px 14px;border-radius:8px;transition:background .2s,color .2s}
 .rv-topbar__links a:hover,.rv-topbar__links a.active{background:rgba(11,23,57,.06)}
@@ -60,7 +60,7 @@ a{text-decoration:none;color:inherit}
 .rv-book-pill.rv-pill--visible{opacity:1;transform:translateY(0);pointer-events:auto}
 .rv-book-pill:hover{padding:10px 10px 10px 10px}
 .rv-book-pill__avatar{position:relative;width:46px;height:46px;border-radius:50%;overflow:hidden;flex-shrink:0;background:rgba(255,255,255,.2)}
-.rv-book-pill__avatar img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}
+.rv-book-pill__avatar img{width:100%;height:100%;display:block;transform:scale(2.5);transform-origin:center}
 .rv-book-pill__dot{position:absolute;bottom:1px;right:1px;width:11px;height:11px;background:#22c55e;border-radius:50%;border:2.5px solid #356EFF;z-index:1}
 .rv-book-pill__text{display:flex;flex-direction:column;gap:4px;white-space:nowrap}
 .rv-book-pill__main{font-family:var(--font-primary);font-size:15px;font-weight:700;color:#fff;white-space:nowrap;line-height:1.2}
@@ -366,7 +366,7 @@ a{text-decoration:none;color:inherit}
 /* ── FOOTER ── */
 .rv-footer{background:#e8f0ff;padding:64px 0 0}
 .rv-footer__inner{width:var(--container);margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:48px}
-.rv-footer__brand p{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#374151;margin:18px 0 0;max-width:260px}
+.rv-footer__brand p{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#374151;margin:18px 0 0;max-width:260px}.rv-footer__brand>a{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;overflow:hidden}.rv-footer__brand>a img{width:48px;height:48px;display:block;transform:scale(2.5);transform-origin:center}
 .rv-footer__social{display:flex;align-items:center;gap:12px;margin-top:20px}
 .rv-footer__social a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#0f172a;box-shadow:0 2px 10px rgba(0,0,0,.18);transition:background .2s ease;text-decoration:none}
 .rv-footer__social a:hover{background:#356EFF}
@@ -436,7 +436,7 @@ a{text-decoration:none;color:inherit}
   <nav id="rvTopbar" class="rv-topbar" role="navigation" aria-label="Primary navigation">
     <div class="rv-topbar__bar">
       <a href="index.html" class="rv-topbar__logo" aria-label="5RV Digital home">
-        <img src="images/logo-dark.png" alt="5RV Digital" width="72" height="72">
+        <img src="images/logo-dark.png" alt="5RV Digital" width="36" height="36">
       </a>
       <div class="rv-topbar__links">
         <a href="about.html">About</a>
@@ -1192,8 +1192,8 @@ a{text-decoration:none;color:inherit}
   var navbar=document.querySelector(".rv-navbar");
   var bookPill=document.querySelector(".rv-book-pill");
   var SCROLL_THRESH=80,IDLE_MS=3000,isScrolled=false,idleTimer=null;
-  function showDock(){navbar.classList.add("rv-dock--visible")}
-  function hideDock(){navbar.classList.remove("rv-dock--visible")}
+  function showDock(){if(navbar)navbar.classList.add("rv-dock--visible")}
+  function hideDock(){if(navbar)navbar.classList.remove("rv-dock--visible")}
   function resetIdle(){clearTimeout(idleTimer);showDock();idleTimer=setTimeout(hideDock,IDLE_MS)}
   function onScroll(){
     if(!DESKTOP())return;
