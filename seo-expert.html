@@ -656,8 +656,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .rv-footer__inner{width:var(--container);margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:48px}
 .rv-footer__brand p{font-family:var(--font-body);font-size:14px;line-height:1.75;color:#374151;margin:18px 0 0;max-width:260px}
 .rv-footer__social{display:flex;align-items:center;gap:12px;margin-top:20px}
-.rv-footer__social a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#0f172a;box-shadow:0 2px 10px rgba(0,0,0,.18);transition:opacity .2s ease;text-decoration:none}
-.rv-footer__social a:hover{opacity:.72}
+.rv-footer__social a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#0f172a;box-shadow:0 2px 10px rgba(0,0,0,.18);transition:background .2s ease;text-decoration:none}
+.rv-footer__social a:hover{background:#356EFF}
 
 
 
@@ -671,12 +671,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .rv-footer__newsletter p{font-family:var(--font-body);font-size:13.5px;color:#4b5563;line-height:1.65;margin:0 0 20px}
 .rv-footer__email-row{display:flex;align-items:center;background:#fff;border:1.5px solid rgba(0,0,0,.1);border-radius:100px;padding:5px 5px 5px 14px;transition:border-color .2s}
 .rv-footer__email-row:focus-within{border-color:var(--c-blue)}
-.rv-footer__email-row svg{width:14px;height:14px;stroke:#9ca3af;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-right:8px}
+.rv-footer__email-row>svg{width:14px;height:14px;stroke:#9ca3af;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-right:8px}
 .rv-footer__email-row input{flex:1;border:none;outline:none;background:transparent;font-family:var(--font-body);font-size:13px;color:#111827;min-width:0}
 .rv-footer__email-row input::placeholder{color:#9ca3af}
 .rv-footer__email-btn{width:34px;height:34px;border-radius:50%;background:var(--c-blue);border:none;display:grid;place-items:center;cursor:pointer;flex-shrink:0;transition:background .2s}
 .rv-footer__email-btn:hover{background:var(--c-blue-deep)}
-.rv-footer__email-btn svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
 .rv-footer__bar{width:var(--container);margin:52px auto 0;padding:20px 0 36px;border-top:1px solid rgba(0,0,0,.09);display:flex;align-items:center;justify-content:space-between}
 .rv-footer__bar-links{display:flex;gap:20px}
 .rv-footer__bar a{font-size:13px;color:#6b7280;text-decoration:none;font-family:var(--font-body)}
@@ -1202,7 +1202,8 @@ document.addEventListener("DOMContentLoaded", function() {
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0 1.1.9 2 2 2z"/><polyline points="22,6 12,12 2,6"/></svg>
         <input type="email" placeholder="Your email address" aria-label="Email address">
         <button class="rv-footer__email-btn" type="submit" aria-label="Subscribe">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <svg class="rv-footer__arr-out" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <span class="rv-footer__arr-in"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </button>
       </div>
     </div>

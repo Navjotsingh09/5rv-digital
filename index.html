@@ -427,8 +427,8 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 .rv-orbit__ring--2{top:80px;left:80px;width:160px;height:160px;border:1.5px dashed rgba(53,110,255,.28)}
 .rv-orbit__center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,rgba(53,110,255,.15),rgba(53,110,255,.06));display:grid;place-items:center;border:1.5px solid rgba(53,110,255,.28);animation:rv-center-pulse 3s ease-in-out infinite;z-index:3}
 .rv-orbit__center svg{width:26px;height:26px;stroke:var(--c-blue);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
-/* Dot wrap — 44×44 box centred at orbit centre, acts as rotation handle */
-.rv-orbit__dot-wrap{position:absolute;width:44px;height:44px;top:calc(50% - 22px);left:calc(50% - 22px)}
+/* Dot wrap — 62×62 box centred at orbit centre, acts as rotation handle */
+.rv-orbit__dot-wrap{position:absolute;width:62px;height:62px;top:calc(50% - 31px);left:calc(50% - 31px)}
 /* Outer orbit (radius 130px) — 3 dots clockwise @ 22s */
 .rv-orbit__dot-wrap--o1{animation:rv-orbit-cw 22s linear infinite}
 .rv-orbit__dot-wrap--o2{animation:rv-orbit-cw 22s linear infinite;animation-delay:-7.33s}
@@ -436,7 +436,7 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 /* Inner orbit (radius 80px) — 2 dots counter-clockwise @ 16s */
 .rv-orbit__dot-wrap--i1{animation:rv-orbit-ccw 16s linear infinite}
 .rv-orbit__dot-wrap--i2{animation:rv-orbit-ccw 16s linear infinite;animation-delay:-8s}
-.rv-orbit__dot{position:absolute;left:0;width:44px;height:44px;border-radius:50%;overflow:hidden;background:#e5e7eb;border:3px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,.16)}
+.rv-orbit__dot{position:absolute;left:0;width:62px;height:62px;border-radius:50%;overflow:hidden;background:#e5e7eb;border:3px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,.16)}
 .rv-orbit__dot img{width:100%;height:100%;object-fit:cover;display:block}
 /* Outer dots — offset 130px above wrap centre, counter-rotate to stay upright */
 .rv-orbit__dot-wrap--o1 .rv-orbit__dot{top:-130px;animation:rv-orbit-ccw 22s linear infinite}
@@ -451,8 +451,8 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 .rv-footer__social{display:flex;align-items:center;gap:12px;margin-top:20px}
 .rv-footer__contact{font-style:normal;margin-top:20px;display:flex;flex-direction:column;gap:10px}.rv-footer__contact a{display:flex;align-items:flex-start;gap:8px;font-family:var(--font-body);font-size:13px;line-height:1.55;color:#374151;text-decoration:none;transition:color .2s}.rv-footer__contact a:hover{color:var(--c-blue)}.rv-footer__contact svg{width:15px;height:15px;fill:#374151;flex-shrink:0;margin-top:2px;transition:fill .2s}.rv-footer__contact a:hover svg{fill:var(--c-blue)}
 .rv-footer__contact span{display:flex;align-items:flex-start;gap:8px;font-family:var(--font-body);font-size:13px;line-height:1.55;color:#374151}
-.rv-footer__social a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#0f172a;box-shadow:0 2px 10px rgba(0,0,0,.18);transition:opacity .2s ease;text-decoration:none}
-.rv-footer__social a:hover{opacity:.72}
+.rv-footer__social a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#0f172a;box-shadow:0 2px 10px rgba(0,0,0,.18);transition:background .2s ease;text-decoration:none}
+.rv-footer__social a:hover{background:#356EFF}
 
 
 
@@ -466,12 +466,12 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 .rv-footer__newsletter p{font-family:var(--font-body);font-size:13.5px;color:#4b5563;line-height:1.65;margin:0 0 20px}
 .rv-footer__email-row{display:flex;align-items:center;background:#fff;border:1.5px solid rgba(0,0,0,.1);border-radius:100px;padding:5px 5px 5px 14px;transition:border-color .2s}
 .rv-footer__email-row:focus-within{border-color:var(--c-blue)}
-.rv-footer__email-row svg{width:14px;height:14px;stroke:#9ca3af;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-right:8px}
+.rv-footer__email-row>svg{width:14px;height:14px;stroke:#9ca3af;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-right:8px}
 .rv-footer__email-row input{flex:1;border:none;outline:none;background:transparent;font-family:var(--font-body);font-size:13px;color:#111827;min-width:0}
 .rv-footer__email-row input::placeholder{color:#9ca3af}
-.rv-footer__email-btn{width:34px;height:34px;border-radius:50%;background:var(--c-blue);border:none;display:grid;place-items:center;cursor:pointer;flex-shrink:0;transition:background .2s,transform .15s}
-.rv-footer__email-btn:hover{background:var(--c-blue-deep);transform:scale(1.08)}
-.rv-footer__email-btn svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.rv-footer__email-btn{width:38px;height:38px;border-radius:50%;background:var(--c-blue);border:none;display:grid;place-items:center;cursor:pointer;flex-shrink:0;overflow:hidden;position:relative;transition:background .2s}
+.rv-footer__email-btn:hover{background:var(--c-blue-deep)}.rv-footer__arr-out{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.4,0,.2,1);transform:translate(0,0);display:block}.rv-footer__email-row:hover .rv-footer__arr-out{transform:translate(130%,-130%)}.rv-footer__arr-in{position:absolute;inset:0;display:grid;place-items:center;transform:translate(-130%,130%);transition:transform .3s cubic-bezier(.4,0,.2,1)}.rv-footer__email-row:hover .rv-footer__arr-in{transform:translate(0,0)}.rv-footer__arr-in svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
 .rv-footer__bar{width:var(--container);margin:52px auto 0;padding:20px 0 36px;border-top:1px solid rgba(0,0,0,.09);display:flex;align-items:center;justify-content:space-between}
 .rv-footer__bar-links{display:flex;gap:20px}
 .rv-footer__bar a{font-size:13px;color:#6b7280;text-decoration:none;font-family:var(--font-body)}
@@ -1425,7 +1425,8 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0 1.1.9 2 2 2z"/><polyline points="22,6 12,12 2,6"/></svg>
         <input type="email" placeholder="Your email address" aria-label="Email address">
         <button class="rv-footer__email-btn" type="submit" aria-label="Subscribe">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <svg class="rv-footer__arr-out" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <span class="rv-footer__arr-in"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
         </button>
       </div>
     </div>
