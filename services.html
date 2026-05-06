@@ -744,6 +744,61 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .rv-faq-sect__heading{font-size:28px}
 }
 </style>
+<style id="rv-gs-full-css">
+/* ══════════ FULL-WIDTH GALLERY SHOWCASE ══════════ */
+.rv-gsf{position:relative;background:#0e1117;overflow:hidden}
+/* control bar */
+.rv-gsf__bar{display:flex;align-items:center;gap:0;padding:0 5vw;height:52px;border-bottom:1px solid rgba(255,255,255,.1);position:relative;z-index:3}
+.rv-gsf__dot{width:8px;height:8px;background:#fff;border-radius:2px;flex-shrink:0;margin-right:14px}
+.rv-gsf__labels{position:relative;overflow:hidden;height:18px;flex:1}
+.rv-gsf__label{font-family:Urbanist,sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);position:absolute;top:0;left:0;white-space:nowrap;transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .5s}
+.rv-gsf__label.active{color:rgba(255,255,255,.8);transform:translateY(0)!important;opacity:1!important}
+.rv-gsf__index{font-family:Urbanist,sans-serif;font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.08em;margin-right:16px}
+.rv-gsf__btns{display:flex;gap:8px}
+.rv-gsf__btn{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);background:transparent;cursor:pointer;display:grid;place-items:center;transition:border-color .2s,background .2s}
+.rv-gsf__btn:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08)}
+.rv-gsf__btn svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+/* viewport */
+.rv-gsf__vp{position:relative;width:100%;height:72vh;min-height:480px;max-height:780px}
+.rv-gsf__slide{position:absolute;inset:0;overflow:hidden;opacity:0;transition:opacity .75s cubic-bezier(.4,0,.2,1)}
+.rv-gsf__slide.active{opacity:1;z-index:1}
+.rv-gsf__slide img{width:100%;height:100%;object-fit:cover;transition:transform 8s ease}
+.rv-gsf__slide.active img{transform:scale(1.04)}
+/* gradient overlay */
+.rv-gsf__grad{position:absolute;inset:0;background:linear-gradient(to top, rgba(6,8,15,.92) 0%, rgba(6,8,15,.55) 38%, rgba(6,8,15,.15) 65%, transparent 100%);z-index:2;pointer-events:none}
+/* content overlay */
+.rv-gsf__content{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 5vw 48px;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:40px}
+.rv-gsf__slides-wrap{position:relative;display:grid}
+.rv-gsf__si{grid-area:1/1;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(14px);transition:opacity .5s .1s,transform .5s .1s;pointer-events:none}
+.rv-gsf__si.active{opacity:1;transform:translateY(0);pointer-events:auto}
+.rv-gsf__heading{font-family:Urbanist,sans-serif;font-size:clamp(28px,3.8vw,52px);font-weight:800;line-height:1.1;color:#fff;letter-spacing:-.025em;margin:0}
+.rv-gsf__body{font-family:Plus Jakarta Sans,sans-serif;font-size:15px;line-height:1.72;color:rgba(255,255,255,.58);margin:0;max-width:540px}
+/* CTA column */
+.rv-gsf__cta-wrap{position:relative;display:grid}
+.rv-gsf__cta-item{grid-area:1/1;display:flex;flex-direction:column;gap:14px;align-items:flex-start;justify-content:flex-end;opacity:0;transform:translateY(14px);transition:opacity .5s .2s,transform .5s .2s;pointer-events:none}
+.rv-gsf__cta-item.active{opacity:1;transform:translateY(0);pointer-events:auto}
+.rv-gsf__cta-btn{display:inline-flex;align-items:center;gap:10px;background:#356eff;color:#fff;font-family:Urbanist,sans-serif;font-size:14px;font-weight:600;padding:13px 28px;border-radius:100px;text-decoration:none;transition:background .2s,transform .2s}
+.rv-gsf__cta-btn:hover{background:#2a5ed6;transform:translateY(-2px)}
+.rv-gsf__cta-btn svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.rv-gsf__buy-label{font-family:Plus Jakarta Sans,sans-serif;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.rv-gsf__buy-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.rv-gsf__buy-link{display:inline-flex;opacity:.65;transition:opacity .2s;text-decoration:none}
+.rv-gsf__buy-link:hover{opacity:1}
+.rv-gsf__buy-link img{height:28px;width:auto;filter:invert(1) brightness(2)}
+/* progress bar */
+.rv-gsf__prog{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.1);z-index:4}
+.rv-gsf__prog-bar{height:100%;width:0%;background:#356eff;transition:width .1s linear}
+@media(max-width:860px){
+  .rv-gsf__content{grid-template-columns:1fr;gap:20px}
+  .rv-gsf__vp{height:80vw;min-height:320px}
+  .rv-gsf__cta-item{justify-content:flex-start}
+}
+@media(max-width:480px){
+  .rv-gsf__content{padding:0 5vw 36px}
+  .rv-gsf__heading{font-size:clamp(22px,7vw,32px)}
+  .rv-gsf__body{font-size:13px}
+}
+</style>
 </head>
 <body>
 
@@ -981,6 +1036,90 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
   </section>
+  <!-- GALLERY SHOWCASE (Higherlife Foundation) -->
+  <section class="rv-gsf rv-reveal">
+    <!-- control bar -->
+    <div class="rv-gsf__bar">
+      <span class="rv-gsf__dot"></span>
+      <div class="rv-gsf__labels" id="rvGsfLabels">
+        <span class="rv-gsf__label active" data-slide="0">Joshua Nkomo Scholarship</span>
+        <span class="rv-gsf__label" data-slide="1" style="transform:translateY(20px);opacity:0">Book Launch</span>
+      </div>
+      <span class="rv-gsf__index" id="rvGsfIndex">01&nbsp;/&nbsp;02</span>
+      <div class="rv-gsf__btns">
+        <button class="rv-gsf__btn" id="rvGsfPrev" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="rv-gsf__btn" id="rvGsfNext" aria-label="Next slide">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- full-width viewport -->
+    <div class="rv-gsf__vp">
+      <!-- images -->
+      <div class="rv-gsf__slide active" data-slide="0">
+        <img
+          src="https://cdn.sanity.io/images/7r3yruzn/production/52ebb39e7e3663fe8b359916dcdbfc276f23a023-5664x3144.jpg?q=75&fit=clip&auto=format&w=1920"
+          srcset="https://cdn.sanity.io/images/7r3yruzn/production/52ebb39e7e3663fe8b359916dcdbfc276f23a023-5664x3144.jpg?q=75&fit=clip&auto=format&w=768 768w,
+                  https://cdn.sanity.io/images/7r3yruzn/production/52ebb39e7e3663fe8b359916dcdbfc276f23a023-5664x3144.jpg?q=75&fit=clip&auto=format&w=1280 1280w,
+                  https://cdn.sanity.io/images/7r3yruzn/production/52ebb39e7e3663fe8b359916dcdbfc276f23a023-5664x3144.jpg?q=75&fit=clip&auto=format&w=1920 1920w"
+          sizes="100vw"
+          alt="Joshua Nkomo Scholarship"
+          loading="lazy" decoding="async">
+      </div>
+      <div class="rv-gsf__slide" data-slide="1">
+        <img
+          src="https://cdn.sanity.io/images/7r3yruzn/production/8a8d0f2f80d5aa8c28c081863e5a3158600af15e-5664x3144.jpg?q=75&fit=clip&auto=format&w=1920"
+          srcset="https://cdn.sanity.io/images/7r3yruzn/production/8a8d0f2f80d5aa8c28c081863e5a3158600af15e-5664x3144.jpg?q=75&fit=clip&auto=format&w=768 768w,
+                  https://cdn.sanity.io/images/7r3yruzn/production/8a8d0f2f80d5aa8c28c081863e5a3158600af15e-5664x3144.jpg?q=75&fit=clip&auto=format&w=1280 1280w,
+                  https://cdn.sanity.io/images/7r3yruzn/production/8a8d0f2f80d5aa8c28c081863e5a3158600af15e-5664x3144.jpg?q=75&fit=clip&auto=format&w=1920 1920w"
+          sizes="100vw"
+          alt="And Still We Rise — Book Launch"
+          loading="lazy" decoding="async">
+      </div>
+      <!-- gradient -->
+      <div class="rv-gsf__grad"></div>
+      <!-- content overlay -->
+      <div class="rv-gsf__content">
+        <div class="rv-gsf__slides-wrap">
+          <div class="rv-gsf__si active" data-slide="0">
+            <h2 class="rv-gsf__heading">A Scholarship That<br>Builds Global Leaders</h2>
+            <p class="rv-gsf__body">More than a scholarship, the Joshua Nkomo Scholarship is a gateway to purpose-driven leadership. It empowers academically gifted young Africans with access to world-class education, mentorship, and opportunities to create meaningful impact.</p>
+          </div>
+          <div class="rv-gsf__si" data-slide="1">
+            <h2 class="rv-gsf__heading">Honouring Decades of<br>Lives Transformed</h2>
+            <p class="rv-gsf__body">&ldquo;And Still We Rise&rdquo; is a powerful reflection on decades of transformative impact led by Higherlife Foundation &mdash; capturing the vision, resilience, and unwavering commitment to uplifting lives across Africa and beyond.</p>
+          </div>
+        </div>
+        <div class="rv-gsf__cta-wrap">
+          <div class="rv-gsf__cta-item active" data-slide="0">
+            <a class="rv-gsf__cta-btn" href="https://applications.higherlifefoundation.org/jns" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              Apply Here
+            </a>
+          </div>
+          <div class="rv-gsf__cta-item" data-slide="1">
+            <p class="rv-gsf__buy-label">Order your copy</p>
+            <div class="rv-gsf__buy-row">
+              <a class="rv-gsf__buy-link" href="https://www.amazon.co.uk/dp/B0DMVH1QJN" target="_blank" rel="noopener" aria-label="Kindle">
+                <img src="https://cdn.sanity.io/images/7r3yruzn/production/65ff619b209b80ac47ca810bee5d8b4afd54746d-35x40.svg?q=75&fit=clip&auto=format" alt="Kindle" width="35" height="40">
+              </a>
+              <a class="rv-gsf__buy-link" href="https://www.amazon.co.uk/gp/aw/d/0795711638/ref=tmm_pap_swatch_0" target="_blank" rel="noopener" aria-label="Paperback">
+                <img src="https://cdn.sanity.io/images/7r3yruzn/production/7cd0044636ebfd27ed9d1eac9c554af056f9116b-54x40.svg?q=75&fit=clip&auto=format" alt="Amazon" width="54" height="40">
+              </a>
+              <a class="rv-gsf__buy-link" href="https://www.amazon.co.uk/gp/aw/d/B0GNT52B87/ref=tmm_aud_swatch_0" target="_blank" rel="noopener" aria-label="Audiobook">
+                <img src="https://cdn.sanity.io/images/7r3yruzn/production/b24a5e73041111be5a5f09ef537a4d988d1a8d29-63x40.svg?q=75&fit=clip&auto=format" alt="Audible" width="63" height="40">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- progress -->
+      <div class="rv-gsf__prog"><div class="rv-gsf__prog-bar" id="rvGsfBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Gallery scroll progress"></div></div>
+    </div>
+  </section>
+
   <p class="rv-marquee-label">Trusted by teams using</p>
   <div class="f-section-small">
     <div class="logos-marquee">
@@ -1705,5 +1844,52 @@ setTimeout(function() {
     });
   });
 </script>
+  <script id="rv-gsf-js">
+  (function(){
+    var TOTAL=2, INTERVAL=7000;
+    var cur=0, timer, progTimer, progVal=0;
+    var bar      = document.getElementById('rvGsfBar');
+    var indexEl  = document.getElementById('rvGsfIndex');
+    var labels   = document.querySelectorAll('.rv-gsf__label');
+    var imgSlides= document.querySelectorAll('.rv-gsf__slide');
+    var txtSlides= document.querySelectorAll('.rv-gsf__si');
+    var ctaSlides= document.querySelectorAll('.rv-gsf__cta-item');
+    if(!bar) return;
+    function pad(n){ return n<10?'0'+n:''+n; }
+    function goTo(idx){
+      [imgSlides[cur],txtSlides[cur],ctaSlides[cur]].forEach(function(el){ if(el) el.classList.remove('active'); });
+      labels[cur].style.transform='translateY(-20px)'; labels[cur].style.opacity='0'; labels[cur].classList.remove('active');
+      cur = ((idx%TOTAL)+TOTAL)%TOTAL;
+      [imgSlides[cur],txtSlides[cur],ctaSlides[cur]].forEach(function(el){ if(el) el.classList.add('active'); });
+      labels[cur].style.transform='translateY(0)'; labels[cur].style.opacity='1'; labels[cur].classList.add('active');
+      indexEl.innerHTML = pad(cur+1)+'&nbsp;/&nbsp;'+pad(TOTAL);
+      resetProg();
+    }
+    function resetProg(){
+      clearInterval(progTimer); progVal=0; bar.style.width='0%'; bar.setAttribute('aria-valuenow','0');
+      progTimer=setInterval(function(){
+        progVal += 100/(INTERVAL/100);
+        if(progVal>=100) progVal=100;
+        bar.style.width=progVal+'%'; bar.setAttribute('aria-valuenow',Math.round(progVal));
+      },100);
+    }
+    function autoPlay(){ clearInterval(timer); timer=setInterval(function(){ goTo(cur+1); },INTERVAL); }
+    var prevBtn=document.getElementById('rvGsfPrev'), nextBtn=document.getElementById('rvGsfNext');
+    if(prevBtn) prevBtn.addEventListener('click',function(){ goTo(cur-1); autoPlay(); });
+    if(nextBtn) nextBtn.addEventListener('click',function(){ goTo(cur+1); autoPlay(); });
+    var tx=null, vp=document.querySelector('.rv-gsf__vp');
+    if(vp){
+      vp.addEventListener('touchstart',function(e){ tx=e.touches[0].clientX; },{passive:true});
+      vp.addEventListener('touchend',function(e){
+        if(tx===null) return;
+        var dx=tx-e.changedTouches[0].clientX;
+        if(Math.abs(dx)>40){ goTo(cur+(dx>0?1:-1)); autoPlay(); }
+        tx=null;
+      },{passive:true});
+    }
+    autoPlay(); resetProg();
+  })();
+  </script>
+
 </body>
 </html>
