@@ -462,7 +462,48 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 
-  <!-- Floating CTA pill -->
+  <!-- Floating dock nav (appears on scroll, desktop only) -->
+  <nav class="rv-navbar" role="navigation" aria-label="Scroll navigation">
+    <a href="index.html" class="rv-navbar__logo">
+      <img src="images/logo-light.png" alt="5RV Digital" width="44" height="44">
+    </a>
+    <div class="rv-navbar__sep"></div>
+    <div class="rv-navbar__links">
+      <a href="about.html">About</a>
+      <a href="work.html">Work</a>
+      <div class="rv-navbar__has-drop">
+        <a href="services.html">Services
+          <svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="rv-navbar__drop">
+          <div class="rv-navbar__drop-inner">
+            <a href="web-development.html">Web Design &amp; Dev</a>
+            <a href="seo-expert.html">SEO</a>
+            <a href="social-media-marketing-agency.html">Social Media</a>
+            <a href="branding.html">Branding</a>
+            <a href="digital-marketing-strategies.html">Paid Ads</a>
+          </div>
+        </div>
+      </div>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Book a 30 Min Free Call pill (appears on scroll, desktop only) -->
+  <button class="rv-book-pill" data-cal-namespace="rv30min" data-cal-link="navjot-singh-gfjevp/rv30min" data-cal-config='{"layout":"month_view"}' aria-label="Book a 30 minute free call with 5RV Digital" style="cursor:pointer;border:none;">
+    <div class="rv-book-pill__avatar">
+      <img src="images/logo-light.png" alt="" width="44" height="44">
+      <span class="rv-book-pill__dot"></span>
+    </div>
+    <div class="rv-book-pill__text">
+      <span class="rv-book-pill__main">Book a 30 Min Free Call</span>
+      <span class="rv-book-pill__sub">Schedule Now</span>
+    </div>
+    <div class="rv-book-pill__arrow">
+      <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+    </div>
+  </button>
 
 <div class="ab-page">
 
