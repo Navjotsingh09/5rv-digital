@@ -741,6 +741,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* control bar — overlaid at top of image */
 .rv-gsf__bar{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;align-items:center;gap:0;padding:0 5vw;height:68px;background:rgba(0,0,0,.28)}
 .rv-gsf__midline{position:absolute;top:50%;left:0;right:0;z-index:4;height:1px;background:rgba(255,255,255,.35);pointer-events:none}
+.rv-gsf__pagination{position:absolute;bottom:calc(50% + 12px);right:5vw;z-index:5;display:flex;align-items:center;gap:12px}
 .rv-gsf__dot{width:8px;height:8px;background:#fff;border-radius:2px;flex-shrink:0;margin-right:14px}
 .rv-gsf__labels{position:relative;overflow:hidden;height:22px;flex:1}
 .rv-gsf__label{font-family:Urbanist,sans-serif!important;font-size:14px!important;font-weight:500!important;letter-spacing:.04em!important;text-transform:none!important;color:rgba(255,255,255,.95)!important;position:absolute!important;top:0;left:0;white-space:nowrap;transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .5s}
@@ -1042,6 +1043,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span class="rv-gsf__label active" data-slide="0">Joshua Nkomo Scholarship</span>
           <span class="rv-gsf__label" data-slide="1" style="transform:translateY(20px);opacity:0">Book Launch</span>
         </div>
+      </div>
+      <!-- pagination: counter + arrows, anchored just above midline -->
+      <div class="rv-gsf__pagination">
         <span class="rv-gsf__index" id="rvGsfIndex">01&nbsp;/&nbsp;02</span>
         <div class="rv-gsf__btns">
           <button class="rv-gsf__btn" id="rvGsfPrev" aria-label="Previous slide">
