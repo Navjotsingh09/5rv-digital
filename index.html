@@ -675,7 +675,6 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 </style>
 <style id="rv-media-banner-css">
 .rv-mb{position:relative;overflow:hidden;width:100%;height:70vh;min-height:480px;max-height:800px;background:#0e1117;cursor:pointer}
-.rv-mb:hover .rv-mb__play-hint{opacity:1;transform:scale(1)}
 .rv-mb__video-wrap{position:absolute;inset:-12% 0;overflow:hidden}
 .rv-mb__video-wrap video{width:100%;height:100%;object-fit:cover;display:block;will-change:transform}
 .rv-mb__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,7,14,.88) 0%,rgba(5,7,14,.45) 40%,rgba(5,7,14,.18) 70%,transparent 100%);pointer-events:none}
@@ -684,8 +683,6 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
 .rv-mb__tag-dot{width:8px;height:8px;background:#fff;border-radius:2px;flex-shrink:0}
 .rv-mb__tag-text{font-family:Urbanist,sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75)}
 .rv-mb__heading{font-family:Urbanist,sans-serif;font-size:clamp(22px,3.2vw,46px);font-weight:700;line-height:1.2;color:#fff;letter-spacing:-.02em;margin:0;max-width:760px}
-.rv-mb__play-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.85);opacity:0;transition:opacity .3s,transform .3s;width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);display:grid;place-items:center;pointer-events:none}
-.rv-mb__play-hint svg{width:24px;height:24px;fill:#fff;margin-left:4px}
 @media(max-width:767px){
   .rv-mb{height:75vw;min-height:320px}
   .rv-mb__content{padding-bottom:36px}
@@ -1104,9 +1101,6 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
         <span class="rv-mb__tag-text">Our Commitments</span>
       </div>
       <p class="rv-mb__heading">Driven by faith. Focused on people. Fuelled by purpose. Higherlife Foundation exists to empower Africa&rsquo;s next generation today, tomorrow, and for decades to come.</p>
-    </div>
-    <div class="rv-mb__play-hint" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
     </div>
   </section>
 
