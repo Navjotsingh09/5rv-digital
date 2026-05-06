@@ -695,15 +695,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   Cal.ns["30min"]("ui",{"styles":{"branding":{"brandColor":"#356EFF"}},"hideEventTypeDetails":false,"layout":"month_view"});
   </script>
 <style id="rv-sections-v2">
-/* ── Trusted By Band ───────────────────────────────── */
-.rv-marquee-label{padding-top:16px!important;margin-bottom:0!important}
-.f-section-small{margin-top:18px!important;padding-top:24px!important;padding-bottom:24px!important;border-top:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05);background:rgba(249,250,251,.85)}
-.home-logo-wrapper{position:relative;overflow:hidden}
-.home-logo-left-gradient{position:absolute!important;top:0;left:0;bottom:0;width:110px;background:linear-gradient(to right,rgba(249,250,251,1),rgba(249,250,251,0))!important;z-index:2;pointer-events:none}
-.home-logo-left-gradient.right{left:auto!important;right:0;background:linear-gradient(to left,rgba(249,250,251,1),rgba(249,250,251,0))!important}
-.clients-grid img{height:24px!important;width:auto!important;opacity:.42;filter:grayscale(1);transition:opacity .25s,filter .25s}
-.clients-grid img:hover{opacity:.7;filter:grayscale(.3)}
-
 /* ── FAQ Section ───────────────────────────────────── */
 .rv-faq-sect{padding:80px 24px 100px;border-top:1px solid rgba(0,0,0,.055)}
 .rv-faq-sect__inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
@@ -747,17 +738,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <style id="rv-gs-full-css">
 /* ══════════ FULL-WIDTH GALLERY SHOWCASE ══════════ */
 .rv-gsf{position:relative;background:#0e1117;overflow:hidden}
-/* control bar */
-.rv-gsf__bar{display:flex;align-items:center;gap:0;padding:0 5vw;height:52px;border-bottom:1px solid rgba(255,255,255,.1);position:relative;z-index:3}
+/* control bar — overlaid at top of image */
+.rv-gsf__bar{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;align-items:center;gap:0;padding:0 5vw;height:56px;border-bottom:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.32)}
 .rv-gsf__dot{width:8px;height:8px;background:#fff;border-radius:2px;flex-shrink:0;margin-right:14px}
 .rv-gsf__labels{position:relative;overflow:hidden;height:18px;flex:1}
 .rv-gsf__label{font-family:Urbanist,sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);position:absolute;top:0;left:0;white-space:nowrap;transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .5s}
 .rv-gsf__label.active{color:rgba(255,255,255,.8);transform:translateY(0)!important;opacity:1!important}
 .rv-gsf__index{font-family:Urbanist,sans-serif;font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.08em;margin-right:16px}
 .rv-gsf__btns{display:flex;gap:8px}
-.rv-gsf__btn{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);background:transparent;cursor:pointer;display:grid;place-items:center;transition:border-color .2s,background .2s}
-.rv-gsf__btn:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.08)}
-.rv-gsf__btn svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.rv-gsf__btn{width:36px;height:36px;border-radius:50%;border:none;background:#C6F886;cursor:pointer;display:grid;place-items:center;transition:background .2s,transform .2s}
+.rv-gsf__btn:hover{background:#b0e86e;transform:scale(1.05)}
+.rv-gsf__btn svg{width:13px;height:13px;stroke:#1a1a1a;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 /* viewport */
 .rv-gsf__vp{position:relative;width:100%;height:72vh;min-height:480px;max-height:780px}
 .rv-gsf__slide{position:absolute;inset:0;overflow:hidden;opacity:0;transition:opacity .75s cubic-bezier(.4,0,.2,1)}
@@ -780,7 +771,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .rv-gsf__cta-btn{display:inline-flex;align-items:center;gap:10px;background:#356eff;color:#fff;font-family:Urbanist,sans-serif;font-size:14px;font-weight:600;padding:13px 28px;border-radius:100px;text-decoration:none;transition:background .2s,transform .2s}
 .rv-gsf__cta-btn:hover{background:#2a5ed6;transform:translateY(-2px)}
 .rv-gsf__cta-btn svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.rv-gsf__buy-label{font-family:Plus Jakarta Sans,sans-serif;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.rv-gsf__buy-label{font-family:Urbanist,sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#C6F886}
 .rv-gsf__buy-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 .rv-gsf__buy-link{display:inline-flex;opacity:.65;transition:opacity .2s;text-decoration:none}
 .rv-gsf__buy-link:hover{opacity:1}
@@ -1038,25 +1029,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </section>
   <!-- GALLERY SHOWCASE (Higherlife Foundation) -->
   <section class="rv-gsf rv-reveal">
-    <!-- control bar -->
-    <div class="rv-gsf__bar">
-      <span class="rv-gsf__dot"></span>
-      <div class="rv-gsf__labels" id="rvGsfLabels">
-        <span class="rv-gsf__label active" data-slide="0">Joshua Nkomo Scholarship</span>
-        <span class="rv-gsf__label" data-slide="1" style="transform:translateY(20px);opacity:0">Book Launch</span>
-      </div>
-      <span class="rv-gsf__index" id="rvGsfIndex">01&nbsp;/&nbsp;02</span>
-      <div class="rv-gsf__btns">
-        <button class="rv-gsf__btn" id="rvGsfPrev" aria-label="Previous slide">
-          <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
-        </button>
-        <button class="rv-gsf__btn" id="rvGsfNext" aria-label="Next slide">
-          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-        </button>
-      </div>
-    </div>
     <!-- full-width viewport -->
     <div class="rv-gsf__vp">
+      <!-- control bar — overlaid at top -->
+      <div class="rv-gsf__bar">
+        <span class="rv-gsf__dot"></span>
+        <div class="rv-gsf__labels" id="rvGsfLabels">
+          <span class="rv-gsf__label active" data-slide="0">Joshua Nkomo Scholarship</span>
+          <span class="rv-gsf__label" data-slide="1" style="transform:translateY(20px);opacity:0">Book Launch</span>
+        </div>
+        <span class="rv-gsf__index" id="rvGsfIndex">01&nbsp;/&nbsp;02</span>
+        <div class="rv-gsf__btns">
+          <button class="rv-gsf__btn" id="rvGsfPrev" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="rv-gsf__btn" id="rvGsfNext" aria-label="Next slide">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
       <!-- images -->
       <div class="rv-gsf__slide active" data-slide="0">
         <img
@@ -1100,7 +1091,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </a>
           </div>
           <div class="rv-gsf__cta-item" data-slide="1">
-            <p class="rv-gsf__buy-label">Order your copy</p>
+            <p class="rv-gsf__buy-label">Click below to order your copy</p>
             <div class="rv-gsf__buy-row">
               <a class="rv-gsf__buy-link" href="https://www.amazon.co.uk/dp/B0DMVH1QJN" target="_blank" rel="noopener" aria-label="Kindle">
                 <img src="https://cdn.sanity.io/images/7r3yruzn/production/65ff619b209b80ac47ca810bee5d8b4afd54746d-35x40.svg?q=75&fit=clip&auto=format" alt="Kindle" width="35" height="40">
@@ -1120,38 +1111,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </section>
 
-  <p class="rv-marquee-label">Trusted by teams using</p>
-  <div class="f-section-small">
-    <div class="logos-marquee">
-      <div class="embed w-embed">
-        <style>
-/* Animation for the first right to left marquee */
-@keyframes slide {
-  0% {
-    transform: translateX( calc(0% + 50px));
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-.logo-animate {
-  animation: slide 35s infinite linear; /* Adjust the seconds for a slower or faster animation */
-}
-/* Animation for the second left to right marquee */
-@keyframes slidealt {
-  0% {
-    transform: translateX( calc(0% + 50px));
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-.logo-animate-alt {
-  animation: slidealt 35s infinite linear; /* Adjust the seconds for a slower or faster animation */
-  animation-direction: reverse;
-}
-</style>
-      </div>
       <div class="home-logo-wrapper">
         <div class="clients-grid logo-animate"><img src="images/Goggle-Ads.svg" loading="lazy" alt="Google ads logo"><img src="images/Vector.svg" loading="lazy" alt="Mail chimp logo"><img src="images/Microsoft.svg" loading="lazy" alt="Microsoft Logo"><img src="images/Google-Analytics.svg" loading="lazy" alt="Google Analytics Logo"><img src="images/Google-Digital-Garage.svg" loading="lazy" alt="Google Digital Garage Logo"><img src="images/Google-Review.svg" loading="lazy" alt="Google Reviews Logo"><img src="images/Semrush.svg" loading="lazy" alt="Semrush Logo"><img src="images/Meta-Platforms.svg" loading="lazy" alt="Meta Platforms logo"><img src="images/Sprout-Social.svg" loading="lazy" alt="Sprout social logo"><img src="images/Adobe-Express.svg" loading="lazy" alt="Adobe Express Logo"><img src="images/Buffer.svg" loading="lazy" alt="Buffer logo"><img src="images/Adobe.svg" loading="lazy" alt="Adobe Logo"><img src="images/Google-Review.svg" loading="lazy" alt="google reviews logo"><img src="images/text1.svg" loading="lazy" alt="Javascript logo"><img src="images/Cyber-Essentials.svg" loading="lazy" alt="cyber essentials logo"><img src="images/Digital-Agency-Network.svg" loading="lazy" alt="Digital agency network logo"><img src="images/Webflow-logo.svg" loading="lazy" alt="Webflow logo"><img src="images/HTML-5-Logo.svg" loading="lazy" alt="HTML 5 Logo"><img src="images/SHOPIFY-LOGO.svg" loading="lazy" alt="Shopify logo"><img src="images/Chat-GPT-Logo.svg" loading="lazy" alt="Chatgpt logo"><img src="images/FIGMA.svg" loading="lazy" alt="Figma logo"><img src="images/Group.svg" loading="lazy" alt="Framer logo"><img src="images/layer1.svg" loading="lazy" alt="CSS logo"></div>
         <div class="home-logo-left-gradient"></div>
