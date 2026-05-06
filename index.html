@@ -1596,7 +1596,6 @@ body.rv-home{font-family:var(--font-body)!important;color:var(--c-gray-800)!impo
     function resetIdle(){
       clearTimeout(idleTimer);
       showDock();
-      idleTimer = setTimeout(hideDock, IDLE_MS);
     }
 
     function onScroll(){

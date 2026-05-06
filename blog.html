@@ -803,7 +803,7 @@ Cal.ns["30min"]("ui",{"hideEventTypeDetails":false,"layout":"month_view"});
   var SCROLL_THRESH=80,IDLE_MS=3000,isScrolled=false,idleTimer=null;
   function showDock(){if(navbar)navbar.classList.add("rv-dock--visible")}
   function hideDock(){if(navbar)navbar.classList.remove("rv-dock--visible")}
-  function resetIdle(){clearTimeout(idleTimer);showDock();idleTimer=setTimeout(hideDock,IDLE_MS)}
+  function resetIdle(){clearTimeout(idleTimer);showDock()}
   function onScroll(){
     if(!DESKTOP())return;
     var y=window.scrollY,nowScrolled=y>SCROLL_THRESH;
