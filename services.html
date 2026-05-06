@@ -742,7 +742,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .rv-gsf__bar{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;align-items:center;gap:0;padding:0 5vw;height:56px;border-bottom:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.32)}
 .rv-gsf__dot{width:8px;height:8px;background:#fff;border-radius:2px;flex-shrink:0;margin-right:14px}
 .rv-gsf__labels{position:relative;overflow:hidden;height:18px;flex:1}
-.rv-gsf__label{font-family:Urbanist,sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);position:absolute;top:0;left:0;white-space:nowrap;transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .5s}
+.rv-gsf__label{font-family:Urbanist,sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);position:absolute;top:0;left:0;white-space:nowrap;transition:transform .5s cubic-bezier(.4,0,.2,1),opacity .5s}
 .rv-gsf__label.active{color:rgba(255,255,255,.8);transform:translateY(0)!important;opacity:1!important}
 .rv-gsf__index{font-family:Urbanist,sans-serif;font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.08em;margin-right:16px}
 .rv-gsf__btns{display:flex;gap:8px}
@@ -758,21 +758,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* gradient overlay */
 .rv-gsf__grad{position:absolute;inset:0;background:linear-gradient(to top, rgba(6,8,15,.92) 0%, rgba(6,8,15,.55) 38%, rgba(6,8,15,.15) 65%, transparent 100%);z-index:2;pointer-events:none}
 /* content overlay */
-.rv-gsf__content{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 5vw 48px;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:40px}
+.rv-gsf__content{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 5vw 56px;display:grid;grid-template-columns:1fr;align-items:end;gap:32px}
 .rv-gsf__slides-wrap{position:relative;display:grid}
 .rv-gsf__si{grid-area:1/1;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(14px);transition:opacity .5s .1s,transform .5s .1s;pointer-events:none}
 .rv-gsf__si.active{opacity:1;transform:translateY(0);pointer-events:auto}
-.rv-gsf__heading{font-family:Urbanist,sans-serif;font-size:clamp(28px,3.6vw,48px);font-weight:600;line-height:1.15;color:#fff;letter-spacing:-.015em;margin:0;max-width:640px}
-.rv-gsf__body{font-family:Plus Jakarta Sans,sans-serif;font-size:15px;line-height:1.72;color:rgba(255,255,255,.58);margin:0;max-width:540px}
+.rv-gsf__heading{font-family:Urbanist,sans-serif;font-size:clamp(30px,3.8vw,52px);font-weight:600;line-height:1.1;color:#fff;letter-spacing:-.02em;margin:0}
+.rv-gsf__body{font-family:Plus Jakarta Sans,sans-serif;font-size:15px;line-height:1.7;color:rgba(255,255,255,.7);margin:0;max-width:560px}
 /* CTA column */
-.rv-gsf__cta-wrap{position:relative;display:grid}
-.rv-gsf__cta-item{grid-area:1/1;display:flex;flex-direction:column;gap:14px;align-items:flex-start;justify-content:flex-end;opacity:0;transform:translateY(14px);transition:opacity .5s .2s,transform .5s .2s;pointer-events:none}
+.rv-gsf__cta-wrap{position:relative;display:grid;justify-items:center}
+.rv-gsf__cta-item{grid-area:1/1;display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:flex-end;opacity:0;transform:translateY(14px);transition:opacity .5s .2s,transform .5s .2s;pointer-events:none}
 .rv-gsf__cta-item.active{opacity:1;transform:translateY(0);pointer-events:auto}
-.rv-gsf__cta-btn{display:inline-flex;align-items:center;gap:14px;background:transparent;color:#fff;font-family:Urbanist,sans-serif;font-size:15px;font-weight:500;text-decoration:none;transition:opacity .2s}
+.rv-gsf__cta-btn{display:inline-flex;align-items:center;gap:18px;background:transparent;color:#fff;font-family:Urbanist,sans-serif;font-size:15px;font-weight:500;text-decoration:none;transition:opacity .2s}
 .rv-gsf__cta-btn:hover{opacity:.85}
 .rv-gsf__cta-btn:hover .rv-gsf__cta-icon{transform:translateX(3px)}
-.rv-gsf__cta-icon{width:42px;height:42px;border-radius:6px;background:#C6F886;display:grid;place-items:center;flex-shrink:0;transition:transform .25s}
-.rv-gsf__cta-btn svg{width:15px;height:15px;stroke:#1a1a1a;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.rv-gsf__cta-icon{width:52px;height:52px;border-radius:8px;background:#C6F886;display:grid;place-items:center;flex-shrink:0;transition:transform .25s}
+.rv-gsf__cta-btn svg{width:17px;height:17px;stroke:#1a1a1a;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .rv-gsf__buy-label{font-family:Urbanist,sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#C6F886}
 .rv-gsf__buy-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 .rv-gsf__buy-link{display:inline-flex;opacity:.65;transition:opacity .2s;text-decoration:none}
@@ -782,9 +782,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .rv-gsf__prog{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.1);z-index:4}
 .rv-gsf__prog-bar{height:100%;width:0%;background:#356eff;transition:width .1s linear}
 @media(max-width:860px){
-  .rv-gsf__content{grid-template-columns:1fr;gap:20px}
-  .rv-gsf__vp{height:80vw;min-height:320px}
-  .rv-gsf__cta-item{justify-content:flex-start}
+  .rv-gsf__content{padding-bottom:36px;gap:20px}
+  .rv-gsf__vp{height:90vw;min-height:360px}
 }
 @media(max-width:480px){
   .rv-gsf__content{padding:0 5vw 36px}
@@ -1077,11 +1076,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="rv-gsf__content">
         <div class="rv-gsf__slides-wrap">
           <div class="rv-gsf__si active" data-slide="0">
-            <h2 class="rv-gsf__heading">A Scholarship That Builds Global Leaders</h2>
-            <p class="rv-gsf__body">More than a scholarship, the Joshua Nkomo Scholarship is a gateway to purpose-driven leadership. It empowers academically gifted young Africans with access to world-class education, mentorship, and opportunities to create meaningful impact.</p>
+            <h2 class="rv-gsf__heading">A Scholarship That Builds<br>Global Leaders</h2>
+            <p class="rv-gsf__body">More than a scholarship, the Joshua Nkomo Scholarship is a gateway to purpose-driven leadership. It empowers academically gifted young Africans with access to world-class education, mentorship, and opportunities to create meaningful impact in their communities and beyond. This is where future global leaders are shaped.</p>
           </div>
           <div class="rv-gsf__si" data-slide="1">
-            <h2 class="rv-gsf__heading">Honouring Decades of Lives Transformed</h2>
+            <h2 class="rv-gsf__heading">Honouring Decades of Lives<br>Transformed</h2>
             <p class="rv-gsf__body">&ldquo;And Still We Rise&rdquo; is a powerful reflection on decades of transformative impact led by Higherlife Foundation &mdash; capturing the vision, resilience, and unwavering commitment to uplifting lives across Africa and beyond.</p>
           </div>
         </div>
