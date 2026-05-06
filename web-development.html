@@ -587,7 +587,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .rv-topbar__cta:hover{background:#2a5ed6;transform:translateY(-1px)}
 .rv-topbar.rv-top--hidden{transform:translateY(-115%);opacity:0;pointer-events:none}
 /* ── Desktop bottom pill nav (dock state) ── */
-.rv-navbar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(90px);width:auto;height:56px;display:none;align-items:center;gap:0;background:rgba(13,13,15,0.92);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border-radius:100px;border:1px solid rgba(255,255,255,.11);padding:6px;z-index:9998;opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.32,1.2,.68,1),opacity .4s ease;box-shadow:0 8px 40px rgba(0,0,0,.45),0 1px 0 rgba(255,255,255,.06) inset,0 -1px 0 rgba(0,0,0,.4) inset}
+.rv-navbar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(90px);width:auto;height:56px;display:flex;align-items:center;gap:0;background:rgba(13,13,15,0.92);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);border-radius:100px;border:1px solid rgba(255,255,255,.11);padding:6px;z-index:9998;opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.32,1.2,.68,1),opacity .4s ease;box-shadow:0 8px 40px rgba(0,0,0,.45),0 1px 0 rgba(255,255,255,.06) inset,0 -1px 0 rgba(0,0,0,.4) inset}
 .rv-navbar.rv-dock--visible{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:all}
 .rv-navbar__logo{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;display:block;box-shadow:0 0 0 1.5px rgba(255,255,255,.18);transition:box-shadow .25s ease,transform .2s ease}
 .rv-navbar__logo:hover{box-shadow:0 0 0 2.5px rgba(255,255,255,.38);transform:scale(1.06)}
@@ -661,7 +661,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .rv-navbar__drop a:hover{background:rgba(255,255,255,.09);color:#fff}
 /* ── WhatsApp ── */
 @media(max-width:767px){.rv-topbar{display:none!important}.rv-navbar{display:none!important}.rv-cta-pill{display:none!important}.rv-mobile-bar{display:flex!important}}
-@media(min-width:768px){.rv-mobile-bar{display:none!important}.rv-topbar{display:flex}.rv-navbar{display:none!important}}
+@media(min-width:768px){.rv-mobile-bar{display:none!important}.rv-topbar{display:flex}}
 /* PAGE */.rv-footer__contact{font-style:normal;margin-top:20px;display:flex;flex-direction:column;gap:10px}.rv-footer__contact a{display:flex;align-items:flex-start;gap:8px;font-family:var(--font-body);font-size:13px;line-height:1.55;color:#374151;text-decoration:none;transition:color .2s}.rv-footer__contact a:hover{color:var(--c-blue)}.rv-footer__contact svg{width:15px;height:15px;fill:#374151;flex-shrink:0;margin-top:2px;transition:fill .2s}.rv-footer__contact a:hover svg{fill:var(--c-blue)}
 .rv-footer__contact span{display:flex;align-items:flex-start;gap:8px;font-family:var(--font-body);font-size:13px;line-height:1.55;color:#374151}
 
@@ -1352,46 +1352,6 @@ document.addEventListener("DOMContentLoaded", function() {
  -->
   <style>
 /* ════════════════════════════════════════════════
-   FLOATING BUTTON
-════════════════════════════════════════════════ */
-.flt-btn {
-  position: fixed !important;
-  bottom: 8rem !important;
-  right: 1.5rem !important;
-  left: auto !important;
-  z-index: 2147483647 !important;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
-  font-size: 0.82rem;
-  background: #1F55C4;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.1rem;
-  border-radius: 100px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.18s, transform 0.18s;
-  box-shadow: 0 4px 14px rgba(31,85,196,0.38);
-}
-.flt-btn:hover { background: #1847AA; transform: translateY(-1px); }
-.flt-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
-@media (max-width: 768px) {
-  .flt-btn { bottom: 8rem !important; right: 1rem !important; left: auto !important; }
-}
-@media (max-width: 480px) {
-  .flt-btn {
-    bottom: 8rem !important;
-    right: 0.9rem !important;
-    left: auto !important;
-    font-size: 0.72rem !important;
-    padding: 0.48rem 0.82rem !important;
-  }
-  .flt-btn svg { width: 11px; height: 11px; }
-}
-/* ════════════════════════════════════════════════
    CONTACT FORM MODAL
 ════════════════════════════════════════════════ */
 #flt-root {
@@ -1581,12 +1541,6 @@ document.addEventListener("DOMContentLoaded", function() {
 #flt-root .flt-success p { font-size: 0.8rem; color: #5E6E8A; line-height: 1.6; }
 </style>
   <!--  Floating Button  -->
-  <button class="flt-btn" onclick="fltOpen('manual')">
-    <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-    </svg>
-    Work With Us
-  </button>
   <script>
   /* Auto open if arriving from referral link */
 if (new URLSearchParams(window.location.search).has('utm_source')) {
@@ -1729,12 +1683,10 @@ function fltOpen(trigger) {
   fltInjectTracking(trigger || 'manual');
   document.getElementById('flt-root').classList.add('open');
   document.body.style.overflow = 'hidden';
-  document.querySelector('.flt-btn').style.display = 'none';
 }
 function fltClose() {
   document.getElementById('flt-root').classList.remove('open');
   document.body.style.overflow = '';
-  document.querySelector('.flt-btn').style.display = '';
 }
 function fltTag(el, groupId, valId, toggle) {
   if (toggle) {
