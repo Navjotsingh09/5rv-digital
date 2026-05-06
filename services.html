@@ -694,6 +694,56 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   Cal("init","30min",{origin:"https://cal.com"});
   Cal.ns["30min"]("ui",{"styles":{"branding":{"brandColor":"#356EFF"}},"hideEventTypeDetails":false,"layout":"month_view"});
   </script>
+<style id="rv-sections-v2">
+/* ── Trusted By Band ───────────────────────────────── */
+.rv-marquee-label{padding-top:16px!important;margin-bottom:0!important}
+.f-section-small{margin-top:18px!important;padding-top:24px!important;padding-bottom:24px!important;border-top:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05);background:rgba(249,250,251,.85)}
+.home-logo-wrapper{position:relative;overflow:hidden}
+.home-logo-left-gradient{position:absolute!important;top:0;left:0;bottom:0;width:110px;background:linear-gradient(to right,rgba(249,250,251,1),rgba(249,250,251,0))!important;z-index:2;pointer-events:none}
+.home-logo-left-gradient.right{left:auto!important;right:0;background:linear-gradient(to left,rgba(249,250,251,1),rgba(249,250,251,0))!important}
+.clients-grid img{height:24px!important;width:auto!important;opacity:.42;filter:grayscale(1);transition:opacity .25s,filter .25s}
+.clients-grid img:hover{opacity:.7;filter:grayscale(.3)}
+
+/* ── FAQ Section ───────────────────────────────────── */
+.rv-faq-sect{padding:80px 24px 100px;border-top:1px solid rgba(0,0,0,.055)}
+.rv-faq-sect__inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start}
+.rv-faq-sect__left{position:sticky;top:96px}
+.rv-faq-sect__tag{display:inline-block;background:rgba(53,110,255,.09);color:#356eff;font-family:Urbanist,sans-serif;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:16px}
+.rv-faq-sect__heading{font-family:Urbanist,sans-serif;font-size:44px;font-weight:700;line-height:1.1;color:#1f2937;margin:0 0 16px}
+.rv-faq-sect__heading em{font-style:normal;background:linear-gradient(97deg,#1f2937 20%,#356eff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.rv-faq-sect__sub{font-family:Plus Jakarta Sans,sans-serif;font-size:15px;color:#6b7280;line-height:1.72;margin:0 0 28px}
+.rv-faq-sect__cta{display:inline-flex;align-items:center;gap:8px;background:#1f2937;color:#fff!important;-webkit-text-fill-color:#fff!important;font-family:Urbanist,sans-serif;font-size:14px;font-weight:600;padding:12px 26px;border-radius:100px;text-decoration:none!important;transition:background .2s,transform .2s}
+.rv-faq-sect__cta:hover{background:#356eff;transform:translateY(-2px)}
+.rv-faq-sect__cta:visited{color:#fff!important;-webkit-text-fill-color:#fff!important}
+.rv-faq-sect__cta svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.rv-faq-sect__list{display:flex;flex-direction:column;gap:8px}
+.rv-faq-item-new{border:1px solid rgba(0,0,0,.08)!important;border-radius:14px!important;background:#f9fafb!important;overflow:hidden!important;margin:0!important;transition:border-color .2s,box-shadow .2s!important}
+.rv-faq-item-new:hover{border-color:rgba(53,110,255,.2)!important;box-shadow:0 2px 16px rgba(53,110,255,.07)!important}
+.rv-faq-item-new.open{background:#fff!important;border-color:rgba(53,110,255,.24)!important;box-shadow:0 4px 24px rgba(53,110,255,.09)!important}
+.rv-faq-item-new .faq-title{display:flex!important;padding:0!important;cursor:pointer;border:none;background:none!important;width:100%}
+.rv-faq-item-new .faq-title-wrapper{display:flex!important;align-items:center!important;justify-content:space-between!important;width:100%!important;gap:16px!important;padding:18px 20px!important;white-space:normal!important}
+.rv-faq-q{font-family:Urbanist,sans-serif;font-size:15px;font-weight:600;color:#1f2937;line-height:1.4;flex:1}
+.rv-faq-item-new.open .rv-faq-q{color:#356eff}
+.rv-faq-icon{width:30px;height:30px;border-radius:50%;background:rgba(53,110,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,transform .32s cubic-bezier(.4,0,.2,1)}
+.rv-faq-icon svg{width:14px;height:14px;stroke:#356eff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.rv-faq-item-new.open .rv-faq-icon{background:#356eff;transform:rotate(45deg)}
+.rv-faq-item-new.open .rv-faq-icon svg{stroke:#fff}
+.rv-faq-item-new .faq-content{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
+.rv-faq-item-new .faq-tab{padding:0 20px 18px}
+.rv-faq-item-new .faq-tab p{font-family:Plus Jakarta Sans,sans-serif;font-size:14px;color:#6b7280;line-height:1.72;margin:0}
+.rv-faq-item-new .faq-tab a{color:#356eff;text-decoration:none}
+.rv-faq-item-new .faq-tab a:hover{text-decoration:underline}
+.rv-faq-item-new.open .faq-title,.rv-faq-item-new.open .faq-title *{color:inherit!important}
+@media(max-width:860px){
+  .rv-faq-sect__inner{grid-template-columns:1fr;gap:36px}
+  .rv-faq-sect__left{position:static}
+  .rv-faq-sect__heading{font-size:34px}
+}
+@media(max-width:479px){
+  .rv-faq-sect{padding:48px 16px 72px}
+  .rv-faq-sect__heading{font-size:28px}
+}
+</style>
 </head>
 <body>
 
@@ -970,88 +1020,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
   </div>
-  <section>
-    <div class="container-regular">
-      <div class="title-wrapper">
-        <h1 data-figma-id="0:3058" class="headingclint">Frequently Asked<br> Questions</h1>
+  <section class="rv-faq-sect rv-reveal">
+    <div class="rv-faq-sect__inner">
+      <div class="rv-faq-sect__left">
+        <span class="rv-faq-sect__tag">Got Questions?</span>
+        <h2 class="rv-faq-sect__heading">Frequently<br><em>Asked Questions</em></h2>
+        <p class="rv-faq-sect__sub">Can't find what you're looking for? We're happy to help — get in touch and we'll guide you through.</p>
+        <a href="contact.html" class="rv-faq-sect__cta">Talk to Us<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="faq-border">
-        <div data-delay="0" data-hover="false" class="faq w-dropdown">
-          <div class="faq-title w-dropdown-toggle">
-            <div class="faq-title-wrapper">
-              <h2 class="paragraph-regular-bg text-weight-bold"><strong class="bold-text-10">What services does 5RV Digital offer?</strong></h2>
-              <div class="faq-icon">
-                <div class="icon-x-small w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#0263e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 5v14M19 12l-7 7-7-7"></path>
-                  </svg></div>
-              </div>
-            </div>
-          </div>
-          <nav class="faq-content w-dropdown-list">
-            <div class="faq-tab">
-              <p class="paragraph-small">We provide full digital marketing services including SEO, PPC and web development, designed to help businesses grow online, attract more customers and build a strong results‑driven <a href="branding.html" class="link-19">digital presence.</a>
-              </p>
-            </div>
-          </nav>
+      <div class="rv-faq-sect__list">
+        <div class="faq rv-faq-item-new">
+          <div class="faq-title"><div class="faq-title-wrapper"><span class="rv-faq-q">What services does 5RV Digital offer?</span><div class="rv-faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div></div>
+          <div class="faq-content"><div class="faq-tab"><p>We provide full digital marketing services including SEO, PPC and web development, designed to help businesses grow online, attract more customers and build a strong results&#8209;driven <a href="branding.html">digital presence.</a></p></div></div>
         </div>
-        <div data-delay="0" data-hover="false" class="faq w-dropdown">
-          <div class="faq-title w-dropdown-toggle">
-            <div class="faq-title-wrapper">
-              <h2 class="paragraph-regular-bg">How can SEO improve my business visibility?</h2>
-              <div class="faq-icon">
-                <div class="icon-x-small w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#0263e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 5v14M19 12l-7 7-7-7"></path>
-                  </svg></div>
-              </div>
-            </div>
-          </div>
-          <nav class="faq-content w-dropdown-list">
-            <div class="faq-tab">
-              <p class="paragraph-small">Our SEO strategies boost your website’s Google ranking, <a href="seo-expert.html" class="link-16">drive organic traffic</a>, and ensure your business appears when potential customers search for your products or services.</p>
-            </div>
-          </nav>
+        <div class="faq rv-faq-item-new">
+          <div class="faq-title"><div class="faq-title-wrapper"><span class="rv-faq-q">How can SEO improve my business visibility?</span><div class="rv-faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div></div>
+          <div class="faq-content"><div class="faq-tab"><p>Our SEO strategies boost your website&#8217;s Google ranking, <a href="seo-expert.html">drive organic traffic</a>, and ensure your business appears when potential customers search for your products or services.</p></div></div>
         </div>
-        <div data-delay="0" data-hover="false" class="faq w-dropdown">
-          <div class="faq-title w-dropdown-toggle">
-            <div class="faq-title-wrapper">
-              <h2 class="paragraph-regular-bg">Do you design custom websites?</h2>
-              <div class="faq-icon">
-                <div class="icon-x-small w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#0263e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 5v14M19 12l-7 7-7-7"></path>
-                  </svg></div>
-              </div>
-            </div>
-          </div>
-          <nav class="faq-content w-dropdown-list">
-            <div class="faq-tab">
-              <p class="paragraph-small">Yes, we create fully <a href="web-development.html" class="link-18">customised responsive websites</a> that reflect your brand, enhance user experience and are optimised for performance and conversions.</p>
-            </div>
-          </nav>
+        <div class="faq rv-faq-item-new">
+          <div class="faq-title"><div class="faq-title-wrapper"><span class="rv-faq-q">Do you design custom websites?</span><div class="rv-faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div></div>
+          <div class="faq-content"><div class="faq-tab"><p>Yes, we create fully <a href="web-development.html">customised responsive websites</a> that reflect your brand, enhance user experience and are optimised for performance and conversions.</p></div></div>
         </div>
-        <div data-delay="0" data-hover="false" class="faq w-dropdown">
-          <div class="faq-title w-dropdown-toggle">
-            <div class="faq-title-wrapper">
-              <h2 class="paragraph-regular-bg">How long does it take to see SEO results?</h2>
-              <div class="faq-icon">
-                <div class="icon-x-small w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#0263e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 5v14M19 12l-7 7-7-7"></path>
-                  </svg></div>
-              </div>
-            </div>
-          </div>
-          <nav class="faq-content w-dropdown-list">
-            <div class="faq-tab">
-              <p class="paragraph-small">You can usually expect noticeable results from <a href="branding.html" class="link-17">digital marketing agency services</a> such as SEO within three to six months. Timelines vary depending on your industry, competition and how well your website is optimised for search engines.</p>
-            </div>
-          </nav>
-        </div>
-        <div class="w-embed">
-          <style>
-.faq-title.open, 
-.faq-title.open * {
-  color: #fff !important;
-}
-</style>
+        <div class="faq rv-faq-item-new">
+          <div class="faq-title"><div class="faq-title-wrapper"><span class="rv-faq-q">How long does it take to see SEO results?</span><div class="rv-faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></div></div>
+          <div class="faq-content"><div class="faq-tab"><p>You can usually expect noticeable results from <a href="branding.html">digital marketing agency services</a> such as SEO within three to six months. Timelines vary depending on your industry, competition and how well your website is optimised.</p></div></div>
         </div>
       </div>
     </div>
