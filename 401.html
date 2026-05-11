@@ -583,6 +583,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   Cal("init","30min",{origin:"https://cal.com"});
   Cal.ns["30min"]("ui",{"styles":{"branding":{"brandColor":"#356EFF"}},"hideEventTypeDetails":false,"layout":"month_view"});
   </script>
+<style id="rv2-nav">
+.rv2-header{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid rgba(11,23,57,.07);transition:box-shadow .3s}
+.rv2-header.scrolled{box-shadow:0 2px 20px rgba(11,23,57,.09)}
+.rv2-header__inner{width:min(1180px,calc(100% - 48px));margin:0 auto;height:68px;display:flex;align-items:center;gap:0}
+.rv2-logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
+.rv2-logo img{height:36px;width:auto;display:block}
+.rv2-nav{flex:1;display:flex;justify-content:center}
+.rv2-nav__list{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0}
+.rv2-nav__link{display:flex;align-items:center;gap:4px;font-family:Urbanist,sans-serif;font-size:14px;font-weight:500;color:#0B1739;text-decoration:none;padding:8px 14px;border-radius:8px;transition:background .18s,color .18s;background:none;border:none;cursor:pointer;white-space:nowrap;line-height:1}
+.rv2-nav__link:hover,.rv2-nav__item--drop:hover>.rv2-nav__link{background:rgba(11,23,57,.05)}
+.rv2-nav__link.active{color:#356EFF;font-weight:600}
+.rv2-nav__caret{width:13px;height:13px;fill:currentColor;transition:transform .2s ease;flex-shrink:0;opacity:.55}
+.rv2-nav__item--drop:hover .rv2-nav__caret{transform:rotate(180deg);opacity:.9}
+.rv2-nav__item--drop{position:relative}
+.rv2-nav__panel{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);width:660px;background:#fff;border:1px solid rgba(11,23,57,.07);border-radius:18px;box-shadow:0 16px 56px rgba(11,23,57,.13);padding:28px;opacity:0;pointer-events:none;transition:opacity .17s ease}
+.rv2-nav__item--drop:hover .rv2-nav__panel{opacity:1;pointer-events:all}
+.rv2-panel__inner{display:grid;grid-template-columns:220px 1fr;gap:28px}
+.rv2-panel__featured{background:rgba(11,23,57,.025);border-radius:12px;padding:20px;display:flex;flex-direction:column}
+.rv2-panel__label,.rv2-panel__label-alt{font-family:Urbanist,sans-serif;font-size:11px;font-weight:700;color:rgba(11,23,57,.35);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.rv2-panel__heading{font-family:Urbanist,sans-serif;font-size:17px;font-weight:800;color:#0B1739;margin:0 0 8px;line-height:1.25;letter-spacing:-.02em}
+.rv2-panel__text{font-family:"Plus Jakarta Sans",sans-serif;font-size:12.5px;color:#5f6b7a;line-height:1.6;margin:0 0 18px}
+.rv2-panel__cta{display:inline-flex;align-items:center;gap:6px;font-family:Urbanist,sans-serif;font-size:12px;font-weight:700;color:#0B1739;background:rgba(11,23,57,.07);padding:8px 14px;border-radius:100px;text-decoration:none;transition:background .18s;margin-top:auto}
+.rv2-panel__cta:hover{background:rgba(11,23,57,.12)}
+.rv2-panel__grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.rv2-panel__link{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:10px;text-decoration:none;transition:background .14s}
+.rv2-panel__link:hover{background:rgba(53,110,255,.05)}
+.rv2-panel__link-icon{width:30px;height:30px;border-radius:8px;background:rgba(53,110,255,.08);display:grid;place-items:center;flex-shrink:0;margin-top:1px}
+.rv2-panel__link-icon svg{width:14px;height:14px;stroke:#356EFF;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.rv2-panel__link-body{display:flex;flex-direction:column;gap:2px}
+.rv2-panel__link-title{font-family:Urbanist,sans-serif;font-size:12.5px;font-weight:600;color:#0B1739;line-height:1.3}
+.rv2-panel__link-desc{font-family:"Plus Jakarta Sans",sans-serif;font-size:11.5px;color:#7a8494;line-height:1.35}
+.rv2-header__cta{display:flex;align-items:center;gap:8px;flex-shrink:0;margin-left:auto}
+.rv2-cta-primary{font-family:Urbanist,sans-serif;font-size:14px;font-weight:700;color:#fff;background:#0B1739;padding:10px 22px;border-radius:100px;border:none;cursor:pointer;transition:background .2s,transform .2s;white-space:nowrap}
+.rv2-cta-primary:hover{background:#1a2d5c;transform:translateY(-1px)}
+.rv2-burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;border:none;background:rgba(11,23,57,.06);border-radius:50%;cursor:pointer;padding:10px;flex-shrink:0;margin-left:8px}
+.rv2-burger span{display:block;width:18px;height:1.5px;background:#0B1739;border-radius:2px}
+.n5__drawer{display:block;position:fixed;top:0;left:0;right:0;bottom:0;z-index:10000;background:rgba(11,23,57,.45);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .3s ease}
+.n5__drawer.open{opacity:1;pointer-events:all}
+.n5__drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(320px,90vw);background:#fff;box-shadow:-12px 0 48px rgba(11,23,57,.15);display:flex;flex-direction:column;padding:28px 24px 40px;transform:translateX(100%);transition:transform .35s cubic-bezier(.32,1,.68,1)}
+.n5__drawer.open .n5__drawer-panel{transform:translateX(0)}
+.n5__drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
+.n5__drawer-top img{height:32px}
+.n5__drawer-close{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(0,0,0,.1);background:transparent;font-size:16px;color:#0B1739;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.n5__drawer-close:hover{background:rgba(0,0,0,.05)}
+.n5__drawer-links{display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto}
+.n5__drawer-links a{font-family:Urbanist,sans-serif;font-size:16px;font-weight:500;color:#0B1739;text-decoration:none;padding:12px 8px;border-bottom:1px solid rgba(0,0,0,.05);transition:color .15s}
+.n5__drawer-links a:hover{color:#356EFF}
+.n5__drawer-cta{margin-top:28px;display:block;text-align:center;font-family:Urbanist,sans-serif;font-size:15px;font-weight:600;color:#fff;background:#0B1739;padding:14px 24px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;width:100%}
+.n5__svc-toggle{display:flex;align-items:center;justify-content:space-between;font-family:Urbanist,sans-serif;font-size:16px;font-weight:500;color:#0B1739;padding:12px 8px;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;border:none;background:none;width:100%;text-align:left}
+.n5__svc-toggle svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform .25s ease}
+.n5__svc-toggle.open svg{transform:rotate(180deg)}
+.n5__svc-sub{overflow:hidden;max-height:0;transition:max-height .3s ease}
+.n5__svc-sub.open{max-height:320px}
+.n5__svc-sub a{display:flex;align-items:center;gap:8px;font-family:Urbanist,sans-serif;font-size:14px;font-weight:400;color:#4b5563;text-decoration:none;padding:9px 8px 9px 20px;border-bottom:1px solid rgba(0,0,0,.03);transition:color .15s}
+.n5__svc-sub a::before{content:'';width:4px;height:4px;border-radius:50%;background:#356EFF;flex-shrink:0}
+.n5__svc-sub a:hover{color:#356EFF}
+@media(max-width:767px){.rv2-nav{display:none}.rv2-burger{display:flex}.rv2-header__inner{height:60px}}
+</style>
+
+
+
+<style id="rv-nav-visited-v1">
+/* Defeat the browser default purple :visited colour for in-app links */
+.rv2-nav__link,.rv2-nav__link:visited{color:#0B1739}
+.rv2-nav__link.active,.rv2-nav__link.active:visited{color:#356EFF;font-weight:600}
+.rv-footer__col a:visited{color:#4b5563}
+.rv-footer__contact a:visited{color:#374151}
+.rv-footer__brand a:visited{color:inherit}
+</style>
 </head>
 <body>
 
@@ -590,121 +659,83 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5LLVK6F" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Desktop top bar (visible at page top, hides on scroll) -->
-  <nav id="rvTopbar" class="rv-topbar" role="navigation" aria-label="Primary navigation">
-    <div class="rv-topbar__bar">
-      <a href="index.html" class="rv-topbar__logo" aria-label="5RV Digital home">
-        <img src="images/logo-dark.png" alt="5RV Digital" width="36" height="36">
-      </a>
-      <div class="rv-topbar__links">
-        <a href="about.html">About</a>
-        <a href="work.html">Work</a>
-        <div class="rv-topbar__has-drop">
-          <a href="services.html">Services <svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-          <div class="rv-topbar__drop">
-            <div class="rv-topbar__drop-inner">
-            <a href="seo-expert.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>SEO</a>
-            <a href="web-development.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>Web Design &amp; Dev</a>
-            <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg></span>Social Media</a>
-            <a href="branding.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>Branding</a>
-            <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>Paid Ads (PPC)</a>
-            <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>Content Marketing</a>
+  <header class="rv2-header" id="rv2Header">
+  <div class="rv2-header__inner">
+    <a href="index.html" class="rv2-logo" aria-label="5RV Digital home">
+      <img src="images/logo-dark.png" alt="5RV Digital" width="36" height="36">
+    </a>
+    <nav class="rv2-nav" role="navigation" aria-label="Primary navigation">
+      <ul class="rv2-nav__list">
+        <li><a href="about.html" class="rv2-nav__link">About</a></li>
+        <li><a href="work.html" class="rv2-nav__link">Work</a></li>
+        <li class="rv2-nav__item--drop">
+          <button class="rv2-nav__link" type="button">
+            Services
+            <svg class="rv2-nav__caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </button>
+          <div class="rv2-nav__panel">
+            <div class="rv2-panel__inner">
+              <div class="rv2-panel__featured">
+                <p class="rv2-panel__label">What we do</p>
+                <h3 class="rv2-panel__heading">Grow your brand online</h3>
+                <p class="rv2-panel__text">From SEO to paid ads and stunning web design — we help businesses scale with data-driven digital marketing.</p>
+                <a href="services.html" class="rv2-panel__cta">View all services <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div>
+                <p class="rv2-panel__label-alt">Our services</p>
+                <div class="rv2-panel__grid">
+                  <a href="seo-expert.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">SEO</span><span class="rv2-panel__link-desc">Rank higher, drive organic traffic</span></div></a>
+                  <a href="web-development.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">Web Design &amp; Dev</span><span class="rv2-panel__link-desc">Fast, beautiful, conversion-ready</span></div></a>
+                  <a href="branding.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">Branding</span><span class="rv2-panel__link-desc">Identity that stands out</span></div></a>
+                  <a href="social-media-marketing-agency.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">Social Media</span><span class="rv2-panel__link-desc">Build audience &amp; engagement</span></div></a>
+                  <a href="digital-marketing-strategies.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">Paid Ads (PPC)</span><span class="rv2-panel__link-desc">ROI-focused ad campaigns</span></div></a>
+                  <a href="digital-marketing-strategies.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">Content Marketing</span><span class="rv2-panel__link-desc">Content that converts</span></div></a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <button class="rv-topbar__cta" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
-    </div>
-  </nav>
-
-  <!-- Mobile top bar -->
-  <div class="rv-mobile-bar">
-    <button class="rv-mobile-hamburger" id="rvBurger" aria-label="Open menu" aria-expanded="false" aria-controls="n5Drawer">
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M1 6H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M1 11H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </button>
-    <button class="rv-mobile-cta" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>
-      <div class="rv-mobile-cta__avatar">
-        <img src="images/logo-light.png" alt="5RV Digital" width="36" height="36">
-      </div>
-      Book a 30 Min Free Call
-    </button>
-  </div>
-
-  <!-- Mobile drawer -->
-  <div class="n5__drawer" id="n5Drawer" aria-hidden="true">
-    <div class="n5__drawer-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
-      <div class="n5__drawer-top">
-        <img src="images/logo-dark.png" alt="5RV Digital" width="44" height="44">
-        <button class="n5__drawer-close" id="n5DrawerClose" aria-label="Close menu">&times;</button>
-      </div>
-      <div class="n5__drawer-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="work.html">Work</a>
-        <button class="n5__svc-toggle" id="n5SvcToggle">Services <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="n5__svc-sub" id="n5SvcSub">
-          <a href="services.html">All Services</a>
-          <a href="seo-expert.html">SEO</a>
-          <a href="web-development.html">Web Design &amp; Dev</a>
-          <a href="social-media-marketing-agency.html">Social Media</a>
-          <a href="branding.html">Branding</a>
-          <a href="digital-marketing-strategies.html">Paid Ads (PPC)</a>
-          <a href="digital-marketing-strategies.html">Content Marketing</a>
-        </div>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <button class="n5__drawer-cta" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>Book a Free Call</button>
+        </li>
+        <li><a href="blog.html" class="rv2-nav__link">Blog</a></li>
+        <li><a href="#" class="rv2-nav__link" onclick="fltOpen('nav');return false;">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="rv2-header__cta">
+      <button class="rv2-cta-primary" type="button" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
+      <button class="rv2-burger" id="rvBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="n5Drawer">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-
-  <!-- Floating dock nav (appears on scroll, desktop only) -->
-  <nav class="rv-navbar" role="navigation" aria-label="Scroll navigation">
-    <a href="index.html" class="rv-navbar__logo">
-      <img src="images/logo-dark.png" alt="5RV Digital" width="44" height="44">
-    </a>
-    <div class="rv-navbar__sep"></div>
-    <div class="rv-navbar__links">
+</header>
+<!-- Mobile drawer -->
+<div class="n5__drawer" id="n5Drawer" aria-hidden="true">
+  <div class="n5__drawer-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="n5__drawer-top">
+      <img src="images/logo-dark.png" alt="5RV Digital" height="32">
+      <button class="n5__drawer-close" id="n5DrawerClose" type="button" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="n5__drawer-links">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="work.html">Work</a>
-      <div class="rv-navbar__has-drop">
-        <a href="services.html">Services
-          <svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
-        <div class="rv-navbar__drop">
-          <div class="rv-navbar__drop-inner">
-            <a href="web-development.html">Web Design &amp; Dev</a>
-            <a href="seo-expert.html">SEO</a>
-            <a href="social-media-marketing-agency.html">Social Media</a>
-            <a href="branding.html">Branding</a>
-            <a href="digital-marketing-strategies.html">Paid Ads</a>
-          </div>
-        </div>
+      <button class="n5__svc-toggle" id="n5SvcToggle" type="button">Services <svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>
+      <div class="n5__svc-sub" id="n5SvcSub">
+        <a href="services.html">All Services</a>
+        <a href="seo-expert.html">SEO</a>
+        <a href="web-development.html">Web Design &amp; Dev</a>
+        <a href="social-media-marketing-agency.html">Social Media</a>
+        <a href="branding.html">Branding</a>
+        <a href="digital-marketing-strategies.html">Paid Ads (PPC)</a>
+        <a href="digital-marketing-strategies.html">Content Marketing</a>
       </div>
       <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+      <a href="#" onclick="fltOpen('nav');return false;">Contact</a>
     </div>
-  </nav>
+    <button class="n5__drawer-cta" type="button" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>Book a Free Call</button>
+  </div>
+</div>
 
-  <!-- Book a 30 Min Free Call pill (appears on scroll, desktop only) -->
-  <button class="rv-book-pill" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}' aria-label="Book a 30 minute free call with 5RV Digital" style="cursor:pointer;border:none;">
-    <div class="rv-book-pill__avatar">
-      <img src="images/logo-dark.png" alt="" width="44" height="44">
-      <span class="rv-book-pill__dot"></span>
-    </div>
-    <div class="rv-book-pill__text">
-      <span class="rv-book-pill__main">Book a 30 Min Free Call</span>
-      <span class="rv-book-pill__sub">Schedule Now</span>
-    </div>
-    <div class="rv-book-pill__arrow">
-      <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-    </div>
-  </button>
+
 
 
   <div class="utility-page-wrap">
@@ -730,29 +761,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
   <script>
 (function(){
-  /* NAV */
-  var DESKTOP=function(){return window.innerWidth>=768};
-  var topbar=document.getElementById("rvTopbar");
-  var navbar=document.querySelector(".rv-navbar");
-  var bookPill=document.querySelector(".rv-book-pill");
-  var SCROLL_THRESH=80,IDLE_MS=3000,isScrolled=false,idleTimer=null;
-  function showDock(){if(navbar)navbar.classList.add("rv-dock--visible")}
-  function hideDock(){if(navbar)navbar.classList.remove("rv-dock--visible")}
-  function resetIdle(){clearTimeout(idleTimer);showDock()}
-  function onScroll(){
-    if(!DESKTOP())return;
-    var y=window.scrollY,nowScrolled=y>SCROLL_THRESH;
-    if(bookPill)bookPill.classList.toggle("rv-pill--visible",y>120);
-    if(nowScrolled===isScrolled){if(nowScrolled)resetIdle();return}
-    isScrolled=nowScrolled;
-    if(nowScrolled){topbar.classList.add("rv-top--hidden");resetIdle()}
-    else{topbar.classList.remove("rv-top--hidden");hideDock();clearTimeout(idleTimer)}
-  }
-  ["mousemove","touchstart","click","keydown"].forEach(function(ev){document.addEventListener(ev,function(){if(isScrolled&&DESKTOP())resetIdle()},{passive:true})});
-  window.addEventListener("scroll",onScroll,{passive:true});
-  window.addEventListener("resize",function(){isScrolled=false;clearTimeout(idleTimer);onScroll()});
-  onScroll();
-  /* DRAWER */
+  var hdr=document.getElementById("rv2Header");
+  window.addEventListener("scroll",function(){if(hdr)hdr.classList.toggle("scrolled",window.scrollY>40);},{passive:true});
   var burger=document.getElementById("rvBurger"),drawer=document.getElementById("n5Drawer"),dclose=document.getElementById("n5DrawerClose");
   function openDrawer(){drawer.classList.add("open");burger.setAttribute("aria-expanded","true");drawer.setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
   function closeDrawer(){drawer.classList.remove("open");burger.setAttribute("aria-expanded","false");drawer.setAttribute("aria-hidden","true");document.body.style.overflow=""}

@@ -532,125 +532,156 @@ a{text-decoration:none;color:inherit}
   Cal("init","30min",{origin:"https://cal.com"});
   Cal.ns["30min"]("ui",{"styles":{"branding":{"brandColor":"#356EFF"}},"hideEventTypeDetails":false,"layout":"month_view"});
   </script>
+<style id="rv2-nav">
+.rv2-header{position:fixed;top:0;left:0;right:0;z-index:9999;background:#fff;border-bottom:1px solid rgba(11,23,57,.07);transition:box-shadow .3s}
+.rv2-header.scrolled{box-shadow:0 2px 20px rgba(11,23,57,.09)}
+.rv2-header__inner{width:min(1180px,calc(100% - 48px));margin:0 auto;height:68px;display:flex;align-items:center;gap:0}
+.rv2-logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
+.rv2-logo img{height:36px;width:auto;display:block}
+.rv2-nav{flex:1;display:flex;justify-content:center}
+.rv2-nav__list{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0}
+.rv2-nav__link{display:flex;align-items:center;gap:4px;font-family:Urbanist,sans-serif;font-size:14px;font-weight:500;color:#0B1739;text-decoration:none;padding:8px 14px;border-radius:8px;transition:background .18s,color .18s;background:none;border:none;cursor:pointer;white-space:nowrap;line-height:1}
+.rv2-nav__link:hover,.rv2-nav__item--drop:hover>.rv2-nav__link{background:rgba(11,23,57,.05)}
+.rv2-nav__link.active{color:#356EFF;font-weight:600}
+.rv2-nav__caret{width:13px;height:13px;fill:currentColor;transition:transform .2s ease;flex-shrink:0;opacity:.55}
+.rv2-nav__item--drop:hover .rv2-nav__caret{transform:rotate(180deg);opacity:.9}
+.rv2-nav__item--drop{position:relative}
+.rv2-nav__panel{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);width:660px;background:#fff;border:1px solid rgba(11,23,57,.07);border-radius:18px;box-shadow:0 16px 56px rgba(11,23,57,.13);padding:28px;opacity:0;pointer-events:none;transition:opacity .17s ease}
+.rv2-nav__item--drop:hover .rv2-nav__panel{opacity:1;pointer-events:all}
+.rv2-panel__inner{display:grid;grid-template-columns:220px 1fr;gap:28px}
+.rv2-panel__featured{background:rgba(11,23,57,.025);border-radius:12px;padding:20px;display:flex;flex-direction:column}
+.rv2-panel__label,.rv2-panel__label-alt{font-family:Urbanist,sans-serif;font-size:11px;font-weight:700;color:rgba(11,23,57,.35);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.rv2-panel__heading{font-family:Urbanist,sans-serif;font-size:17px;font-weight:800;color:#0B1739;margin:0 0 8px;line-height:1.25;letter-spacing:-.02em}
+.rv2-panel__text{font-family:"Plus Jakarta Sans",sans-serif;font-size:12.5px;color:#5f6b7a;line-height:1.6;margin:0 0 18px}
+.rv2-panel__cta{display:inline-flex;align-items:center;gap:6px;font-family:Urbanist,sans-serif;font-size:12px;font-weight:700;color:#0B1739;background:rgba(11,23,57,.07);padding:8px 14px;border-radius:100px;text-decoration:none;transition:background .18s;margin-top:auto}
+.rv2-panel__cta:hover{background:rgba(11,23,57,.12)}
+.rv2-panel__grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.rv2-panel__link{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:10px;text-decoration:none;transition:background .14s}
+.rv2-panel__link:hover{background:rgba(53,110,255,.05)}
+.rv2-panel__link-icon{width:30px;height:30px;border-radius:8px;background:rgba(53,110,255,.08);display:grid;place-items:center;flex-shrink:0;margin-top:1px}
+.rv2-panel__link-icon svg{width:14px;height:14px;stroke:#356EFF;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.rv2-panel__link-body{display:flex;flex-direction:column;gap:2px}
+.rv2-panel__link-title{font-family:Urbanist,sans-serif;font-size:12.5px;font-weight:600;color:#0B1739;line-height:1.3}
+.rv2-panel__link-desc{font-family:"Plus Jakarta Sans",sans-serif;font-size:11.5px;color:#7a8494;line-height:1.35}
+.rv2-header__cta{display:flex;align-items:center;gap:8px;flex-shrink:0;margin-left:auto}
+.rv2-cta-primary{font-family:Urbanist,sans-serif;font-size:14px;font-weight:700;color:#fff;background:#0B1739;padding:10px 22px;border-radius:100px;border:none;cursor:pointer;transition:background .2s,transform .2s;white-space:nowrap}
+.rv2-cta-primary:hover{background:#1a2d5c;transform:translateY(-1px)}
+.rv2-burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;border:none;background:rgba(11,23,57,.06);border-radius:50%;cursor:pointer;padding:10px;flex-shrink:0;margin-left:8px}
+.rv2-burger span{display:block;width:18px;height:1.5px;background:#0B1739;border-radius:2px}
+.n5__drawer{display:block;position:fixed;top:0;left:0;right:0;bottom:0;z-index:10000;background:rgba(11,23,57,.45);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .3s ease}
+.n5__drawer.open{opacity:1;pointer-events:all}
+.n5__drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(320px,90vw);background:#fff;box-shadow:-12px 0 48px rgba(11,23,57,.15);display:flex;flex-direction:column;padding:28px 24px 40px;transform:translateX(100%);transition:transform .35s cubic-bezier(.32,1,.68,1)}
+.n5__drawer.open .n5__drawer-panel{transform:translateX(0)}
+.n5__drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
+.n5__drawer-top img{height:32px}
+.n5__drawer-close{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(0,0,0,.1);background:transparent;font-size:16px;color:#0B1739;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.n5__drawer-close:hover{background:rgba(0,0,0,.05)}
+.n5__drawer-links{display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto}
+.n5__drawer-links a{font-family:Urbanist,sans-serif;font-size:16px;font-weight:500;color:#0B1739;text-decoration:none;padding:12px 8px;border-bottom:1px solid rgba(0,0,0,.05);transition:color .15s}
+.n5__drawer-links a:hover{color:#356EFF}
+.n5__drawer-cta{margin-top:28px;display:block;text-align:center;font-family:Urbanist,sans-serif;font-size:15px;font-weight:600;color:#fff;background:#0B1739;padding:14px 24px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;width:100%}
+.n5__svc-toggle{display:flex;align-items:center;justify-content:space-between;font-family:Urbanist,sans-serif;font-size:16px;font-weight:500;color:#0B1739;padding:12px 8px;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;border:none;background:none;width:100%;text-align:left}
+.n5__svc-toggle svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform .25s ease}
+.n5__svc-toggle.open svg{transform:rotate(180deg)}
+.n5__svc-sub{overflow:hidden;max-height:0;transition:max-height .3s ease}
+.n5__svc-sub.open{max-height:320px}
+.n5__svc-sub a{display:flex;align-items:center;gap:8px;font-family:Urbanist,sans-serif;font-size:14px;font-weight:400;color:#4b5563;text-decoration:none;padding:9px 8px 9px 20px;border-bottom:1px solid rgba(0,0,0,.03);transition:color .15s}
+.n5__svc-sub a::before{content:'';width:4px;height:4px;border-radius:50%;background:#356EFF;flex-shrink:0}
+.n5__svc-sub a:hover{color:#356EFF}
+@media(max-width:767px){.rv2-nav{display:none}.rv2-burger{display:flex}.rv2-header__inner{height:60px}}
+</style>
+
+
+
+<style id="rv-nav-visited-v1">
+/* Defeat the browser default purple :visited colour for in-app links */
+.rv2-nav__link,.rv2-nav__link:visited{color:#0B1739}
+.rv2-nav__link.active,.rv2-nav__link.active:visited{color:#356EFF;font-weight:600}
+.rv-footer__col a:visited{color:#4b5563}
+.rv-footer__contact a:visited{color:#374151}
+.rv-footer__brand a:visited{color:inherit}
+</style>
 </head>
 <body>
 
   <!-- Desktop top bar (visible at page top, hides on scroll) -->
-  <nav id="rvTopbar" class="rv-topbar" role="navigation" aria-label="Primary navigation">
-    <div class="rv-topbar__bar">
-      <a href="index.html" class="rv-topbar__logo" aria-label="5RV Digital home">
-        <img src="images/logo-dark.png" alt="5RV Digital" width="36" height="36">
-      </a>
-      <div class="rv-topbar__links">
-        <a href="about.html">About</a>
-        <a href="work.html" class="active">Work</a>
-        <div class="rv-topbar__has-drop">
-          <a href="services.html">Services <svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-          <div class="rv-topbar__drop">
-            <div class="rv-topbar__drop-inner">
-            <a href="seo-expert.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>SEO</a>
-            <a href="web-development.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>Web Design &amp; Dev</a>
-            <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg></span>Social Media</a>
-            <a href="branding.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>Branding</a>
-            <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>Paid Ads (PPC)</a>
-            <a href="digital-marketing-strategies.html"><span class="rv-topbar__drop-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span>Content Marketing</a>
+  <header class="rv2-header" id="rv2Header">
+  <div class="rv2-header__inner">
+    <a href="index.html" class="rv2-logo" aria-label="5RV Digital home">
+      <img src="images/logo-dark.png" alt="5RV Digital" width="36" height="36">
+    </a>
+    <nav class="rv2-nav" role="navigation" aria-label="Primary navigation">
+      <ul class="rv2-nav__list">
+        <li><a href="about.html" class="rv2-nav__link">About</a></li>
+        <li><a href="work.html" class="rv2-nav__link active">Work</a></li>
+        <li class="rv2-nav__item--drop">
+          <button class="rv2-nav__link" type="button">
+            Services
+            <svg class="rv2-nav__caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </button>
+          <div class="rv2-nav__panel">
+            <div class="rv2-panel__inner">
+              <div class="rv2-panel__featured">
+                <p class="rv2-panel__label">What we do</p>
+                <h3 class="rv2-panel__heading">Grow your brand online</h3>
+                <p class="rv2-panel__text">From SEO to paid ads and stunning web design — we help businesses scale with data-driven digital marketing.</p>
+                <a href="services.html" class="rv2-panel__cta">View all services <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div>
+                <p class="rv2-panel__label-alt">Our services</p>
+                <div class="rv2-panel__grid">
+                  <a href="seo-expert.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">SEO</span><span class="rv2-panel__link-desc">Rank higher, drive organic traffic</span></div></a>
+                  <a href="web-development.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">Web Design &amp; Dev</span><span class="rv2-panel__link-desc">Fast, beautiful, conversion-ready</span></div></a>
+                  <a href="branding.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">Branding</span><span class="rv2-panel__link-desc">Identity that stands out</span></div></a>
+                  <a href="social-media-marketing-agency.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">Social Media</span><span class="rv2-panel__link-desc">Build audience &amp; engagement</span></div></a>
+                  <a href="digital-marketing-strategies.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">Paid Ads (PPC)</span><span class="rv2-panel__link-desc">ROI-focused ad campaigns</span></div></a>
+                  <a href="digital-marketing-strategies.html" class="rv2-panel__link"><div class="rv2-panel__link-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="rv2-panel__link-body"><span class="rv2-panel__link-title">Content Marketing</span><span class="rv2-panel__link-desc">Content that converts</span></div></a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <button class="rv-topbar__cta" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
-    </div>
-  </nav>
-
-  <!-- Mobile top bar -->
-  <div class="rv-mobile-bar">
-    <button class="rv-mobile-hamburger" id="rvBurger" aria-label="Open menu" aria-expanded="false" aria-controls="n5Drawer">
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M1 6H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M1 11H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </button>
-    <button class="rv-mobile-cta" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>
-      <div class="rv-mobile-cta__avatar">
-        <img src="images/logo-light.png" alt="5RV Digital" width="36" height="36">
-      </div>
-      Book a 30 Min Free Call
-    </button>
-  </div>
-
-  <!-- Mobile drawer -->
-  <div class="n5__drawer" id="n5Drawer" aria-hidden="true">
-    <div class="n5__drawer-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
-      <div class="n5__drawer-top">
-        <img src="images/logo-dark.png" alt="5RV Digital" width="44" height="44">
-        <button class="n5__drawer-close" id="n5DrawerClose" aria-label="Close menu">&times;</button>
-      </div>
-      <div class="n5__drawer-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="work.html">Work</a>
-        <button class="n5__svc-toggle" id="n5SvcToggle">Services <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="n5__svc-sub" id="n5SvcSub">
-          <a href="services.html">All Services</a>
-          <a href="seo-expert.html">SEO</a>
-          <a href="web-development.html">Web Design &amp; Dev</a>
-          <a href="social-media-marketing-agency.html">Social Media</a>
-          <a href="branding.html">Branding</a>
-          <a href="digital-marketing-strategies.html">Paid Ads (PPC)</a>
-          <a href="digital-marketing-strategies.html">Content Marketing</a>
-        </div>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <button class="n5__drawer-cta" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>Book a Free Call</button>
+        </li>
+        <li><a href="blog.html" class="rv2-nav__link">Blog</a></li>
+        <li><a href="#" class="rv2-nav__link" onclick="fltOpen('nav');return false;">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="rv2-header__cta">
+      <button class="rv2-cta-primary" type="button" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
+      <button class="rv2-burger" id="rvBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="n5Drawer">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-
-  <!-- Floating dock nav (appears on scroll, desktop only) -->
-  <nav class="rv-navbar" role="navigation" aria-label="Scroll navigation">
-    <a href="index.html" class="rv-navbar__logo">
-      <img src="images/logo-dark.png" alt="5RV Digital" width="44" height="44">
-    </a>
-    <div class="rv-navbar__sep"></div>
-    <div class="rv-navbar__links">
+</header>
+<!-- Mobile drawer -->
+<div class="n5__drawer" id="n5Drawer" aria-hidden="true">
+  <div class="n5__drawer-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="n5__drawer-top">
+      <img src="images/logo-dark.png" alt="5RV Digital" height="32">
+      <button class="n5__drawer-close" id="n5DrawerClose" type="button" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="n5__drawer-links">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="work.html">Work</a>
-      <div class="rv-navbar__has-drop">
-        <a href="services.html">Services
-          <svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
-        <div class="rv-navbar__drop">
-          <div class="rv-navbar__drop-inner">
-            <a href="web-development.html">Web Design &amp; Dev</a>
-            <a href="seo-expert.html">SEO</a>
-            <a href="social-media-marketing-agency.html">Social Media</a>
-            <a href="branding.html">Branding</a>
-            <a href="digital-marketing-strategies.html">Paid Ads</a>
-          </div>
-        </div>
+      <button class="n5__svc-toggle" id="n5SvcToggle" type="button">Services <svg viewBox="0 0 24 24" width="16" height="16"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></button>
+      <div class="n5__svc-sub" id="n5SvcSub">
+        <a href="services.html">All Services</a>
+        <a href="seo-expert.html">SEO</a>
+        <a href="web-development.html">Web Design &amp; Dev</a>
+        <a href="social-media-marketing-agency.html">Social Media</a>
+        <a href="branding.html">Branding</a>
+        <a href="digital-marketing-strategies.html">Paid Ads (PPC)</a>
+        <a href="digital-marketing-strategies.html">Content Marketing</a>
       </div>
       <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+      <a href="#" onclick="fltOpen('nav');return false;">Contact</a>
     </div>
-  </nav>
+    <button class="n5__drawer-cta" type="button" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>Book a Free Call</button>
+  </div>
+</div>
 
-  <!-- Book a 30 Min Free Call pill (appears on scroll, desktop only) -->
-  <button class="rv-book-pill" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}' aria-label="Book a 30 minute free call with 5RV Digital" style="cursor:pointer;border:none;">
-    <div class="rv-book-pill__avatar">
-      <img src="images/logo-dark.png" alt="" width="44" height="44">
-      <span class="rv-book-pill__dot"></span>
-    </div>
-    <div class="rv-book-pill__text">
-      <span class="rv-book-pill__main">Book a 30 Min Free Call</span>
-      <span class="rv-book-pill__sub">Schedule Now</span>
-    </div>
-    <div class="rv-book-pill__arrow">
-      <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
-    </div>
-  </button>
+
 
 <!-- Page content -->
 <div class="wk-page">
@@ -1190,30 +1221,8 @@ a{text-decoration:none;color:inherit}
 
 <script>
 (function(){
-  /* ── Nav ── */
-  var DESKTOP=function(){return window.innerWidth>=768};
-  var topbar=document.getElementById("rvTopbar");
-  var navbar=document.querySelector(".rv-navbar");
-  var bookPill=document.querySelector(".rv-book-pill");
-  var SCROLL_THRESH=80,IDLE_MS=3000,isScrolled=false,idleTimer=null;
-  function showDock(){if(navbar)navbar.classList.add("rv-dock--visible")}
-  function hideDock(){if(navbar)navbar.classList.remove("rv-dock--visible")}
-  function resetIdle(){clearTimeout(idleTimer);showDock()}
-  function onScroll(){
-    if(!DESKTOP())return;
-    var y=window.scrollY,nowScrolled=y>SCROLL_THRESH;
-    if(bookPill)bookPill.classList.toggle("rv-pill--visible",y>120);
-    if(nowScrolled===isScrolled){if(nowScrolled)resetIdle();return}
-    isScrolled=nowScrolled;
-    if(nowScrolled){topbar.classList.add("rv-top--hidden");resetIdle()}
-    else{topbar.classList.remove("rv-top--hidden");hideDock();clearTimeout(idleTimer)}
-  }
-  ["mousemove","touchstart","click","keydown"].forEach(function(ev){document.addEventListener(ev,function(){if(isScrolled&&DESKTOP())resetIdle()},{passive:true})});
-  window.addEventListener("scroll",onScroll,{passive:true});
-  window.addEventListener("resize",function(){isScrolled=false;clearTimeout(idleTimer);onScroll()});
-  onScroll();
-
-  /* ── Drawer ── */
+  var hdr=document.getElementById("rv2Header");
+  window.addEventListener("scroll",function(){if(hdr)hdr.classList.toggle("scrolled",window.scrollY>40);},{passive:true});
   var burger=document.getElementById("rvBurger"),drawer=document.getElementById("n5Drawer"),dclose=document.getElementById("n5DrawerClose");
   function openDrawer(){drawer.classList.add("open");burger.setAttribute("aria-expanded","true");drawer.setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
   function closeDrawer(){drawer.classList.remove("open");burger.setAttribute("aria-expanded","false");drawer.setAttribute("aria-hidden","true");document.body.style.overflow=""}
@@ -1299,6 +1308,519 @@ a{text-decoration:none;color:inherit}
 
   /* ── Cal inline embed initialised above in Cal init script ── */
 
+</script>
+  <style>
+/* ════════════════════════════════════════════════
+   CONTACT FORM MODAL
+════════════════════════════════════════════════ */
+#flt-root {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2147483646 !important;
+  pointer-events: none;
+  font-family: 'DM Sans', sans-serif;
+}
+#flt-root .flt-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5,10,24,0.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+#flt-root.open { pointer-events: all; }
+#flt-root.open .flt-overlay { opacity: 1; pointer-events: all; }
+#flt-root .flt-modal {
+  background: #fff;
+  width: 100%;
+  max-width: 540px;
+  margin-top: 75px;
+  max-height: calc(100dvh - 75px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -8px 48px rgba(5,10,24,0.32);
+  transform: translateY(101%);
+  transition: transform 0.38s cubic-bezier(0.32,1.15,0.68,1);
+  will-change: transform;
+  overflow: hidden;
+}
+#flt-root.open .flt-modal { transform: translateY(0); }
+/* Desktop — centred */
+@media (min-width: 769px) {
+  #flt-root .flt-overlay { align-items: center; padding: 80px 1rem 1rem; }
+  #flt-root .flt-modal {
+    margin-top: 0;
+    max-width: 488px;
+    max-height: calc(90vh - 80px);
+    border-radius: 16px;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.32s cubic-bezier(0.33,1.4,0.68,1);
+    box-shadow: 0 4px 8px rgba(5,10,24,0.07), 0 14px 32px rgba(5,10,24,0.16), 0 32px 72px rgba(5,10,24,0.2);
+  }
+  #flt-root.open .flt-modal { transform: translateY(0) scale(1); }
+}
+/* ── Branded header ── */
+#flt-root .flt-header {
+  background: #0A1228;
+  padding: 1.1rem 1.3rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+/* Dot-grid decoration */
+#flt-root .flt-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(58,123,245,0.2) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+/* Ambient glow */
+#flt-root .flt-header::after {
+  content: '';
+  position: absolute;
+  bottom: -55px; right: -55px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(58,123,245,0.28) 0%, transparent 68%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+/* Mobile drag handle */
+#flt-root .flt-drag-handle {
+  position: absolute;
+  top: 0.45rem; left: 50%; transform: translateX(-50%);
+  width: 36px; height: 4px;
+  background: rgba(255,255,255,0.18); border-radius: 2px;
+  z-index: 2;
+}
+@media (min-width: 769px) { #flt-root .flt-drag-handle { display: none; } }
+/* Status badge */
+#flt-root .flt-header-badge {
+  display: inline-flex; align-items: center; gap: 0.38rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 100px;
+  padding: 0.22rem 0.65rem 0.22rem 0.48rem;
+  margin-bottom: 0.72rem;
+  position: relative; z-index: 2;
+}
+#flt-root .flt-badge-dot {
+  width: 7px; height: 7px;
+  background: #22C55E; border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(34,197,94,0.45);
+  animation: flt-pulse 2.2s infinite;
+}
+@keyframes flt-pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(34,197,94,0.45); }
+  70%  { box-shadow: 0 0 0 7px rgba(34,197,94,0);    }
+  100% { box-shadow: 0 0 0 0   rgba(34,197,94,0);    }
+}
+#flt-root .flt-header-badge span {
+  font-size: 0.63rem; font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase; color: rgba(255,255,255,0.72);
+}
+#flt-root .flt-heading {
+  font-family: 'Oswald', sans-serif; font-weight: 700;
+  font-size: 1.75rem; color: #fff;
+  text-transform: uppercase; line-height: 1.05; margin-bottom: 0.4rem;
+  position: relative; z-index: 2;
+}
+#flt-root .flt-heading span { color: #3A7BF5; }
+#flt-root .flt-sub {
+  font-size: 0.78rem; color: rgba(255,255,255,0.52);
+  line-height: 1.55; position: relative; z-index: 2;
+}
+@media (min-width: 769px) {
+  #flt-root .flt-header { padding: 1.3rem 1.6rem 1.5rem; }
+  #flt-root .flt-heading { font-size: 1.95rem; }
+  #flt-root .flt-sub { font-size: 0.82rem; }
+}
+/* Close button — lives inside header */
+#flt-root .flt-close {
+  position: absolute; top: 0.9rem; right: 1rem; z-index: 3;
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.65); font-size: 0.72rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.15s; line-height: 1;
+}
+#flt-root .flt-close:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.4); color: #fff;
+}
+/* ── Trust strip ── */
+#flt-root .flt-trust {
+  display: flex; align-items: center;
+  padding: 0.48rem 1.3rem;
+  background: #F2F6FF;
+  border-bottom: 1px solid #E0E9FA;
+  flex-shrink: 0;
+  overflow-x: auto; scrollbar-width: none;
+}
+#flt-root .flt-trust::-webkit-scrollbar { display: none; }
+#flt-root .flt-trust-item {
+  display: flex; align-items: center; gap: 0.3rem;
+  font-size: 0.67rem; font-weight: 600;
+  color: #1B2A48; white-space: nowrap; flex-shrink: 0;
+}
+#flt-root .flt-trust-sep {
+  width: 1px; height: 12px;
+  background: #C2CFEA; margin: 0 0.75rem; flex-shrink: 0;
+}
+/* ── Scrollable body ── */
+#flt-root .flt-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 1rem 1.3rem 1.6rem;
+  scrollbar-width: thin;
+  scrollbar-color: #c8d0e0 transparent;
+}
+@media (min-width: 769px) {
+  #flt-root .flt-modal-body { padding: 1.1rem 1.6rem 2rem; }
+}
+/* ── Form layout ── */
+#flt-root .flt-row2 { display: grid; grid-template-columns: 1fr; gap: 0; }
+@media (min-width: 769px) {
+  #flt-root .flt-row2 { grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+}
+#flt-root .flt-field { margin-bottom: 0.65rem; }
+#flt-root label {
+  display: block; font-size: 0.64rem; font-weight: 700;
+  color: #1B2A48; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 0.28rem;
+}
+#flt-root input[type="text"],
+#flt-root input[type="email"],
+#flt-root textarea {
+  width: 100%; background: #F7F9FC;
+  border: 1.5px solid #DDE4F0; border-radius: 8px;
+  color: #1B2A48; font-family: 'DM Sans', sans-serif;
+  font-size: 0.84rem; padding: 0.54rem 0.78rem;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+  -webkit-appearance: none; box-sizing: border-box;
+}
+#flt-root input::placeholder, #flt-root textarea::placeholder { color: #AAB8CC; }
+#flt-root input:focus, #flt-root textarea:focus {
+  border-color: #3A7BF5; background: #fff;
+  box-shadow: 0 0 0 3px rgba(58,123,245,0.13);
+}
+#flt-root textarea { resize: none; height: 72px; line-height: 1.55; }
+@media (min-width: 769px) { #flt-root textarea { height: 84px; } }
+/* ── Pills / Tags ── */
+#flt-root .flt-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+#flt-root .flt-tag {
+  font-size: 0.71rem; font-weight: 500;
+  padding: 0.25rem 0.65rem; border-radius: 100px;
+  border: 1.5px solid #DDE4F0; background: #fff;
+  color: #5E6E8A; cursor: pointer; user-select: none;
+  transition: all 0.15s ease; line-height: 1.65;
+}
+#flt-root .flt-tag:hover { border-color: #3A7BF5; color: #3A7BF5; background: #EEF4FF; }
+#flt-root .flt-tag.on { background: #0A1228; border-color: #0A1228; color: #fff; }
+/* ── Checkbox ── */
+#flt-root .flt-check {
+  display: flex; align-items: flex-start; gap: 0.5rem;
+  margin: 0.8rem 0 0.95rem; cursor: pointer;
+}
+#flt-root .flt-check input[type="checkbox"] {
+  width: 16px; height: 16px; min-width: 16px;
+  accent-color: #1F55C4; cursor: pointer; margin-top: 1px;
+}
+#flt-root .flt-check span { font-size: 0.74rem; color: #5E6E8A; line-height: 1.5; }
+#flt-root .flt-check a { color: #3A7BF5; text-decoration: none; font-weight: 500; }
+#flt-root .flt-check a:hover { text-decoration: underline; }
+/* ── Submit button ── */
+#flt-root .flt-submit {
+  width: 100%;
+  background: linear-gradient(90deg, #1F55C4 0%, #3A7BF5 100%);
+  color: #fff; border: none; border-radius: 100px;
+  font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.9rem;
+  padding: 0.86rem 1.5rem; cursor: pointer;
+  transition: all 0.22s ease; letter-spacing: 0.02em;
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  box-shadow: 0 4px 18px rgba(31,85,196,0.32);
+}
+#flt-root .flt-submit:hover {
+  background: linear-gradient(90deg, #1847AA 0%, #2D6AE8 100%);
+  box-shadow: 0 6px 26px rgba(31,85,196,0.44);
+  transform: translateY(-1px);
+}
+#flt-root .flt-submit:active { transform: scale(0.99); }
+#flt-root .flt-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+/* ── Spinner ── */
+#flt-root .flt-spinner {
+  display: inline-block; width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.35); border-top-color: #fff;
+  border-radius: 50%; animation: flt-spin 0.7s linear infinite;
+  margin-right: 6px; vertical-align: middle;
+}
+@keyframes flt-spin { to { transform: rotate(360deg); } }
+/* ── Success state ── */
+#flt-root .flt-success { display: none; text-align: center; padding: 2.5rem 1.5rem 3rem; }
+#flt-root .flt-success.show { display: block; }
+#flt-root .flt-success-tick {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, #1F55C4, #3A7BF5);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem; font-size: 1.5rem; color: #fff;
+  box-shadow: 0 8px 24px rgba(31,85,196,0.38);
+}
+#flt-root .flt-success h3 {
+  font-family: 'Oswald', sans-serif; font-weight: 700;
+  font-size: 1.3rem; text-transform: uppercase; color: #1B2A48; margin-bottom: 0.4rem;
+}
+#flt-root .flt-success p { font-size: 0.82rem; color: #5E6E8A; line-height: 1.65; }
+</style>
+  <!--  Floating Button  -->
+  <script>
+  /* Auto open if arriving from referral link */
+if (new URLSearchParams(window.location.search).has('utm_source')) {
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var _ts = localStorage.getItem('5rv_popup_ts');
+      if (!_ts || (Date.now() - parseInt(_ts, 10)) > 86400000) {
+        localStorage.setItem('5rv_popup_ts', String(Date.now()));
+        fltOpen('referral_blog');
+      }
+    }, 800);
+  });
+}
+/* ════════════════════════════════════════════════
+   TRACKING — captured on page load
+════════════════════════════════════════════════ */
+const fltTracking = (function() {
+  const params = new URLSearchParams(window.location.search);
+  const ref    = document.referrer.toLowerCase();
+  let source   = params.get('utm_source') || '';
+  if (!source) {
+    if      (ref.includes('linkedin'))                       source = 'linkedin';
+    else if (ref.includes('google'))                         source = 'google';
+    else if (ref.includes('bing'))                           source = 'bing';
+    else if (ref.includes('twitter') || ref.includes('x.com')) source = 'twitter';
+    else if (ref.includes('facebook') || ref.includes('fb.'))  source = 'facebook';
+    else if (ref.includes('instagram'))                      source = 'instagram';
+    else if (ref.includes('tiktok'))                         source = 'tiktok';
+    else if (document.referrer)                              source = 'referral';
+    else                                                     source = 'direct';
+  }
+  const data = {
+    page_url:     window.location.href,
+    page_title:   document.title,
+    referrer:     document.referrer || 'Direct',
+    utm_source:   source,
+    utm_medium:   params.get('utm_medium')   || 'none',
+    utm_campaign: params.get('utm_campaign') || 'none',
+    utm_content:  params.get('utm_content')  || 'none',
+    utm_term:     params.get('utm_term')     || 'none',
+    device:       /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+    screen:       window.screen.width + 'x' + window.screen.height,
+    session_id:   Math.random().toString(36).substring(2,10).toUpperCase(),
+    landed_at:    new Date().toISOString(),
+  };
+  sessionStorage.setItem('5rv_tracking', JSON.stringify(data));
+  return data;
+})();
+function fltInjectTracking(trigger) {
+  const form = document.getElementById('fltForm');
+  if (!form) return;
+  const t = JSON.parse(sessionStorage.getItem('5rv_tracking') || '{}');
+  const fields = {
+    page_url: t.page_url, page_title: t.page_title, referrer: t.referrer,
+    utm_source: t.utm_source, utm_medium: t.utm_medium, utm_campaign: t.utm_campaign,
+    utm_content: t.utm_content, utm_term: t.utm_term, device: t.device,
+    screen: t.screen, session_id: t.session_id, landed_at: t.landed_at,
+    popup_trigger: trigger || 'manual'
+  };
+  Object.entries(fields).forEach(([key, val]) => {
+    let inp = form.querySelector(`input[name="${key}"]`);
+    if (!inp) { inp = document.createElement('input'); inp.type = 'hidden'; inp.name = key; form.appendChild(inp); }
+    inp.value = val || '';
+  });
+}
+/* ════════════════════════════════════════════════
+   CONTACT FORM MODAL — injected at body root
+════════════════════════════════════════════════ */
+(function() {
+  document.body.insertAdjacentHTML('beforeend', `
+  <div id="flt-root">
+    <div class="flt-overlay" id="fltOverlay">
+      <div class="flt-modal">
+
+        <!-- Branded header -->
+        <div class="flt-header">
+          <div class="flt-drag-handle"></div>
+          <button class="flt-close" onclick="fltClose()" aria-label="Close">✕</button>
+          <div class="flt-header-badge">
+            <span class="flt-badge-dot"></span>
+            <span>Taking on new projects</span>
+          </div>
+          <h2 class="flt-heading">Let's <span>Work</span><br>Together</h2>
+          <p class="flt-sub">Fill in the form and we'll get back to you within 24 hours.</p>
+        </div>
+
+        <!-- Trust strip -->
+        <div class="flt-trust">
+          <div class="flt-trust-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#3A7BF5" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Response &lt;24h
+          </div>
+          <div class="flt-trust-sep"></div>
+          <div class="flt-trust-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#3A7BF5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            GDPR Compliant
+          </div>
+          <div class="flt-trust-sep"></div>
+          <div class="flt-trust-item">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#3A7BF5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            No spam, ever
+          </div>
+        </div>
+
+        <!-- Scrollable form body -->
+        <div class="flt-modal-body">
+          <div id="fltFormSection">
+            <form id="fltForm" onsubmit="fltSubmit(event)" novalidate>
+              <input type="hidden" name="access_key" value="d7cab090-d985-42d7-a45a-e8bbb4e8908b">
+              <input type="hidden" name="subject" value="New Enquiry — 5rv.digital">
+              <input type="hidden" name="from_name" value="5rv.digital Website">
+              <div class="flt-row2">
+                <div class="flt-field"><label>Name</label><input type="text" name="name" placeholder="Your full name" required></div>
+                <div class="flt-field"><label>Email</label><input type="email" name="email" placeholder="Your email address" required></div>
+              </div>
+              <div class="flt-row2">
+                <div class="flt-field"><label>Company Name</label><input type="text" name="company" placeholder="Your company name"></div>
+                <div class="flt-field"><label>Job Title</label><input type="text" name="job_title" placeholder="Your job title"></div>
+              </div>
+              <div class="flt-field">
+                <label>Reason for Enquiry</label>
+                <div class="flt-tags" id="fltReasonTags">
+                  <div class="flt-tag on" data-val="General" onclick="fltTag(this,'fltReasonTags','fltReasonVal')">General</div>
+                  <div class="flt-tag" data-val="New business" onclick="fltTag(this,'fltReasonTags','fltReasonVal')">New business</div>
+                  <div class="flt-tag" data-val="Press" onclick="fltTag(this,'fltReasonTags','fltReasonVal')">Press</div>
+                  <div class="flt-tag" data-val="Supplier/Partnership" onclick="fltTag(this,'fltReasonTags','fltReasonVal')">Supplier / Partnership</div>
+                  <div class="flt-tag" data-val="Recruitment/Career" onclick="fltTag(this,'fltReasonTags','fltReasonVal')">Recruitment / Career</div>
+                </div>
+                <input type="hidden" name="reason" id="fltReasonVal" value="General">
+              </div>
+              <div class="flt-field">
+                <label>How did you hear about us? <span style="font-weight:400;color:#8A96A8;text-transform:none;letter-spacing:0;font-size:0.68rem;">Optional</span></label>
+                <div class="flt-tags" id="fltHearTags">
+                  <div class="flt-tag" data-val="LinkedIn" onclick="fltTag(this,'fltHearTags','fltHearVal',true)">LinkedIn</div>
+                  <div class="flt-tag" data-val="Events" onclick="fltTag(this,'fltHearTags','fltHearVal',true)">Events</div>
+                  <div class="flt-tag" data-val="Clutch" onclick="fltTag(this,'fltHearTags','fltHearVal',true)">Clutch</div>
+                  <div class="flt-tag" data-val="Intermediary" onclick="fltTag(this,'fltHearTags','fltHearVal',true)">Intermediary</div>
+                  <div class="flt-tag" data-val="Recommendation" onclick="fltTag(this,'fltHearTags','fltHearVal',true)">Recommendation</div>
+                  <div class="flt-tag" data-val="Previously worked together" onclick="fltTag(this,'fltHearTags','fltHearVal',true)">Previously worked together</div>
+                </div>
+                <input type="hidden" name="hear_about" id="fltHearVal" value="">
+              </div>
+              <div class="flt-field">
+                <label>Message</label>
+                <textarea name="message" placeholder="Tell us about your project or enquiry…" required></textarea>
+              </div>
+              <label class="flt-check">
+                <input type="checkbox" id="fltPrivacy" required>
+                <span>I agree to the <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></span>
+              </label>
+              <button type="submit" class="flt-submit" id="fltSubmitBtn">
+                Send Message
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </form>
+          </div>
+          <div class="flt-success" id="fltSuccess">
+            <div class="flt-success-tick">✓</div>
+            <h3>Message Sent!</h3>
+            <p>Thanks for reaching out.<br>We'll be in touch within 24 hours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>`);
+  document.getElementById('fltOverlay').addEventListener('click', function(e) {
+    if (e.target === this) fltClose();
+  });
+})();
+function fltOpen(trigger) {
+  fltInjectTracking(trigger || 'manual');
+  document.getElementById('flt-root').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function fltClose() {
+  document.getElementById('flt-root').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function fltTag(el, groupId, valId, toggle) {
+  if (toggle) {
+    el.classList.toggle('on');
+    const vals = [...document.querySelectorAll('#'+groupId+' .flt-tag.on')].map(t=>t.dataset.val);
+    document.getElementById(valId).value = vals.join(', ');
+  } else {
+    document.querySelectorAll('#'+groupId+' .flt-tag').forEach(t=>t.classList.remove('on'));
+    el.classList.add('on');
+    document.getElementById(valId).value = el.dataset.val;
+  }
+}
+async function fltSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('fltForm');
+  const btn  = document.getElementById('fltSubmitBtn');
+  const priv = document.getElementById('fltPrivacy');
+  if (!form.checkValidity() || !priv.checked) { form.reportValidity(); return; }
+  btn.disabled = true;
+  btn.innerHTML = '<span class="flt-spinner"></span>Sending…';
+  try {
+    const res  = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    });
+    const json = await res.json();
+    if (json.success) {
+      document.getElementById('fltFormSection').style.display = 'none';
+      document.getElementById('fltSuccess').classList.add('show');
+      setTimeout(() => {
+        fltClose();
+        setTimeout(() => {
+          document.getElementById('fltFormSection').style.display = '';
+          document.getElementById('fltSuccess').classList.remove('show');
+          form.reset(); btn.disabled = false; btn.innerHTML = 'Send Message';
+          document.querySelectorAll('#fltReasonTags .flt-tag').forEach((t,i)=>t.classList.toggle('on',i===0));
+          document.getElementById('fltReasonVal').value = 'General';
+          document.querySelectorAll('#fltHearTags .flt-tag').forEach(t=>t.classList.remove('on'));
+          document.getElementById('fltHearVal').value = '';
+        }, 400);
+      }, 2800);
+    } else {
+      alert('Something went wrong. Please try again.');
+      btn.disabled = false; btn.innerHTML = 'Send Message';
+    }
+  } catch {
+    alert('Network error. Please try again.');
+    btn.disabled = false; btn.innerHTML = 'Send Message';
+  }
+}
+/* ════════════════════════════════════════════════
+   AUTO POPUP — contact form opens after 4s
+   once per 24 hours (localStorage TTL)
+════════════════════════════════════════════════ */
+setTimeout(function() {
+  var _ts = localStorage.getItem('5rv_popup_ts');
+  if (!_ts || (Date.now() - parseInt(_ts, 10)) > 86400000) {
+    localStorage.setItem('5rv_popup_ts', String(Date.now()));
+    fltOpen('auto_4s');
+  }
+}, 4000); /* ← ms delay before popup fires */
 </script>
 </body>
 </html>
