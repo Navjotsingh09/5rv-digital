@@ -1010,7 +1010,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 
 <!-- SERVICES HERO -->
-<section class="rv-svc-hero">
+<style>.rv-svc-hero{display:none!important;visibility:hidden!important;}</style>
+<section class="rv-svc-hero" style="display:none!important" aria-hidden="true">
   <div class="rv-svc-hero__inner">
     <span class="rv-svc-hero__eyebrow"><span class="rv-svc-hero__eyebrow-dot" aria-hidden="true"></span>Our Services</span>
     <h1 class="rv-svc-hero__title">Digital marketing services that drive <em>real results.</em></h1>
@@ -1037,6 +1038,257 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
   </div>
 </section>
+
+<!-- rv-hero-slider START -->
+<style id="rv-hero-slider-css">
+.rv-hero-slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #0b0b0b;
+  font-size: 6.94vw;
+  color: #fff;
+  font-family: Urbanist, sans-serif;
+}
+.rv-hero-slider * { box-sizing: border-box; }
+.rv-hs-collection { position: relative; width: 100%; height: 100%; padding: 0 0.22em; overflow: hidden; }
+.rv-hs-slider { position: relative; width: 100%; height: 100%; border-radius: 0.22em; overflow: hidden; }
+.rv-hs-slider-wrapp { position: relative; width: 100%; height: 100%; }
+.rv-hs-grad { position: absolute; bottom: 0; left: 0; width: 100%; height: 38vh; background: linear-gradient(180deg, rgba(11,23,57,0) 9.24%, rgba(11,23,57,.85) 100%); z-index: 2; }
+.rv-hs-img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0;
+  clip-path: polygon(0% 0%, 6.25% 0%, 6.25% 100%, 6.25% 100%, 6.25% 100%, 6.25% 0%, 12.5% 0%, 12.5% 100%, 12.5% 100%, 12.5% 0%, 18.75% 0%, 18.75% 100%, 18.75% 100%, 18.75% 0%, 25% 0%, 25% 100%, 25% 100%, 25% 0%, 31.25% 0%, 31.25% 100%, 31.25% 100%, 31.25% 0%, 37.5% 0%, 37.5% 100%, 37.5% 100%, 37.5% 0%, 43.75% 0%, 43.75% 100%, 43.75% 100%, 43.75% 0%, 50% 0%, 50% 100%, 50% 100%, 50% 0%, 56.25% 0%, 56.25% 100%, 56.25% 100%, 56.25% 0%, 62.5% 0%, 62.5% 100%, 62.5% 100%, 62.5% 0%, 68.75% 0%, 68.75% 100%, 68.75% 100%, 68.75% 0%, 75% 0%, 75% 100%, 75% 100%, 75% 0%, 81.25% 0%, 81.25% 100%, 81.25% 100%, 81.25% 0%, 87.5% 0%, 87.5% 100%, 87.5% 100%, 87.5% 0%, 93.75% 0%, 93.75% 100%, 93.75% 100%, 93.75% 0%, 100% 0%, 100% 100%, 0% 100%);
+  transform: scale(1.1) translateX(-4%);
+  transition: 1.5s;
+}
+.rv-hs-img.active { opacity: 1; transform: scale(1.1); transition: clip-path 1.5s cubic-bezier(0.55,0,0.49,1), transform 2s cubic-bezier(0.17,0.17,0.49,1); }
+.rv-hs-img.hide {
+  clip-path: polygon(6.25% 0%, 6.25% 0%, 6.25% 100%, 6.25% 100%, 12.5% 100%, 12.5% 0%, 12.5% 0%, 12.5% 100%, 18.75% 100%, 18.75% 0%, 18.75% 0%, 18.75% 100%, 25% 100%, 25% 0%, 25% 0%, 25% 100%, 31.25% 100%, 31.25% 0%, 31.25% 0%, 31.25% 100%, 37.5% 100%, 37.5% 0%, 37.5% 0%, 37.5% 100%, 43.75% 100%, 43.75% 0%, 43.75% 0%, 43.75% 100%, 50% 100%, 50% 0%, 50% 0%, 50% 100%, 56.25% 100%, 56.25% 0%, 56.25% 0%, 56.25% 100%, 62.5% 100%, 62.5% 0%, 62.5% 0%, 62.5% 100%, 68.75% 100%, 68.75% 0%, 68.75% 0%, 68.75% 100%, 75% 100%, 75% 0%, 75% 0%, 75% 100%, 81.25% 100%, 81.25% 0%, 81.25% 0%, 81.25% 100%, 87.5% 100%, 87.5% 0%, 87.5% 0%, 87.5% 100%, 93.75% 100%, 93.75% 0%, 93.75% 0%, 93.75% 100%, 100% 100%, 100% 0%, 100% 0%, 100% 100%, 6.25% 100%);
+  transform: scale(1.1) translateX(4%);
+  transition: clip-path 1.5s cubic-bezier(0.55,0,0.49,1), transform 1.5s cubic-bezier(0.55,0,0.83,0.83);
+}
+.rv-hs-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.rv-hs-descr {
+  position: absolute; left: 3.47vw; bottom: 3.5vw;
+  width: 18em; max-width: 28vw; height: 10em;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden; z-index: 3;
+  font-size: 0.13em; line-height: 1.5; color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.rv-hs-descr__item { height: 10em; min-height: 10em; display: flex; align-items: flex-end; }
+.rv-hs-title {
+  position: absolute; left: 3.47vw; bottom: 13.5vw;
+  height: 1.8em; display: flex; flex-direction: column; justify-content: flex-end;
+  font-size: 1.1em; font-weight: 700; color: #fff; overflow: hidden; z-index: 3;
+}
+.rv-hs-title__item { height: 1.8em; min-height: 1.8em; white-space: nowrap; line-height: 1.8; }
+.rv-hs-numeric {
+  position: absolute; right: 0.5em; bottom: 0.6em;
+  display: flex; gap: 0.3em; align-items: center; z-index: 3;
+  font-size: 0.16em; font-weight: 600; color: #fff; letter-spacing: 0.05em;
+}
+.rv-hs-numeric__active { height: 1.3em; overflow: hidden; }
+.rv-hs-numeric__item { height: 1.3em; line-height: 1.3; }
+@media (max-width: 767px) {
+  .rv-hero-slider { font-size: 12vw; }
+  .rv-hs-descr { max-width: 60vw; font-size: 0.11em; }
+}
+</style>
+
+<section class="rv-hero-slider" id="rvHeroSlider" aria-label="Services hero">
+  <div class="rv-hs-collection">
+    <div class="rv-hs-slider">
+      <div class="rv-hs-slider-wrapp">
+        <div class="rv-hs-img"><img src="images/Rectangle-6_5.webp" alt="Social Media"><div class="rv-hs-grad"></div></div>
+        <div class="rv-hs-img"><img src="images/branding-parallax.jpg" alt="Branding"><div class="rv-hs-grad"></div></div>
+        <div class="rv-hs-img"><img src="images/Hero.webp" alt="Website"><div class="rv-hs-grad"></div></div>
+        <div class="rv-hs-img active"><img src="images/seo-parallax.jpg" alt="SEO"><div class="rv-hs-grad"></div></div>
+      </div>
+      <div class="rv-hs-descr">
+        <div class="rv-hs-descr__item">We turn your social channels into a growth engine. From content strategy and creative to community management and paid campaigns, we help your brand build a loyal audience and drive measurable engagement across every platform.</div>
+        <div class="rv-hs-descr__item"></div>
+        <div class="rv-hs-descr__item">We build distinctive brand identities that connect with the right audience. From logos and visual systems to tone of voice and messaging, we shape brands that look sharp, feel consistent and stand out in a crowded market.</div>
+        <div class="rv-hs-descr__item"></div>
+        <div class="rv-hs-descr__item">As a bespoke digital agency, we specialise in website development, SEO and content creation. Passionate about branding, graphics, photography, video and social media, we craft digital experiences that drive engagement and growth.</div>
+        <div class="rv-hs-descr__item"></div>
+        <div class="rv-hs-descr__item">We grow your brand with smart, results-driven SEO. From keyword research and on-page optimisation to content strategy and link building, we help you rank higher, drive organic traffic and boost visibility where it matters most.</div>
+      </div>
+      <div class="rv-hs-title">
+        <div class="rv-hs-title__item">Social Media</div>
+        <div class="rv-hs-title__item"></div>
+        <div class="rv-hs-title__item">Branding</div>
+        <div class="rv-hs-title__item"></div>
+        <div class="rv-hs-title__item">Website</div>
+        <div class="rv-hs-title__item"></div>
+        <div class="rv-hs-title__item">SEO</div>
+      </div>
+      <div class="rv-hs-numeric">
+        <div class="rv-hs-numeric__active">
+          <div class="rv-hs-numeric__item">01</div>
+          <div class="rv-hs-numeric__item">02</div>
+          <div class="rv-hs-numeric__item">03</div>
+          <div class="rv-hs-numeric__item">04</div>
+        </div>
+        <span style="margin:0 .3em;">&mdash;</span>
+        <div class="rv-hs-numeric__total">04</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js" defer></script>
+<script defer>
+(function(){
+  function boot(){
+    if (typeof gsap === 'undefined' || typeof Observer === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      return setTimeout(boot, 50);
+    }
+    gsap.registerPlugin(Observer, ScrollTrigger);
+    var section = document.getElementById('rvHeroSlider');
+    if (!section) return;
+    var imgs = section.querySelectorAll('.rv-hs-img');
+    var total = imgs.length;
+    var activeIndex = total - 1;
+    var playing = false;
+    var inSection = false;
+    var cooldown  = false; /* prevents re-lock immediately after release */
+    var lockedAt  = 0;    /* timestamp of last lock — grace period prevents inertia release */
+
+    function next(){
+      if (playing) return;
+      if (activeIndex <= 0) { if (Date.now() - lockedAt < 700) return; release('down'); return; }
+      playing = true;
+      section.querySelector('.rv-hs-img.active').classList.add('hide');
+      imgs[activeIndex - 1].classList.add('active');
+      gsap.to('#rvHeroSlider .rv-hs-numeric__item', { y: '-=100%', duration: 1.4, ease: 'power2.inOut' });
+      gsap.timeline({ onComplete: function(){ playing = false; } })
+        .to('#rvHeroSlider .rv-hs-title__item', { y: '+=100%', duration: 0.7, ease: 'power2.in' })
+        .to('#rvHeroSlider .rv-hs-title__item', { y: '+=100%', duration: 0.7, ease: 'power2.out' });
+      gsap.timeline()
+        .to('#rvHeroSlider .rv-hs-descr__item', { y: '+=100%', duration: 0.7, ease: 'power2.in' })
+        .to('#rvHeroSlider .rv-hs-descr__item', { y: '+=100%', duration: 0.7, ease: 'power2.out' });
+      activeIndex--;
+    }
+    function prev(){
+      if (playing) return;
+      if (activeIndex >= total - 1) { if (Date.now() - lockedAt < 700) return; release('up'); return; }
+      playing = true;
+      section.querySelector('.rv-hs-img.active').classList.remove('active');
+      var na = imgs[activeIndex + 1];
+      na.classList.remove('hide');
+      na.classList.add('active');
+      gsap.to('#rvHeroSlider .rv-hs-numeric__item', { y: '+=100%', duration: 1.4, ease: 'power2.inOut' });
+      gsap.timeline({ onComplete: function(){ playing = false; } })
+        .to('#rvHeroSlider .rv-hs-title__item', { y: '-=100%', duration: 0.7, ease: 'power2.in' })
+        .to('#rvHeroSlider .rv-hs-title__item', { y: '-=100%', duration: 0.7, ease: 'power2.out' });
+      gsap.timeline()
+        .to('#rvHeroSlider .rv-hs-descr__item', { y: '-=100%', duration: 0.7, ease: 'power2.in' })
+        .to('#rvHeroSlider .rv-hs-descr__item', { y: '-=100%', duration: 0.7, ease: 'power2.out' });
+      activeIndex++;
+    }
+
+    /* Reset slider back to SEO state (initial / enter-from-below state) */
+    function resetToSEO(){
+      imgs.forEach(function(img){ img.classList.remove('active','hide'); });
+      imgs[total - 1].classList.add('active');
+      gsap.set('#rvHeroSlider .rv-hs-title__item',   { y: 0 });
+      gsap.set('#rvHeroSlider .rv-hs-descr__item',   { y: 0 });
+      gsap.set('#rvHeroSlider .rv-hs-numeric__item', { y: 0 });
+      activeIndex = total - 1;
+    }
+
+    /* Lock when arriving from above */
+    function lock(){
+      if (inSection || cooldown) return;
+      playing = false;
+      inSection = true;
+      lockedAt = Date.now();
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      observer.enable();
+    }
+
+    /* Lock when arriving from below — snap, reset to SEO, fade-reveal */
+    function lockFromBottom(){
+      if (inSection || cooldown) return;
+      inSection = true;
+      playing = false;
+      lockedAt = Date.now();
+      resetToSEO();
+      window.scrollTo({ top: section.offsetTop });
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      var overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:#0b0b0b;z-index:9999;opacity:1;transition:opacity 0.45s ease;pointer-events:none';
+      document.body.appendChild(overlay);
+      void overlay.offsetHeight;
+      // Start overlay fade immediately
+      setTimeout(function(){
+        overlay.style.opacity = '0';
+        overlay.addEventListener('transitionend', function(){ overlay.remove(); }, { once: true });
+      }, 80);
+      // Enable observer only after scroll inertia has settled (~600ms)
+      setTimeout(function(){
+        if (inSection) observer.enable();
+      }, 600);
+    }
+
+    /* Release scroll lock.
+       - DOWN: smooth-scroll past the slider end.
+       - UP:   when sectionOffsetTop=0 there is nowhere above to scroll to;
+               just unlock and let the cooldown prevent immediate re-lock. */
+    function release(dir){
+      if (!inSection) return;
+      playing = false;
+      inSection = false;
+      cooldown = true;
+      observer.disable();
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      if (dir === 'down') {
+        var y = section.offsetTop + section.offsetHeight + 1;
+        setTimeout(function(){
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }, 50);
+      } else if (section.offsetTop > 0) {
+        /* content exists above the slider — scroll up to reveal it */
+        var y = Math.max(0, section.offsetTop - 1);
+        setTimeout(function(){
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }, 50);
+      }
+      /* cooldown prevents ScrollTrigger's onEnter from re-locking the slider */
+      setTimeout(function(){ cooldown = false; }, 1500);
+    }
+
+    var observer = Observer.create({
+      target: window,
+      type: 'wheel,touch',
+      wheelSpeed: 1,
+      tolerance: 8,
+      preventDefault: true,
+      onDown: function(){ if (inSection && !playing) next(); },
+      onUp:   function(){ if (inSection && !playing) prev(); }
+    });
+    observer.disable();
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top top',
+      end: 'bottom top',
+      onEnter:      lock,
+      onEnterBack:  lockFromBottom,
+      onLeave:      function(){ if (inSection){ inSection=false; playing=false; observer.disable(); document.documentElement.style.overflow=''; document.body.style.overflow=''; } },
+      onLeaveBack:  function(){} /* trigger start = scrollY=0; scrollTo(0) inside lockFromBottom would spuriously fire this */
+    });
+  }
+  if (document.readyState === 'complete') boot(); else window.addEventListener('load', boot);
+})();
+</script>
+<!-- rv-hero-slider END -->
+
   <style>
   .srv-parallax-section {
     position: relative;
@@ -1131,7 +1383,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   </style>
 
-  <section class="srv-parallax-section">
+  <style>.srv-parallax-section{display:none!important;}</style>
+<section class="srv-parallax-section">
     <div class="srv-parallax-bg" style="background-image:url('images/seo-parallax.jpg')"></div>
     <div class="srv-parallax-overlay"></div>
     <div class="srv-parallax-content">
