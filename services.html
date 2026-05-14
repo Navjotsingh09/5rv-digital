@@ -1219,7 +1219,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Lock when arriving from below — snap, set reverse-start state, fade-reveal */
     function lockFromBottom(){
-      if (inSection || cooldown) return;
+      if (inSection) return; /* no cooldown guard — cooldown blocks return-from-below for 1.5s */
       inSection = true;
       playing = false;
       lockedAt = Date.now();
