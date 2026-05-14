@@ -1430,36 +1430,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .rv-svc-extras{font-family:var(--font-primary,Urbanist,sans-serif)}
 .rv-svc-extras__container{width:min(1280px,calc(100% - 48px));margin:0 auto}
 
-/* HOW WE WORK */
-.rv-process{background:#f5f5f5;padding:96px 0 100px;position:relative;overflow:hidden}
-.rv-process::before{content:"";position:absolute;top:-160px;right:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(53,110,255,.08),transparent 70%);pointer-events:none}
-.rv-process__head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:64px;position:relative}
-.rv-process__eyebrow{display:inline-flex;align-items:center;gap:8px;background:#0B1739;color:#fff;border-radius:100px;padding:6px 16px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
-.rv-process__eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#5a85ff;box-shadow:0 0 0 4px rgba(90,133,255,.25)}
-.rv-process__title{font-size:clamp(32px,4vw,52px);font-weight:700;color:#0B1739;margin:18px 0 0;line-height:1.05;max-width:680px;letter-spacing:-0.02em}
-.rv-process__lede{font-family:Plus Jakarta Sans,sans-serif;font-size:15px;color:#4b5563;line-height:1.6;max-width:340px;margin:0}
-.rv-process__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
-.rv-process__grid::before{content:"";position:absolute;left:5%;right:5%;top:78px;height:2px;background:repeating-linear-gradient(90deg,rgba(53,110,255,.35) 0 8px,transparent 8px 16px);z-index:0;pointer-events:none}
-.rv-process__step{position:relative;background:#fff;border:1px solid rgba(11,23,57,.06);border-radius:20px;padding:32px 26px 30px;transition:transform .4s cubic-bezier(.65,0,.35,1),box-shadow .35s ease,border-color .35s ease,background .35s ease;display:flex;flex-direction:column;gap:14px;overflow:hidden;z-index:1}
-.rv-process__step::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#356EFF 0%,#1e3fb0 100%);opacity:0;transition:opacity .4s ease;z-index:0}
-.rv-process__step > *{position:relative;z-index:1}
-.rv-process__step:hover{transform:translateY(-8px);box-shadow:0 24px 50px -18px rgba(53,110,255,.5);border-color:transparent}
-.rv-process__step:hover::after{opacity:1}
-.rv-process__step-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.rv-process__icon{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,rgba(90,133,255,.12),rgba(53,110,255,.2));display:grid;place-items:center;color:#356EFF;transition:background .35s ease,color .35s ease,transform .4s ease}
-.rv-process__icon svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.rv-process__step:hover .rv-process__icon{background:rgba(255,255,255,.2);color:#fff;transform:rotate(-6deg) scale(1.05)}
-.rv-process__num{font-family:'Plus Jakarta Sans',sans-serif;font-size:46px;font-weight:800;color:rgba(11,23,57,.08);letter-spacing:-0.04em;line-height:1;transition:color .35s ease}
-.rv-process__step:hover .rv-process__num{color:rgba(255,255,255,.22)}
-.rv-process__step h3{font-size:22px;font-weight:700;color:#0B1739;margin:6px 0 0;letter-spacing:-0.01em;transition:color .35s ease}
-.rv-process__step p{font-family:Plus Jakarta Sans,sans-serif;font-size:14px;line-height:1.6;color:#4b5563;margin:0;transition:color .35s ease}
-.rv-process__step:hover h3{color:#fff}
-.rv-process__step:hover p{color:rgba(255,255,255,.85)}
-.rv-process__step-arrow{align-self:flex-start;margin-top:6px;width:32px;height:32px;border-radius:50%;background:rgba(11,23,57,.05);color:#0B1739;display:grid;place-items:center;transition:background .35s ease,color .35s ease,transform .4s ease}
-.rv-process__step-arrow svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.rv-process__step:hover .rv-process__step-arrow{background:#fff;color:#0B1739;transform:translate(4px,-4px)}
-@media(max-width:1024px){.rv-process__grid{grid-template-columns:repeat(2,1fr)} .rv-process__grid::before{display:none}}
-@media(max-width:560px){.rv-process__grid{grid-template-columns:1fr}}
+/* HOW WE WORK — sticky scroll timeline */
+.rv-process{background:linear-gradient(to bottom,#f5f5f5 0%,#f5f5f5 90%,#d4d4d4 100%);padding:10rem 0;overflow-y:clip}
+.rv-process__inner{padding:5rem 0}
+.rv-process__grid12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:2rem}
+/* Left sticky panel */
+.rv-process__panel{grid-column:span 5;position:sticky;top:5rem;height:fit-content;min-height:calc(70vh - 4rem);z-index:20}
+.rv-process__panel h2{font-size:clamp(1.125rem,2.2vw,1.75rem);font-weight:700;letter-spacing:-0.02em;line-height:1.25;margin-bottom:3rem;color:#0B1739}
+.rv-process__panel h2 em{font-style:italic}
+.rv-process__num-display{display:flex;overflow:hidden;font-size:clamp(5rem,18svw,18rem);font-weight:400;line-height:0.82;letter-spacing:-0.04em;color:#0B1739}
+.rv-process__num-zero{flex-shrink:0}
+.rv-process__num-wrap{position:relative;overflow:hidden;height:0.82em}
+.rv-process__num-track{position:absolute;top:0;left:0;display:flex;flex-direction:column;transition:transform .7s cubic-bezier(.65,0,.35,1)}
+.rv-process__num-track span{display:block;height:0.82em;line-height:0.82}
+/* Timeline column */
+.rv-process__timeline{grid-column:6/span 1;position:relative;z-index:10}
+.rv-process__tl-inner{position:relative;width:2px;margin:0 auto}
+.rv-process__tl-line{position:absolute;left:0;width:2px;background:#d4d4d4;border-radius:9999px;overflow:hidden}
+.rv-process__tl-prog{position:absolute;inset:0;background:#22c55e;border-radius:9999px;transform-origin:top center;transform:scaleY(0);transition:transform .15s linear}
+.rv-process__tl-dot{position:absolute;left:-6px;width:14px;height:14px;border-radius:50%;background:#d4d4d4;border:2px solid #d4d4d4;transition:background .4s ease,border-color .4s ease,transform .4s ease;z-index:2}
+.rv-process__tl-dot.active{background:#22c55e;border-color:#22c55e;transform:scale(1.4)}
+.rv-process__tl-dot.done{background:#22c55e;border-color:#22c55e}
+/* Steps column */
+.rv-process__steps{grid-column:span 6;display:grid;gap:0;margin-top:2rem}
+.rv-process__step{padding:8rem 0;color:#d4d4d4;transition:color .5s ease}
+.rv-process__step.active{color:#0B1739}
+.rv-process__step h3{font-size:clamp(1.75rem,3.5vw,3rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin:0 0 1.5rem}
+.rv-process__step p{font-size:1.0625rem;line-height:1.75;max-width:52ch;margin:0}
+.rv-process__step p a{color:inherit;text-decoration:underline;text-underline-offset:2px;transition:color .2s}
+/* CTA card */
+.rv-process__cta{background:#0B1739;border-radius:1.5rem;padding:6rem 2rem;min-height:50vh;display:flex;align-items:center;justify-content:center;text-align:center;transform:perspective(1000px) rotateX(10deg) scale(.9);opacity:0;transition:transform .8s cubic-bezier(.65,0,.35,1),opacity .8s ease}
+.rv-process__cta.visible{transform:perspective(1000px) rotateX(0deg) scale(1);opacity:1}
+.rv-process__cta h2{font-size:clamp(1.75rem,3.5vw,3rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;color:#fff;max-width:24ch;margin:0 auto 1.5rem}
+.rv-process__cta h2 em{font-style:italic}
+.rv-process__cta p{font-size:1rem;line-height:1.7;color:#a3a3a3;max-width:58ch;margin:0 auto 2.5rem;font-weight:500}
+.rv-process__cta-btn{display:inline-flex;align-items:center;justify-content:center;background:#356EFF;color:#fff;border-radius:9999px;padding:1rem 2.5rem;font-size:1.125rem;font-weight:600;text-decoration:none;transition:background .3s ease}
+.rv-process__cta-btn:hover{background:#1e3fb0;color:#fff}
+@media(max-width:900px){.rv-process__panel{grid-column:span 12;position:relative;top:0;min-height:auto}.rv-process__timeline{display:none}.rv-process__steps{grid-column:span 12}.rv-process__step{padding:4rem 0}.rv-process__step.active,.rv-process__step{color:#0B1739}}
 
 /* INDUSTRIES */
 .rv-industries{background:#fff;padding:88px 0}
@@ -1504,56 +1511,135 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @media(max-width:560px){.rv-tools__grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 
-<!-- HOW WE WORK -->
-<section class="rv-svc-extras rv-process">
-  <div class="rv-svc-extras__container">
-    <div class="rv-process__head">
-      <div>
-        <span class="rv-process__eyebrow">Our process</span>
-        <h2 class="rv-process__title">A clear, repeatable path to growth</h2>
+<!-- HOW WE WORK —— sticky-scroll timeline -->
+<section class="rv-process">
+  <div class="rv-process__inner">
+    <div class="rv-svc-extras__container" style="margin-bottom:4rem">
+      <div class="rv-process__grid12">
+
+        <!-- LEFT: sticky panel -->
+        <div class="rv-process__panel">
+          <h2>Our <em>results-driven</em> Process</h2>
+          <div class="rv-process__num-display">
+            <span class="rv-process__num-zero" id="rvpNumZero">0</span>
+            <div class="rv-process__num-wrap" id="rvpNumWrap">
+              <span aria-hidden="true" style="visibility:hidden;white-space:nowrap;pointer-events:none">1.</span>
+              <div class="rv-process__num-track" id="rvpNumTrack">
+                <span>1.</span><span>2.</span><span>3.</span><span>4.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TIMELINE -->
+        <div class="rv-process__timeline">
+          <div class="rv-process__tl-inner" id="rvpTlInner">
+            <div class="rv-process__tl-line" id="rvpTlLine">
+              <div class="rv-process__tl-prog" id="rvpTlProg"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEPS -->
+        <div class="rv-process__steps" id="rvpSteps">
+          <div class="rv-process__step active" data-step="0">
+            <h3>Discover</h3>
+            <p>We audit your brand, market and competitors, then map every channel to opportunity. We identify what makes you different and build a strategic foundation for measurable growth.</p>
+          </div>
+          <div class="rv-process__step" data-step="1">
+            <h3>Strategy</h3>
+            <p>A focused plan that pairs the right channels, content and KPIs with your business goals. Every tactic is intentional — no busywork, no wasted budget.</p>
+          </div>
+          <div class="rv-process__step" data-step="2">
+            <h3>Execute</h3>
+            <p>We ship campaigns, websites and content quickly — without sacrificing craft or detail. Speed and quality aren't a trade-off; they're both non-negotiable.</p>
+          </div>
+          <div class="rv-process__step" data-step="3">
+            <h3>Optimise</h3>
+            <p>We measure what works, double-down on winners and report transparently every month. Continuous improvement is baked into every engagement from day one.</p>
+          </div>
+        </div>
+
       </div>
-      <p class="rv-process__lede">Every engagement follows the same four-step rhythm — built to remove guesswork and deliver measurable results.</p>
     </div>
-    <div class="rv-process__grid">
-      <div class="rv-process__step">
-        <div class="rv-process__step-top">
-          <div class="rv-process__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4.2-4.2"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></div>
-          <span class="rv-process__num">01</span>
+
+    <!-- CTA card -->
+    <div class="rv-svc-extras__container">
+      <div class="rv-process__cta" id="rvpCta">
+        <div>
+          <h2>Ready for a website that actually <em>brings in</em> clients?</h2>
+          <p>Your business is excellent. Your website should show it. Partner with an award-winning digital team delivering world-class results to global brands.</p>
+          <a href="/contact" class="rv-process__cta-btn">Get a Free Consultation</a>
         </div>
-        <h3>Discover</h3>
-        <p>We audit your brand, market and competitors, then map every channel to opportunity.</p>
-        <span class="rv-process__step-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
-      </div>
-      <div class="rv-process__step">
-        <div class="rv-process__step-top">
-          <div class="rv-process__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M21 12h-3"/><path d="M6 12H3"/><path d="M12 21v-3"/><path d="M12 6V3"/></svg></div>
-          <span class="rv-process__num">02</span>
-        </div>
-        <h3>Strategy</h3>
-        <p>A focused plan that pairs the right channels, content and KPIs with your business goals.</p>
-        <span class="rv-process__step-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
-      </div>
-      <div class="rv-process__step">
-        <div class="rv-process__step-top">
-          <div class="rv-process__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 4 14h7l-1 7 9-11h-7l1-7Z"/></svg></div>
-          <span class="rv-process__num">03</span>
-        </div>
-        <h3>Execute</h3>
-        <p>We ship campaigns, websites and content quickly — without sacrificing craft or detail.</p>
-        <span class="rv-process__step-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
-      </div>
-      <div class="rv-process__step">
-        <div class="rv-process__step-top">
-          <div class="rv-process__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V8"/><path d="M9 21V4"/><path d="M15 21v-9"/><path d="M21 21V10"/><path d="m3 10 6-5 6 6 6-7"/></svg></div>
-          <span class="rv-process__num">04</span>
-        </div>
-        <h3>Optimise</h3>
-        <p>We measure what works, double-down on winners and report transparently every month.</p>
-        <span class="rv-process__step-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var steps=Array.from(document.querySelectorAll('#rvpSteps .rv-process__step'));
+  var numWrap=document.getElementById('rvpNumWrap');
+  var numTrack=document.getElementById('rvpNumTrack');
+  var tlInner=document.getElementById('rvpTlInner');
+  var tlLine=document.getElementById('rvpTlLine');
+  var tlProg=document.getElementById('rvpTlProg');
+  var cta=document.getElementById('rvpCta');
+  if(!steps.length||!tlInner)return;
+  // Create dots
+  var dots=steps.map(function(_,i){
+    var d=document.createElement('div');
+    d.className='rv-process__tl-dot'+(i===0?' active':'');
+    tlInner.appendChild(d);
+    return d;
+  });
+  var layout=null;
+  function positionDots(){
+    var tlTop=tlInner.getBoundingClientRect().top+window.scrollY;
+    var mids=steps.map(function(s){
+      var r=s.getBoundingClientRect();
+      return(r.top+window.scrollY)+r.height/2-tlTop;
+    });
+    var lineTop=mids[0],lineH=mids[mids.length-1]-mids[0];
+    tlLine.style.top=lineTop+'px';
+    tlLine.style.height=lineH+'px';
+    mids.forEach(function(m,i){dots[i].style.top=(m-7)+'px';});
+    return{mids:mids,lineTop:lineTop,lineH:lineH,tlTop:tlTop};
+  }
+  function init(){layout=positionDots();}
+  window.addEventListener('load',init);
+  window.addEventListener('resize',init);
+  setTimeout(init,300);
+  function activeStep(){
+    var mid=window.scrollY+window.innerHeight*.45;
+    var best=0;
+    steps.forEach(function(s,i){
+      var r=s.getBoundingClientRect();
+      var t=r.top+window.scrollY,b=r.bottom+window.scrollY;
+      if(mid>=t&&mid<=b)best=i;
+    });
+    return best;
+  }
+  window.addEventListener('scroll',function(){
+    if(!layout)layout=positionDots();
+    var a=activeStep();
+    steps.forEach(function(s,i){s.classList.toggle('active',i===a);});
+    var h=numWrap.getBoundingClientRect().height||numWrap.offsetHeight;
+    numTrack.style.transform='translateY(-'+(a*h)+'px)';
+    dots.forEach(function(d,i){
+      d.classList.toggle('active',i===a);
+      d.classList.toggle('done',i<a);
+    });
+    var tl=layout;
+    var tlTop2=tlInner.getBoundingClientRect().top+window.scrollY;
+    var sr=steps[a].getBoundingClientRect();
+    var activeMid=(sr.top+window.scrollY)+steps[a].offsetHeight/2-tlTop2-tl.lineTop;
+    var prog=tl.lineH>0?Math.max(0,Math.min(1,activeMid/tl.lineH)):0;
+    tlProg.style.transform='scaleY('+prog+')';
+    if(cta.getBoundingClientRect().top<window.innerHeight*.88)cta.classList.add('visible');
+  },{passive:true});
+})();
+</script>
 
 <!-- ============================================================
      CUSTOMER STORIES SLIDER  (Webflow-style, Swiper.js)
