@@ -3064,6 +3064,171 @@ setTimeout(function() {
   </script>
 
 
+<!-- === 5RV | SCROLL REVEAL + ENTRANCE ANIMATIONS === -->
+<style id="rv-anim-css">
+/* ── Hero entrance (CSS — guaranteed above-fold) ─────────────────── */
+@keyframes rv-hero-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#rvHeroSlider {
+  animation: rv-hero-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── rv-reveal — activates the IntersectionObserver already in scripts */
+.rv-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity  0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.rv-reveal--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Smooth anchor scroll ────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+/* ── Reduced-motion safety ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  #rvHeroSlider { animation-duration: 0.001ms !important; }
+  .rv-reveal    { transition-duration: 0.001ms !important; }
+}
+</style>
+
+<script id="rv-anim-js">
+(function () {
+  /* Skip all motion for users who prefer reduced motion */
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  /* Poll until GSAP + ScrollTrigger are ready (both are deferred) */
+  function boot() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      return setTimeout(boot, 50);
+    }
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ── Helper: stagger-reveal children of a heading block ── */
+    function headReveal(sel) {
+      document.querySelectorAll(sel).forEach(function (el) {
+        var kids = Array.from(el.children);
+        if (!kids.length) return;
+        gsap.from(kids, {
+          opacity: 0, y: 26, duration: 0.7, ease: 'power2.out', stagger: 0.1,
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+        });
+      });
+    }
+    headReveal('.rv-industries__head');
+    headReveal('.rv-tools__head');
+    headReveal('.rv-cs__head-text');
+    headReveal('.rv-faq__head');
+
+    /* ── Industries grid — cascading card entrance ──────────── */
+    var industCards = document.querySelectorAll('.rv-industries__item');
+    if (industCards.length) {
+      gsap.from(industCards, {
+        opacity: 0, y: 52, duration: 0.65, ease: 'power3.out',
+        stagger: { each: 0.08 },
+        scrollTrigger: { trigger: '.rv-industries__grid', start: 'top 84%', once: true }
+      });
+    }
+
+    /* ── Process panel heading entrance ─────────────────────── */
+    var procH2 = document.querySelector('.rv-process__panel h2');
+    if (procH2) {
+      gsap.from(procH2, {
+        opacity: 0, y: 24, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: '.rv-process__panel', start: 'top 80%', once: true }
+      });
+    }
+
+    /* ── Gallery bar entrance ────────────────────────────────── */
+    var gsfBar = document.getElementById('rvGsfBar');
+    if (gsfBar) {
+      gsap.from(gsfBar, {
+        opacity: 0, y: 14, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: '.rv-gsf', start: 'top 70%', once: true }
+      });
+    }
+
+    /* ── Customer stories nav arrows entrance ───────────────── */
+    var csNav = document.querySelector('.rv-cs__nav');
+    if (csNav) {
+      gsap.from(csNav, {
+        opacity: 0, x: 24, duration: 0.6, ease: 'power2.out',
+        scrollTrigger: { trigger: '.rv-cs__head', start: 'top 88%', once: true }
+      });
+    }
+
+    /* ── FAQ CTA card slides in from left ───────────────────── */
+    var faqCta = document.querySelector('.rv-faq__cta-card');
+    if (faqCta) {
+      gsap.from(faqCta, {
+        opacity: 0, x: -44, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: faqCta, start: 'top 86%', once: true }
+      });
+    }
+
+    /* ── FAQ accordion items cascade from right ─────────────── */
+    var faqItems = document.querySelectorAll('.rv-faq-item');
+    if (faqItems.length) {
+      gsap.from(faqItems, {
+        opacity: 0, x: 32, duration: 0.5, ease: 'power2.out',
+        stagger: 0.055,
+        scrollTrigger: { trigger: '.rv-faq__list', start: 'top 85%', once: true }
+      });
+    }
+
+    /* ── Footer columns stagger ─────────────────────────────── */
+    var footerCols = document.querySelectorAll('.rv-footer__inner > *');
+    if (footerCols.length) {
+      gsap.from(footerCols, {
+        opacity: 0, y: 36, duration: 0.65, ease: 'power2.out',
+        stagger: 0.09,
+        scrollTrigger: { trigger: '.rv-footer', start: 'top 92%', once: true }
+      });
+    }
+
+    /* ── Magnetic hover effect on primary CTA buttons ───────── */
+    var magSel = '.rv2-cta-primary, .rv-process__cta-btn, .rv-faq__cta-btn, .rv-svc-hero__cta, .rv-cs__btn';
+    document.querySelectorAll(magSel).forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        gsap.to(btn, {
+          x: (e.clientX - r.left - r.width  / 2) * 0.2,
+          y: (e.clientY - r.top  - r.height / 2) * 0.2,
+          duration: 0.35, ease: 'power2.out', overwrite: 'auto'
+        });
+      });
+      btn.addEventListener('mouseleave', function () {
+        gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1.2, 0.5)', overwrite: 'auto' });
+      });
+    });
+
+    /* ── Industry card icon float on hover ──────────────────── */
+    document.querySelectorAll('.rv-industries__item').forEach(function (card) {
+      var icon = card.querySelector('.rv-industries__item-icon');
+      if (!icon) return;
+      card.addEventListener('mouseenter', function () {
+        gsap.to(icon, { y: -5, duration: 0.4, ease: 'power2.out', overwrite: 'auto' });
+      });
+      card.addEventListener('mouseleave', function () {
+        gsap.to(icon, { y: 0, duration: 0.55, ease: 'elastic.out(1, 0.7)', overwrite: 'auto' });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+})();
+</script>
+
 <!-- rv-pill-canonical -->
 <button class="rv-book-pill" id="rvBookPill" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}' aria-label="Book a 30 minute free call with 5RV Digital" style="cursor:pointer;border:none;"><div class="rv-book-pill__avatar"><img src="images/logo-dark.png" alt="" width="44" height="44"><span class="rv-book-pill__dot"></span></div><div class="rv-book-pill__text"><span class="rv-book-pill__main">Book a 30 Min Free Call</span><span class="rv-book-pill__sub">Schedule Now</span></div><div class="rv-book-pill__arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div></button>
 <script id="rv-scroll-swap-js">(function(){var THRESH=80;var nav=document.querySelector(".rv-navbar");var pill=document.querySelector(".rv-book-pill");function apply(){var s=window.scrollY>=THRESH;document.body.classList.toggle("rv-scrolled",s);if(nav)nav.classList.toggle("rv-dock--visible",s);if(pill)pill.classList.toggle("rv-pill--visible",s);}window.addEventListener("scroll",apply,{passive:true});window.addEventListener("resize",apply);apply();})();</script></body>
