@@ -1,0 +1,47 @@
+DUPLICATE SECTIONS AUDIT — 5RV Digital (35 pages)
+===================================================
+Audited: 2025-07
+Tool:    duplicate_sections_audit script (Python hash analysis)
+
+SECTION COVERAGE
+----------------
+Section                         Pages   Coverage
+floating-nav (.rv-navbar)       34/35   97%  ← prime Eleventy candidate
+footer (.rv-footer)             30/35   86%  ← prime Eleventy candidate
+book-a-call CTA (.rv2-cta-*)    29/35   83%  ← prime Eleventy candidate
+FAQ section (.rv-faq)           25/35   71%
+cookie-banner (.rv-cookie)      22/35   63%
+prefooter-CTA (.rv-prefooter)   19/35   54%
+subscribe section               3/35    9%
+
+LARGEST VERBATIM DUPLICATE BLOCKS (1000+ chars, 3+ pages)
+----------------------------------------------------------
+Duplicate block               Pages   Notes
+rv-footer__social SVG CSS     16      Inline <style> block — should move to rv-components.css
+Trust strip HTML              16      `.flt-trust` — identical across all work/case pages
+Scrollable form modal body    16      `.flt-modal-body` — booking modal HTML
+Overlay modal JS              15      `fltOverlay` — booking modal script block
+Filter bar CSS                14      `.wk-filter` — portfolio/work filter styles
+Book-a-call CSS               14      `.rv-bac` — CTA section styles
+Pre-footer CSS                14      `.rv-prefooter` — pre-footer styles
+Desktop top bar header        14      `<header>` w/ top bar — superseded by rv-navbar
+FAQ accordion list            14      `.rv-faq__list` — identical FAQ content
+
+PRIORITY ACTIONS
+----------------
+1. [HIGH]   Move rv-footer__social SVG CSS block to rv-components.css
+            → Run `_build_rv_components.py` after adding, then `_patch_pages.py`
+
+2. [HIGH]   Extract `.flt-modal-body` (booking modal) into a shared include/fragment
+            → It is identical across 16 pages; one source of truth eliminates drift
+
+3. [MEDIUM] Remove residual `<header>` top bar from the 14 pages still containing it
+            → The rv-navbar floating pill replaces it; top bar is dead weight (~1KB/page)
+
+4. [MEDIUM] Eleventy migration (see eleventy-spike/) would eliminate ALL duplication
+            → nav, footer, head, modal, trust strip would each be a single .njk file
+
+PAGES NOT YET ON rv-navbar (1 page missing)
+--------------------------------------------
+Run:  grep -rL "rv-navbar" *.html
+Likely candidates: lightologist.html or a recently added case study page.

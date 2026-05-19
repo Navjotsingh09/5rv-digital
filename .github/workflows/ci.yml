@@ -1,0 +1,65 @@
+name: CI — Lighthouse & HTML Validate
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main]
+
+jobs:
+  html-validate:
+    name: HTML Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install html-validate
+        run: npm install -g html-validate
+
+      - name: Run html-validate
+        # Validate all production HTML pages; exclude archived/backup dirs
+        run: |
+          html-validate \
+            --config '{"extends":["html-validate:recommended"],"rules":{"no-inline-style":"off","long-title":"off"}}' \
+            $(find . -maxdepth 1 -name "*.html" | sort) \
+          || true   # warn-only for now; change to exit-on-error once baseline is clean
+
+  lighthouse:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install LHCI
+        run: npm install -g @lhci/cli@0.14.x
+
+      - name: Serve static site
+        run: |
+          npm install -g serve
+          serve . -p 3000 &
+          sleep 3
+
+      - name: Run Lighthouse CI
+        run: |
+          lhci autorun \
+            --collect.url=http://localhost:3000/index.html \
+            --collect.url=http://localhost:3000/services.html \
+            --collect.url=http://localhost:3000/about.html \
+            --collect.numberOfRuns=1 \
+            --assert.preset=lighthouse:recommended \
+            --assert.assertions.categories:performance=["warn",{"minScore":0.8}] \
+            --assert.assertions.categories:accessibility=["error",{"minScore":0.9}] \
+            --assert.assertions.categories:best-practices=["warn",{"minScore":0.85}] \
+            --assert.assertions.categories:seo=["error",{"minScore":0.9}] \
+            --upload.target=temporary-public-storage \
+        || true   # warn-only until scores are stable; then promote to error

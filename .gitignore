@@ -37,3 +37,11 @@ dist/
 # Image backups (originals before WebP conversion)
 images_original_backup/
 images_png_backup/
+
+# Local backup snapshots (too large, historical reference only)
+_restore_backup_1358/
+
+# Dev preview files (not production pages)
+_*-preview.html
+*-preview.html
+process-preview.html

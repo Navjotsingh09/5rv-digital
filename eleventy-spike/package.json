@@ -1,0 +1,12 @@
+{
+  "name": "5rv-eleventy-spike",
+  "version": "0.0.1",
+  "description": "Eleventy SSG PoC for 5RV Digital \u2014 shared nav, footer, head includes",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
