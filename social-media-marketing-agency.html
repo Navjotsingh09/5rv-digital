@@ -17,6 +17,7 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/5rv-revamp.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/rv-components.css" rel="stylesheet" type="text/css">
   <style id="critical-css">
 /* Phase 9B: Critical CSS for above-fold rendering */
 :root{--white-hint:#fafafa;--blue:#356eff;--_colours---brand--blue:#356eff;--_colours---basic-greyscales--white:#fff;--_colours---brand--off-white:#fafafa;--_colours---basic-greyscales--black:#000;--_colours---brand--black-blue:#1f2937;--_colours---brand--grey:#989898}
@@ -702,124 +703,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   Cal("init","30min",{origin:"https://cal.com"});
   Cal.ns["30min"]("ui",{"styles":{"branding":{"brandColor":"#356EFF"}},"hideEventTypeDetails":false,"layout":"month_view"});
   </script>
-<style id="rv2-nav">
-.rv2-header{position:fixed;top:0;left:0;right:0;z-index:9999;background:transparent;border:none;pointer-events:none;transition:none}
-.rv2-header.scrolled .rv2-header__inner{box-shadow:0 8px 32px rgba(11,23,57,.14),0 1px 0 rgba(255,255,255,.65) inset}
-.rv2-header__inner{width:min(1180px,calc(100% - 48px));margin:14px auto 0;height:60px;display:flex;align-items:center;gap:0;padding:0 22px;pointer-events:auto;background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.55);border-radius:20px;box-shadow:0 4px 24px rgba(11,23,57,.08),0 1px 0 rgba(255,255,255,.6) inset;transition:box-shadow .3s}
-.rv2-logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
-.rv2-logo img{height:36px;width:auto;display:block}
-.rv2-nav{flex:1;display:flex;justify-content:center}
-.rv2-nav__list{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0}
-.rv2-nav__link{display:flex;align-items:center;gap:4px;font-family:Urbanist,sans-serif;font-size:14px;font-weight:500;color:#0B1739;text-decoration:none;padding:8px 14px;border-radius:8px;transition:background .18s,color .18s;background:none;border:none;cursor:pointer;white-space:nowrap;line-height:1}
-.rv2-nav__link:hover,.rv2-nav__item--drop:hover>.rv2-nav__link{background:rgba(11,23,57,.05)}
-.rv2-nav__link.active{color:#356EFF;font-weight:600}
-.rv2-nav__caret{width:13px;height:13px;fill:currentColor;transition:transform .2s ease;flex-shrink:0;opacity:.55}
-.rv2-nav__item--drop:hover .rv2-nav__caret{transform:rotate(180deg);opacity:.9}
-.rv2-nav__item--drop{position:relative}
-.rv2-nav__panel{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);width:660px;background:#fff;border:1px solid rgba(11,23,57,.07);border-radius:18px;box-shadow:0 16px 56px rgba(11,23,57,.13);padding:28px;opacity:0;pointer-events:none;transition:opacity .17s ease}
-.rv2-nav__item--drop:hover .rv2-nav__panel{opacity:1;pointer-events:all}
-.rv2-panel__inner{display:grid;grid-template-columns:220px 1fr;gap:28px}
-.rv2-panel__featured{background:rgba(11,23,57,.025);border-radius:12px;padding:20px;display:flex;flex-direction:column}
-.rv2-panel__label,.rv2-panel__label-alt{font-family:Urbanist,sans-serif;font-size:11px;font-weight:700;color:rgba(11,23,57,.35);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
-.rv2-panel__heading{font-family:Urbanist,sans-serif;font-size:17px;font-weight:800;color:#0B1739;margin:0 0 8px;line-height:1.25;letter-spacing:-.02em}
-.rv2-panel__text{font-family:"Plus Jakarta Sans",sans-serif;font-size:12.5px;color:#5f6b7a;line-height:1.6;margin:0 0 18px}
-.rv2-panel__cta{display:inline-flex;align-items:center;gap:6px;font-family:Urbanist,sans-serif;font-size:12px;font-weight:700;color:#0B1739;background:rgba(11,23,57,.07);padding:8px 14px;border-radius:100px;text-decoration:none;transition:background .18s;margin-top:auto}
-.rv2-panel__cta:hover{background:rgba(11,23,57,.12)}
-.rv2-panel__grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
-.rv2-panel__link{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:10px;text-decoration:none;transition:background .14s}
-.rv2-panel__link:hover{background:rgba(53,110,255,.05)}
-.rv2-panel__link-icon{width:30px;height:30px;border-radius:8px;background:rgba(53,110,255,.08);display:grid;place-items:center;flex-shrink:0;margin-top:1px}
-.rv2-panel__link-icon svg{width:14px;height:14px;stroke:#356EFF;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
-.rv2-panel__link-body{display:flex;flex-direction:column;gap:2px}
-.rv2-panel__link-title{font-family:Urbanist,sans-serif;font-size:12.5px;font-weight:600;color:#0B1739;line-height:1.3}
-.rv2-panel__link-desc{font-family:"Plus Jakarta Sans",sans-serif;font-size:11.5px;color:#7a8494;line-height:1.35}
-.rv2-header__cta{display:flex;align-items:center;gap:8px;flex-shrink:0;margin-left:auto}
-.rv2-cta-primary{font-family:Urbanist,sans-serif;font-size:14px;font-weight:700;color:#fff;background:#0B1739;padding:10px 22px;border-radius:100px;border:none;cursor:pointer;transition:background .2s,transform .2s;white-space:nowrap}
-.rv2-cta-primary:hover{background:#1a2d5c;transform:translateY(-1px)}
-.rv2-burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;border:none;background:rgba(11,23,57,.06);border-radius:50%;cursor:pointer;padding:10px;flex-shrink:0;margin-left:8px}
-.rv2-burger span{display:block;width:18px;height:1.5px;background:#0B1739;border-radius:2px}
-.n5__drawer{display:block;position:fixed;top:0;left:0;right:0;bottom:0;z-index:10000;background:rgba(11,23,57,.45);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .3s ease}
-.n5__drawer.open{opacity:1;pointer-events:all}
-.n5__drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(320px,90vw);background:#fff;box-shadow:-12px 0 48px rgba(11,23,57,.15);display:flex;flex-direction:column;padding:28px 24px 40px;transform:translateX(100%);transition:transform .35s cubic-bezier(.32,1,.68,1)}
-.n5__drawer.open .n5__drawer-panel{transform:translateX(0)}
-.n5__drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
-.n5__drawer-top img{height:32px}
-.n5__drawer-close{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(0,0,0,.1);background:transparent;font-size:16px;color:#0B1739;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
-.n5__drawer-close:hover{background:rgba(0,0,0,.05)}
-.n5__drawer-links{display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto}
-.n5__drawer-links a{font-family:Urbanist,sans-serif;font-size:16px;font-weight:500;color:#0B1739;text-decoration:none;padding:12px 8px;border-bottom:1px solid rgba(0,0,0,.05);transition:color .15s}
-.n5__drawer-links a:hover{color:#356EFF}
-.n5__drawer-cta{margin-top:28px;display:block;text-align:center;font-family:Urbanist,sans-serif;font-size:15px;font-weight:600;color:#fff;background:#0B1739;padding:14px 24px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;width:100%}
-.n5__svc-toggle{display:flex;align-items:center;justify-content:space-between;font-family:Urbanist,sans-serif;font-size:16px;font-weight:500;color:#0B1739;padding:12px 8px;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;border:none;background:none;width:100%;text-align:left}
-.n5__svc-toggle svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;transition:transform .25s ease}
-.n5__svc-toggle.open svg{transform:rotate(180deg)}
-.n5__svc-sub{overflow:hidden;max-height:0;transition:max-height .3s ease}
-.n5__svc-sub.open{max-height:320px}
-.n5__svc-sub a{display:flex;align-items:center;gap:8px;font-family:Urbanist,sans-serif;font-size:14px;font-weight:400;color:#4b5563;text-decoration:none;padding:9px 8px 9px 20px;border-bottom:1px solid rgba(0,0,0,.03);transition:color .15s}
-.n5__svc-sub a::before{content:'';width:4px;height:4px;border-radius:50%;background:#356EFF;flex-shrink:0}
-.n5__svc-sub a:hover{color:#356EFF}
-@media(max-width:767px){.rv2-nav{display:none}.rv2-burger{display:flex}.rv2-header__inner{height:60px}}
-</style>
-<style id="rv-faq-canonical-css">
-.rv-faq{padding:100px 0;background:linear-gradient(180deg,#ffffff 0%,#f4f8ff 100%);font-family:'Inter','Helvetica Neue',Arial,sans-serif;color:#0a1f3d;}
-.rv-faq *{box-sizing:border-box}
-.rv-faq__head{max-width:1200px;width:92%;margin:0 auto 56px}
-.rv-faq__label{display:inline-flex;align-items:center;gap:10px;margin-bottom:40px}
-.rv-faq__label-sq{width:14px;height:14px;background:#356eff;border-radius:4px}
-.rv-faq__label-text{font-size:14px;font-weight:400;color:#0a1f3d}
-.rv-faq__label-text strong{font-weight:700}
-.rv-faq__headline{font-size:clamp(40px,5.5vw,72px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:#0a1f3d;margin:0}
-.rv-faq__body{max-width:1200px;width:92%;margin:0 auto;display:grid;grid-template-columns:420px 1fr;gap:48px;align-items:start}
-.rv-faq__cta-card{background:linear-gradient(145deg,#5a85ff 0%,#356EFF 55%,#1e50d8 100%);border-radius:24px;padding:40px;display:flex;flex-direction:column;gap:0;position:relative;isolation:isolate;overflow:hidden}
-.rv-faq__cta-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle 220px at var(--mx,50%) var(--my,-20%),rgba(255,255,255,.22) 0%,rgba(255,255,255,.06) 45%,transparent 70%);opacity:0;transition:opacity .4s ease;pointer-events:none;z-index:0;border-radius:inherit}
-.rv-faq__cta-card:hover::before{opacity:1}
-.rv-faq__cta-card>*{position:relative;z-index:1}
-.rv-faq__cta-avatar{width:72px;height:72px;border-radius:50%;overflow:hidden;background:#f5c842;margin-bottom:28px;flex-shrink:0;position:relative}
-.rv-faq__cta-avatar img,.rv-faq__cta-avatar video{width:100%;height:100%;object-fit:cover;display:block}
-.rv-faq__cta-title{font-size:clamp(36px,4vw,52px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin:0 0 16px}
-.rv-faq__cta-sub{font-size:16px;color:rgba(255,255,255,.75);margin:0 0 32px;line-height:1.5}
-.rv-faq__cta-btn{display:flex;align-items:center;justify-content:space-between;background:#111;color:#fff;border-radius:100px;padding:10px 10px 10px 28px;font-size:16px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:background .25s;width:100%;text-align:left}
-.rv-faq__cta-btn:hover{background:#000}
-.rv-faq__cta-btn-circ{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;flex-shrink:0;overflow:hidden;position:relative}
-.rv-faq__cta-btn-circ .arr-out{width:18px;height:18px;stroke:#111;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.4,0,.2,1);transform:translate(0,0);display:block}
-.rv-faq__cta-btn:hover .rv-faq__cta-btn-circ .arr-out{transform:translate(130%,-130%)}
-.rv-faq__cta-btn-circ .arr-in{position:absolute;inset:0;display:grid;place-items:center;transform:translate(-130%,130%);transition:transform .3s cubic-bezier(.4,0,.2,1)}
-.rv-faq__cta-btn:hover .rv-faq__cta-btn-circ .arr-in{transform:translate(0,0)}
-.rv-faq__cta-btn-circ .arr-in svg{width:18px;height:18px;stroke:#111;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.rv-faq__cta-email{display:flex;align-items:center;gap:12px;margin-top:28px;padding-top:28px;border-top:1px solid rgba(255,255,255,.2)}
-.rv-faq__cta-email-icon{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;flex-shrink:0}
-.rv-faq__cta-email-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.rv-faq__cta-email-label{font-size:12px;color:rgba(255,255,255,.65);margin:0 0 2px}
-.rv-faq__cta-email-addr{font-size:14px;font-weight:700;color:#fff;margin:0;text-decoration:none}
-.rv-faq__list{display:flex;flex-direction:column}
-.rv-faq-item{border-bottom:1px solid #e5e7eb;overflow:hidden}
-.rv-faq-item:first-child{border-top:1px solid #e5e7eb}
-.rv-faq-item__q{display:flex;justify-content:space-between;align-items:center;padding:24px 0;cursor:pointer;gap:16px}
-.rv-faq-item__q h3{font-size:17px;font-weight:700;color:#111827;margin:0;line-height:1.4}
-.rv-faq-item__icon{width:28px;height:28px;min-width:28px;display:flex;align-items:center;justify-content:center;transition:transform .3s cubic-bezier(.4,0,.2,1);flex-shrink:0}
-.rv-faq-item.active .rv-faq-item__icon{transform:rotate(180deg)}
-.rv-faq-item__icon svg{width:20px;height:20px;stroke:#111827;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.rv-faq-item__a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
-.rv-faq-item__a-inner{padding:0 40px 24px 0}
-.rv-faq-item__a p{font-size:15px;line-height:1.75;color:#4b5563;margin:0 0 12px}
-.rv-faq-item__a p:last-child{margin-bottom:0}
-.rv-faq-item__a a{color:#356eff;text-decoration:underline;text-underline-offset:3px}
-@media(max-width:1024px){.rv-faq__body{grid-template-columns:1fr}}
-@media(max-width:768px){.rv-faq{padding:80px 0}.rv-faq__cta-card{padding:32px}}
-</style>
-<style id="rv2-panel-img-css">.rv2-panel__link-icon--img{width:40px;height:40px;border-radius:9px;overflow:hidden;background:rgba(53,110,255,.06);padding:0}.rv2-panel__link-icon--img img{width:100%;height:100%;object-fit:cover;display:block}</style><style id="rv-scroll-swap-css">body.rv-scrolled .rv2-header{opacity:0;pointer-events:none;transform:translateY(-12px);transition:opacity .35s ease,transform .4s ease}.rv2-header{transition:opacity .35s ease,transform .4s ease}</style><style id="rv-mega-canonical-css">.rv-navbar__has-drop{position:relative}.rv-navbar__has-drop .rv-navbar__drop.rv-mega{width:560px;bottom:calc(100% + 14px);padding-bottom:0}.rv-navbar__has-drop::after{content:"";position:absolute;left:-10px;right:-10px;bottom:100%;height:22px;pointer-events:auto;z-index:99}.rv-navbar__has-drop:hover .rv-navbar__drop,.rv-navbar__has-drop:focus-within .rv-navbar__drop{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}.rv-mega .rv-mega__inner{background:rgba(16,16,18,0.97);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:12px;box-shadow:0 18px 48px rgba(0,0,0,.55);display:grid;grid-template-columns:1fr 1fr;gap:4px}.rv-mega__card{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;text-decoration:none;transition:background .18s ease;background:transparent}.rv-mega__card:hover{background:rgba(255,255,255,.07)}.rv-mega__card::before{display:none!important}.rv-mega__thumb{width:46px;height:46px;border-radius:10px;overflow:hidden;flex-shrink:0;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center}.rv-mega__thumb img{width:100%;height:100%;object-fit:cover;display:block}.rv-mega__thumb--all{background:linear-gradient(135deg,#5a85ff,#1e50d8)}.rv-mega__txt{display:flex;flex-direction:column;gap:3px;min-width:0}.rv-mega__t{font-family:var(--font-primary);font-size:13px;font-weight:600;color:#fff;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rv-mega__s{font-family:var(--font-primary);font-size:11px;font-weight:500;color:rgba(255,255,255,.55);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media(max-width:767px){.rv-navbar__drop.rv-mega{display:none}}</style><style id="rv2-panel-bridge-css">.rv2-nav__item--drop::after{content:"";position:absolute;left:-12px;right:-12px;top:100%;height:18px;pointer-events:auto;z-index:5}.rv2-nav__item--drop:hover .rv2-nav__panel,.rv2-nav__item--drop:focus-within .rv2-nav__panel,.rv2-nav__panel:hover{opacity:1!important;pointer-events:all!important}.rv2-nav__panel{transition:opacity .25s ease .12s!important}.rv2-nav__item--drop:hover .rv2-nav__panel,.rv2-nav__panel:hover{transition:opacity .18s ease 0s!important}</style><style id="rv-mega-spacing-v2">.rv-navbar__has-drop .rv-navbar__drop.rv-mega{width:640px}.rv-mega .rv-mega__inner{grid-template-columns:1fr 1fr;gap:6px;padding:14px}.rv-mega__card{padding:12px;min-height:64px;align-items:center}.rv-mega__thumb{width:48px;height:48px}.rv-mega__t{font-size:13.5px}.rv-mega__s{font-size:11.5px;white-space:normal}</style>
-
-
-<style id="rv-nav-visited-v1">
-/* Defeat the browser default purple :visited colour for in-app links */
-.rv2-nav__link,.rv2-nav__link:visited{color:#0B1739}
-.rv2-nav__link.active,.rv2-nav__link.active:visited{color:#356EFF;font-weight:600}
-.rv-footer__col a:visited{color:#4b5563}
-.rv-footer__contact a:visited{color:#374151}
-.rv-footer__brand a:visited{color:inherit}
-</style>
 </head>
 <body class="body-2">
+<a href="#main-content" class="skip-to-main">Skip to main content</a>
+
   <!-- Desktop top bar (visible at page top, hides on scroll) -->
   <header class="rv2-header" id="rv2Header">
   <div class="rv2-header__inner">
@@ -862,7 +749,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </ul>
     </nav>
     <div class="rv2-header__cta">
-      <button class="rv2-cta-primary" type="button" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
+      <button class="rv2-cta-primary rv-btn--primary" type="button" data-cal-namespace="30min" data-cal-link="navjot-singh-gfjevp/30min" data-cal-config='{"layout":"month_view"}'>Book a Call</button>
       <button class="rv2-burger" id="rvBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="n5Drawer">
         <span></span><span></span><span></span>
       </button>
@@ -870,7 +757,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </header>
 <!-- rv-dock-canonical -->
-<nav class="rv-navbar" role="navigation" aria-label="Floating navigation"><a href="index.html" class="rv-navbar__logo" aria-label="Home"><img src="images/logo-dark.png" alt="5RV Digital" width="44" height="44"></a><div class="rv-navbar__sep"></div><div class="rv-navbar__links"><a href="about.html" data-rv-page="about.html">About</a><a href="work.html" data-rv-page="work.html">Work</a><div class="rv-navbar__has-drop"><a href="services.html" data-rv-page="services.html">Services<svg class="rv-drop-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="rv-navbar__drop rv-mega"><div class="rv-mega__inner"><a class="rv-mega__card" href="web-development.html"><div class="rv-mega__thumb"><img src="images/Rectangle-6_2.webp" alt="" loading="lazy" width="48" height="48"></div><div class="rv-mega__txt"><div class="rv-mega__t">Web Design &amp; Dev</div><div class="rv-mega__s">Conversion-focused websites</div></div></a><a class="rv-mega__card" href="seo-expert.html"><div class="rv-mega__thumb"><img src="images/Rectangle-6-5_1.webp" alt="" loading="lazy" width="48" height="48"></div><div class="rv-mega__txt"><div class="rv-mega__t">SEO</div><div class="rv-mega__s">Rank, traffic &amp; growth</div></div></a><a class="rv-mega__card" href="social-media-marketing-agency.html"><div class="rv-mega__thumb"><img src="images/Rectangle-6_5.webp" alt="" loading="lazy" width="48" height="48"></div><div class="rv-mega__txt"><div class="rv-mega__t">Social Media</div><div class="rv-mega__s">Content that converts</div></div></a><a class="rv-mega__card" href="branding.html"><div class="rv-mega__thumb"><img src="images/Rectangle-6_4.webp" alt="" loading="lazy" width="48" height="48"></div><div class="rv-mega__txt"><div class="rv-mega__t">Branding</div><div class="rv-mega__s">Identity &amp; positioning</div></div></a><a class="rv-mega__card" href="digital-marketing-strategies.html"><div class="rv-mega__thumb"><img src="images/Rectangle-6-3.webp" alt="" loading="lazy" width="48" height="48"></div><div class="rv-mega__txt"><div class="rv-mega__t">Paid Ads</div><div class="rv-mega__s">Performance media</div></div></a><a class="rv-mega__card rv-mega__card--all" href="services.html"><div class="rv-mega__thumb rv-mega__thumb--all"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div><div class="rv-mega__txt"><div class="rv-mega__t">All Services</div><div class="rv-mega__s">Full overview</div></div></a></div></div></div><a href="blog.html" data-rv-page="blog.html">Blog</a><a href="contact.html" data-rv-page="contact.html">Contact</a></div></nav>
+<nav class="rv-navbar" role="navigation" aria-label="Floating navigation"><a href="index.html" class="rv-navbar__logo" aria-label="Home"><img src="images/logo-dark.png" alt="5RV Digital" width="44" height="44"></a><div class="rv-navbar__sep"></div><div class="rv-navbar__links"><a href="about.html" data-rv-page="about.html">About</a><a href="work.html" data-rv-page="work.html">Work</a><div class="rv-navbar__has-drop"><a href="services.html" data-rv-page="services.html" aria-haspopup="true" aria-controls="rv-mega-drop">Services<svg class="rv-drop-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="rv-navbar__drop rv-mega" id="rv-mega-drop"><div class="rv-mega__inner"><a class="rv-mega__card" href="web-development.html"><div class="rv-mega__thumb"><img src="images/Rectangle-6_2.webp" alt="" loading="lazy" width="48" height="48"></div><div class="rv-mega__txt"><div class="rv-mega__t">Web Design &amp; Dev</div><div class="rv-mega__s">Conversion-focused websites</div></div></a><a class="rv-mega__card" href="seo-expert.html"><div class="rv-mega__thumb"><img src="images/Rectangle-6-5_1.webp" alt="" loading="lazy" width="48" height="48"></div><div class="rv-mega__txt"><div class="rv-mega__t">SEO</div><div class="rv-mega__s">Rank, traffic &amp; growth</div></div></a><a class="rv-mega__card" href="social-media-marketing-agency.html"><div class="rv-mega__thumb"><img src="images/Rectangle-6_5.webp" alt="" loading="lazy" width="48" height="48"></div><div class="rv-mega__txt"><div class="rv-mega__t">Social Media</div><div class="rv-mega__s">Content that converts</div></div></a><a class="rv-mega__card" href="branding.html"><div class="rv-mega__thumb"><img src="images/Rectangle-6_4.webp" alt="" loading="lazy" width="48" height="48"></div><div class="rv-mega__txt"><div class="rv-mega__t">Branding</div><div class="rv-mega__s">Identity &amp; positioning</div></div></a><a class="rv-mega__card" href="digital-marketing-strategies.html"><div class="rv-mega__thumb"><img src="images/Rectangle-6-3.webp" alt="" loading="lazy" width="48" height="48"></div><div class="rv-mega__txt"><div class="rv-mega__t">Paid Ads</div><div class="rv-mega__s">Performance media</div></div></a><a class="rv-mega__card rv-mega__card--all" href="services.html"><div class="rv-mega__thumb rv-mega__thumb--all"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div><div class="rv-mega__txt"><div class="rv-mega__t">All Services</div><div class="rv-mega__s">Full overview</div></div></a></div></div></div><a href="blog.html" data-rv-page="blog.html">Blog</a><a href="contact.html" data-rv-page="contact.html">Contact</a></div></nav>
 <script id="rv-dock-active-js">(function(){try{var path=(location.pathname.split("/").pop()||"index.html").toLowerCase();document.querySelectorAll(".rv-navbar [data-rv-page]").forEach(function(a){if(a.dataset.rvPage.toLowerCase()===path)a.classList.add("active");});}catch(e){}})();</script>
 
 
@@ -905,7 +792,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 
-  <section class="section">
+  <section id="main-content" class="section">
     <div class="div-block-139"></div>
     <div data-figma-id="946:827" class="social-hero-text">
       <div data-figma-id="946:828" class="frame-1321315016">
@@ -1203,24 +1090,19 @@ document.addEventListener("DOMContentLoaded", function() {
       <!-- Right: Accordion -->
       <div class="rv-faq__list">
         <div class="rv-faq-item">
-          <div class="rv-faq-item__q"><h3>Why choose a social media agency in Birmingham?</h3><div class="rv-faq-item__icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div>
-          <div class="rv-faq-item__a"><div class="rv-faq-item__a-inner"><p>A Birmingham-based social media agency understands local audiences and markets. 5RV Digital creates targeted social strategies that help brands grow</p><p>awareness, engagement and leads across key platforms.</p></div></div>
+          <button type="button" class="rv-faq-item__q" aria-expanded="false" aria-controls="faq-answer-1"><h3>Why choose a social media agency in Birmingham?</h3><div class="rv-faq-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></button><div class="rv-faq-item__a" id="faq-answer-1"><div class="rv-faq-item__a-inner"><p>A Birmingham-based social media agency understands local audiences and markets. 5RV Digital creates targeted social strategies that help brands grow</p><p>awareness, engagement and leads across key platforms.</p></div></div>
         </div>
         <div class="rv-faq-item">
-          <div class="rv-faq-item__q"><h3>What makes the best social media marketing agency?</h3><div class="rv-faq-item__icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div>
-          <div class="rv-faq-item__a"><div class="rv-faq-item__a-inner"><p>The best agencies combine <a href="social-media-marketing-agency.html">strategy, creativity and data</a>. 5RV Digital focuses on measurable results, clear reporting and campaigns designed to drive</p><p>engagement, leads and long-term business growth.</p></div></div>
+          <button type="button" class="rv-faq-item__q" aria-expanded="false" aria-controls="faq-answer-2"><h3>What makes the best social media marketing agency?</h3><div class="rv-faq-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></button><div class="rv-faq-item__a" id="faq-answer-2"><div class="rv-faq-item__a-inner"><p>The best agencies combine <a href="social-media-marketing-agency.html">strategy, creativity and data</a>. 5RV Digital focuses on measurable results, clear reporting and campaigns designed to drive</p><p>engagement, leads and long-term business growth.</p></div></div>
         </div>
         <div class="rv-faq-item">
-          <div class="rv-faq-item__q"><h3>What does a social media advertising agency do?</h3><div class="rv-faq-item__icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div>
-          <div class="rv-faq-item__a"><div class="rv-faq-item__a-inner"><p>A social media advertising agency plans, manages and optimises paid campaigns. 5RV Digital delivers performance-led ads across Facebook, Instagram and</p><p>LinkedIn to<a href="branding.html"> maximise ROI and conversions</a>.</p></div></div>
+          <button type="button" class="rv-faq-item__q" aria-expanded="false" aria-controls="faq-answer-3"><h3>What does a social media advertising agency do?</h3><div class="rv-faq-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></button><div class="rv-faq-item__a" id="faq-answer-3"><div class="rv-faq-item__a-inner"><p>A social media advertising agency plans, manages and optimises paid campaigns. 5RV Digital delivers performance-led ads across Facebook, Instagram and</p><p>LinkedIn to<a href="branding.html"> maximise ROI and conversions</a>.</p></div></div>
         </div>
         <div class="rv-faq-item">
-          <div class="rv-faq-item__q"><h3>Do you offer Facebook ads management in Birmingham?</h3><div class="rv-faq-item__icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div>
-          <div class="rv-faq-item__a"><div class="rv-faq-item__a-inner"><p>Yes, 5RV Digital provides Facebook ads management in Birmingham, creating and optimising campaigns that increase reach, drive qualified traffic and</p><p>generate consistent leads for local businesses.</p></div></div>
+          <button type="button" class="rv-faq-item__q" aria-expanded="false" aria-controls="faq-answer-4"><h3>Do you offer Facebook ads management in Birmingham?</h3><div class="rv-faq-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></button><div class="rv-faq-item__a" id="faq-answer-4"><div class="rv-faq-item__a-inner"><p>Yes, 5RV Digital provides Facebook ads management in Birmingham, creating and optimising campaigns that increase reach, drive qualified traffic and</p><p>generate consistent leads for local businesses.</p></div></div>
         </div>
         <div class="rv-faq-item">
-          <div class="rv-faq-item__q"><h3>Why work with a Facebook ads agency in Birmingham?</h3><div class="rv-faq-item__icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div>
-          <div class="rv-faq-item__a"><div class="rv-faq-item__a-inner"><p>A local Facebook ads agency understands regional audiences and trends. 5RV Digital builds data-driven campaigns that improve targeting, reduce ad spend</p><p>waste and increase conversion rates.</p></div></div>
+          <button type="button" class="rv-faq-item__q" aria-expanded="false" aria-controls="faq-answer-5"><h3>Why work with a Facebook ads agency in Birmingham?</h3><div class="rv-faq-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></button><div class="rv-faq-item__a" id="faq-answer-5"><div class="rv-faq-item__a-inner"><p>A local Facebook ads agency understands regional audiences and trends. 5RV Digital builds data-driven campaigns that improve targeting, reduce ad spend</p><p>waste and increase conversion rates.</p></div></div>
         </div>
       </div>
 
@@ -1456,7 +1338,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <h5>We use cookies</h5>
     <p>We use cookies to enhance your experience. <a href="documents/5rv_privacy_policy.pdf" target="_blank" rel="noopener">Learn more</a>.</p>
   </div>
-  <button id="rvCookieAccept" class="rv-cookie__accept">Accept All</button>
+  <button id="rvCookieAccept" class="rv-cookie__accept rv-btn--primary">Accept All</button>
 </div>
 
 <footer class="rv-footer">
